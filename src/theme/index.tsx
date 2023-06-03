@@ -2,23 +2,22 @@
 
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useMemo, useState, createContext } from "react";
 
 import GlobalStyles from "./utils/GlobalStyles";
 import createEmotionCache from "./utils/createEmotionCache";
+import palette from "./palette";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-// Themeing mode options
-export type ModeOptions = "light" | "dark";
-
 export const ColorModeContext = createContext<{
-  mode?: ModeOptions;
-  setColorMode: (colorMode: ModeOptions) => ModeOptions;
+  mode?: PaletteMode;
+  setColorMode: (colorMode: PaletteMode) => PaletteMode;
 }>({
-  setColorMode: (colorMode: ModeOptions): ModeOptions => colorMode,
+  setColorMode: (colorMode: PaletteMode): PaletteMode => colorMode,
   mode: "light",
 });
 
@@ -31,11 +30,11 @@ const ThemeContextProvider = ({
   children,
   emotionCache = clientSideEmotionCache,
 }: ThemeContextProviderProps) => {
-  const [mode, setMode] = useState<ModeOptions>("light");
+  const [mode, setMode] = useState<PaletteMode>("light");
 
   const colorMode = useMemo(
     () => ({
-      setColorMode: (colorModeGet: ModeOptions): void => {
+      setColorMode: (colorModeGet: PaletteMode): void => {
         setMode(colorModeGet);
       },
     }),
@@ -45,9 +44,7 @@ const ThemeContextProvider = ({
   const theme = useMemo(
     () =>
       createTheme({
-        palette: {
-          mode,
-        },
+        palette: palette(mode),
       }),
     [mode]
   );
@@ -56,7 +53,7 @@ const ThemeContextProvider = ({
     <CacheProvider value={emotionCache}>
       <ColorModeContext.Provider
         value={{
-          setColorMode: (setModeColor: ModeOptions): any => {
+          setColorMode: (setModeColor: PaletteMode): any => {
             colorMode.setColorMode(setModeColor);
           },
           mode,
