@@ -88,7 +88,6 @@ export const LoadingRightIconButtons: Story = {
     size: "medium",
     children: "Hello",
     endIcon: <Send />,
-    loadingPosition: "end",
   },
 };
 export const LoadingPositionLeftIconButtons: Story = {
