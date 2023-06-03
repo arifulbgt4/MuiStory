@@ -13,9 +13,19 @@
           ".js",
           ".jsx",
           ".json"
-        ],
-      },
-    },
+        ]
+      }
+    }
   },
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "@mui/*/*/*"
+        ]
+      }
+    ]
+  }
 }
