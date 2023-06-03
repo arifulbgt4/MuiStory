@@ -10,15 +10,15 @@ import GlobalStyles from "./utils/GlobalStyles";
 import createEmotionCache from "./utils/createEmotionCache";
 import palette from "./palette";
 
+const DEFAULT_PALETTE_MODE: PaletteMode = "light";
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 export const ColorModeContext = createContext<{
-  mode?: PaletteMode;
-  setColorMode: (colorMode: PaletteMode) => PaletteMode;
+  toggleColorMode: () => void;
 }>({
-  setColorMode: (colorMode: PaletteMode): PaletteMode => colorMode,
-  mode: "light",
+  toggleColorMode: (): void => {},
 });
 
 export interface ThemeContextProviderProps {
@@ -30,12 +30,14 @@ const ThemeContextProvider = ({
   children,
   emotionCache = clientSideEmotionCache,
 }: ThemeContextProviderProps) => {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState<PaletteMode>(DEFAULT_PALETTE_MODE);
 
   const colorMode = useMemo(
     () => ({
-      setColorMode: (colorModeGet: PaletteMode): void => {
-        setMode(colorModeGet);
+      toggleColorMode: (): void => {
+        setMode((prevMode: PaletteMode) =>
+          prevMode === "light" ? "dark" : "light"
+        );
       },
     }),
     []
@@ -51,14 +53,7 @@ const ThemeContextProvider = ({
 
   return (
     <CacheProvider value={emotionCache}>
-      <ColorModeContext.Provider
-        value={{
-          setColorMode: (setModeColor: PaletteMode): any => {
-            colorMode.setColorMode(setModeColor);
-          },
-          mode,
-        }}
-      >
+      <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <GlobalStyles />
