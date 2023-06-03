@@ -1,5 +1,10 @@
-import { TypographyVariants as TypographyVariantsOption } from "@mui/material/styles";
+import {
+  TypographyVariants as TypographyVariantsOption,
+  TypographyStyle,
+} from "@mui/material/styles";
 
-export interface TypographyVariants extends TypographyVariantsOption {}
+export interface TypographyVariants extends TypographyVariantsOption {
+  body3: TypographyStyle;
+}
 
 export default {} as TypographyVariants;

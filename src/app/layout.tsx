@@ -1,4 +1,4 @@
-import ThemeContextProvider from "../theme";
+import ThemeContextProvider from "src/theme";
 
 export const metadata = {
   title: "Create Next App",
