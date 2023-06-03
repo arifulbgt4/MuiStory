@@ -14,27 +14,29 @@ const clientSideEmotionCache = createEmotionCache();
 // Themeing mode options
 export type ModeOptions = "light" | "dark";
 
-export const ColorModeContext = createContext({
-  setColorMode: (colorMode: ModeOptions) => {},
+export const ColorModeContext = createContext<{
+  mode?: ModeOptions;
+  setColorMode: (colorMode: ModeOptions) => ModeOptions;
+}>({
+  setColorMode: (colorMode: ModeOptions): ModeOptions => colorMode,
+  mode: "light",
 });
 
 export interface ThemeContextProviderProps {
   children: React.ReactNode;
   emotionCache?: EmotionCache;
 }
-export const ThemeContextProvider = ({
+
+const ThemeContextProvider = ({
   children,
   emotionCache = clientSideEmotionCache,
 }: ThemeContextProviderProps) => {
   const [mode, setMode] = useState<ModeOptions>("light");
 
-  // TODO Remove as soon as possible the console
-  console.log("mode", mode);
-
   const colorMode = useMemo(
     () => ({
-      setColorMode: (colorMode: ModeOptions) => {
-        setMode(colorMode);
+      setColorMode: (colorModeGet: ModeOptions): void => {
+        setMode(colorModeGet);
       },
     }),
     []
@@ -52,7 +54,14 @@ export const ThemeContextProvider = ({
 
   return (
     <CacheProvider value={emotionCache}>
-      <ColorModeContext.Provider value={colorMode}>
+      <ColorModeContext.Provider
+        value={{
+          setColorMode: (setModeColor: ModeOptions): any => {
+            colorMode.setColorMode(setModeColor);
+          },
+          mode,
+        }}
+      >
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <GlobalStyles />
@@ -62,3 +71,5 @@ export const ThemeContextProvider = ({
     </CacheProvider>
   );
 };
+
+export default ThemeContextProvider;
