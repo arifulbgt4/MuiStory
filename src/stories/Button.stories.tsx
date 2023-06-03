@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "@mui/material/Button";
+import { ArrowBack, Send } from "@mui/icons-material";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Button> = {
-  title: "Components/Buttons",
+  title: "INPUTS/Buttons",
   component: Button,
   tags: ["autodocs"],
   argTypes: {
@@ -49,11 +50,30 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const NormalAllButtons: Story = {
+export const Buttons: Story = {
   args: {
-    children: "Hello",
+    variant: "contained",
     color: "primary",
     size: "medium",
+    children: "Hello",
+  },
+};
+
+export const LeftIconButtons: Story = {
+  args: {
     variant: "contained",
+    color: "primary",
+    size: "medium",
+    children: "Hello",
+    startIcon: <ArrowBack />,
+  },
+};
+export const RightIconButtons: Story = {
+  args: {
+    variant: "contained",
+    color: "primary",
+    size: "medium",
+    children: "Hello",
+    endIcon: <Send />,
   },
 };
