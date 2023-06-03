@@ -5,7 +5,9 @@ import Button from "@mui/material/Button";
 
 import { ColorModeContext } from "../../theme";
 
-const ThemeingColorMode = () => {
+export interface ThemeingColorModeProps {}
+
+const ThemeingColorMode: React.FC<ThemeingColorModeProps> = () => {
   const { toggleColorMode } = useContext(ColorModeContext);
   return <Button onClick={toggleColorMode}>ThemeingColorMode</Button>;
 };

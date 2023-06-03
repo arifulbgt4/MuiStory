@@ -1,3 +1,3 @@
-import { PaletteOptionsCustom } from "./";
+import { PaletteOptions } from "./";
 
-export default {} as PaletteOptionsCustom;
+export default {} as PaletteOptions;

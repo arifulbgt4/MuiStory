@@ -9,6 +9,7 @@ import { useMemo, useState, createContext } from "react";
 import GlobalStyles from "./utils/GlobalStyles";
 import createEmotionCache from "./utils/createEmotionCache";
 import palette from "./palette";
+import typography from "./typography";
 
 const DEFAULT_PALETTE_MODE: PaletteMode = "light";
 
@@ -47,6 +48,8 @@ const ThemeContextProvider = ({
     () =>
       createTheme({
         palette: palette(mode),
+        spacing: (factor: number) => `${0.25 * factor}rem`,
+        typography,
       }),
     [mode]
   );

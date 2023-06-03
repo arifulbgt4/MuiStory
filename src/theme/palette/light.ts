@@ -1,3 +1,8 @@
-import { PaletteOptionsCustom } from "./";
+import { PaletteOptions } from "./";
 
-export default {} as PaletteOptionsCustom;
+export default {
+  primary: {
+    main: "#333",
+    darkens: "#ddd",
+  },
+} as PaletteOptions;
