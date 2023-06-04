@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "@mui/material/Button";
-import { ArrowBack, Send } from "@mui/icons-material";
+import Send from "@mui/icons-material/Send";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Button> = {

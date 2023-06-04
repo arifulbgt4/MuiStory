@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { ArrowBack, Send } from "@mui/icons-material";
+import Send from "@mui/icons-material/Send";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof LoadingButton> = {
-  title: "INPUTS/Loding Buttons",
+  title: "INPUTS/Loading Buttons",
   component: LoadingButton,
   tags: ["autodocs"],
   argTypes: {
