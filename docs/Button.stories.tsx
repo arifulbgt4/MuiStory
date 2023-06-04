@@ -71,11 +71,10 @@ export const Buttons: Story = {
   parameters: {
     docs: {
       source: {
-        transform: (code: string, storyContext: StoryContext) => `
+        transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
 
 ${code}
-
         `,
       },
     },
@@ -93,7 +92,7 @@ export const LeftIconButtons: Story = {
   parameters: {
     docs: {
       source: {
-        transform: (code: string, storyContext: StoryContext) => `
+        transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
@@ -119,7 +118,7 @@ export const RightIconButtons: Story = {
   parameters: {
     docs: {
       source: {
-        transform: (code: string, storyContext: StoryContext) => `
+        transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
 import Send from "@mui/icons-material/Send";
 

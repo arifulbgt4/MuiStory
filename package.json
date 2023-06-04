@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "sb": "storybook dev -p 6006",
-    "build:sb": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token="
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -37,7 +38,10 @@
     "@storybook/nextjs": "^7.0.18",
     "@storybook/react": "^7.0.18",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "chromatic": "^6.18.0",
     "eslint-plugin-storybook": "^0.6.12",
     "storybook": "^7.0.18"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "next-mui-boilerplate@0.1.0"
 }
