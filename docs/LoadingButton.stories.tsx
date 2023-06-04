@@ -1,11 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { ArrowBack, Send } from "@mui/icons-material";
+import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { argProps, argChildren } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof LoadingButton> = {
-  title: "INPUTS/Loding Buttons",
+  title: "INPUTS/Loading Buttons",
   component: LoadingButton,
+  parameters: {
+    docs: {
+      source: { language: "tsx", format: true, type: "dynamic" },
+      description: {
+        component: "Another description, overriding the comments",
+      },
+      canvas: { sourceState: "shown" },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     loading: {
@@ -68,6 +79,17 @@ export const LoadingButtons: Story = {
     size: "medium",
     children: "Hello",
   },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+
+${code}
+        `,
+      },
+    },
+  },
 };
 
 export const LoadingLeftIconButtons: Story = {
@@ -77,7 +99,23 @@ export const LoadingLeftIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    startIcon: <ArrowBack />,
+    startIcon: <ArrowBackIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+        
+<LoadingButton 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</LoadingButton>
+        `,
+      },
+    },
   },
 };
 export const LoadingRightIconButtons: Story = {
@@ -87,7 +125,23 @@ export const LoadingRightIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    endIcon: <Send />,
+    endIcon: <SendIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+import SendIcon from "@mui/icons-material/Send";
+     
+<LoadingButton 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</LoadingButton>
+        `,
+      },
+    },
   },
 };
 export const LoadingPositionLeftIconButtons: Story = {
@@ -98,7 +152,23 @@ export const LoadingPositionLeftIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    startIcon: <ArrowBack />,
+    startIcon: <ArrowBackIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+        
+<LoadingButton 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</LoadingButton>
+        `,
+      },
+    },
   },
 };
 export const LoadingPositionRightIconButtons: Story = {
@@ -109,7 +179,23 @@ export const LoadingPositionRightIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    endIcon: <Send />,
+    endIcon: <SendIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+import SendIcon from "@mui/icons-material/Send";
+     
+<LoadingButton 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</LoadingButton>
+        `,
+      },
+    },
   },
 };
 export const LoadingIndicatorButtons: Story = {
@@ -120,5 +206,16 @@ export const LoadingIndicatorButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import LoadingButton from "@mui/lab/LoadingButton";
+
+${code}
+        `,
+      },
+    },
   },
 };

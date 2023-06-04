@@ -1,11 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import IconButton from "@mui/material/IconButton";
-import { Delete } from "@mui/icons-material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { argProps, argChildren } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof IconButton> = {
   title: "INPUTS/Icon Buttons",
   component: IconButton,
+  parameters: {
+    docs: {
+      source: { language: "tsx", format: true, type: "dynamic" },
+      description: {
+        component: "Another description, overriding the comments",
+      },
+      canvas: { sourceState: "shown" },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     color: {
@@ -44,6 +54,22 @@ export const IconButtons: Story = {
   args: {
     color: "primary",
     size: "medium",
-    children: <Delete />,
+    children: <DeleteIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+<IconButton
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</IconButton>
+        `,
+      },
+    },
   },
 };

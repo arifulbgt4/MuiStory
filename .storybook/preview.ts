@@ -35,7 +35,7 @@ const preview: Preview = {
         light: lightTheme,
         dark: darkTheme,
       },
-      defaultTheme: "dark",
+      defaultTheme: "light",
       Provider: ThemeProvider,
       GlobalStyles: CssBaseline,
     }),

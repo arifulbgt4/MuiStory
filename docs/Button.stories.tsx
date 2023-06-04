@@ -1,11 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Button from "@mui/material/Button";
-import { ArrowBack, Send } from "@mui/icons-material";
+import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { argProps, argChildren } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Button> = {
   title: "INPUTS/Buttons",
   component: Button,
+  parameters: {
+    docs: {
+      source: { language: "tsx", format: true, type: "dynamic" },
+      description: {
+        component: "Another description, overriding the comments",
+      },
+      canvas: { sourceState: "shown" },
+    },
+  },
   tags: ["autodocs"],
   argTypes: {
     variant: {
@@ -57,6 +68,17 @@ export const Buttons: Story = {
     size: "medium",
     children: "Hello",
   },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Button from "@mui/material/Button";
+
+${code}
+        `,
+      },
+    },
+  },
 };
 
 export const LeftIconButtons: Story = {
@@ -65,7 +87,23 @@ export const LeftIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    startIcon: <ArrowBack />,
+    startIcon: <ArrowBackIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+<Button 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</Button>
+        `,
+      },
+    },
   },
 };
 export const RightIconButtons: Story = {
@@ -74,6 +112,22 @@ export const RightIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    endIcon: <Send />,
+    endIcon: <SendIcon />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+
+<Button 
+  ${argProps(storyContext)}
+>
+  ${argChildren(storyContext)}
+</Button>
+        `,
+      },
+    },
   },
 };

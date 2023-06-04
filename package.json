@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "sb": "dotenv -- cross-var storybook dev -p %STORYBOOK_PORT%",
+    "build-storybook": "storybook build",
+    "chromatic": "dotenv -- cross-var chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -37,7 +38,13 @@
     "@storybook/nextjs": "^7.0.18",
     "@storybook/react": "^7.0.18",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "chromatic": "^6.18.0",
+    "cross-var": "^1.1.0",
+    "dotenv-cli": "^7.2.1",
     "eslint-plugin-storybook": "^0.6.12",
+    "react-element-to-jsx-string": "^15.0.0",
     "storybook": "^7.0.18"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "next-mui-boilerplate@0.1.0"
 }
