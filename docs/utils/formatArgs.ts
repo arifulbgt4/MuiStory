@@ -2,8 +2,14 @@ import type { StoryContext } from "@storybook/react";
 import { ReactElement } from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
 
-export const argProps = (context: StoryContext): string => {
-  const argsKey = Object.keys(context.args);
+export const argProps = (
+  context: StoryContext,
+  argsOmit: string[] = []
+): string => {
+  let argsKey = Object.keys(context.args);
+  argsKey = argsKey.filter((value) => {
+    return !argsOmit.includes(value);
+  });
   const argsKeySolid = argsKey.filter(
     (d) => d !== "children" && !d.includes("Icon") && !d.includes("icon")
   );
