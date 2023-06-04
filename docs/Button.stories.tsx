@@ -1,8 +1,8 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Button from "@mui/material/Button";
-import Send from "@mui/icons-material/Send";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import { argProps } from "./utils/formatArgs";
+import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { argProps, argChildren } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Button> = {
@@ -87,20 +87,19 @@ export const LeftIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    startIcon: <ArrowBack />,
+    startIcon: <ArrowBackIcon />,
   },
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
-import ArrowBack from "@mui/icons-material/ArrowBack";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 <Button 
-  ${argProps(storyContext, ["size", "color", "variant"])}
-  startIcon={<ArrowBack />}
+  ${argProps(storyContext)}
 >
-  ${storyContext.args.children}
+  ${argChildren(storyContext)}
 </Button>
         `,
       },
@@ -113,20 +112,19 @@ export const RightIconButtons: Story = {
     color: "primary",
     size: "medium",
     children: "Hello",
-    endIcon: <Send />,
+    endIcon: <SendIcon />,
   },
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
-import Send from "@mui/icons-material/Send";
+import SendIcon from "@mui/icons-material/Send";
 
 <Button 
-  ${argProps(storyContext, ["size", "color", "variant"])}
-  endIcon={<Send />}
+  ${argProps(storyContext)}
 >
-  ${storyContext.args.children}
+  ${argChildren(storyContext)}
 </Button>
         `,
       },

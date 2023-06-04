@@ -42,6 +42,7 @@
     "cross-var": "^1.1.0",
     "dotenv-cli": "^7.2.1",
     "eslint-plugin-storybook": "^0.6.12",
+    "react-element-to-jsx-string": "^15.0.0",
     "storybook": "^7.0.18"
   },
   "readme": "ERROR: No README data found!",
