@@ -9,7 +9,7 @@
     "lint": "next lint",
     "sb": "dotenv -- cross-var storybook dev -p %STORYBOOK_PORT%",
     "build-storybook": "storybook build",
-    "chromatic": "dotenv -- cross-var chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
+    "chromatic": "dotenv -- cross-var chromatic --project-token=%CHROMATIC_PROJECT_TOKEN% --exit-once-uploaded"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",

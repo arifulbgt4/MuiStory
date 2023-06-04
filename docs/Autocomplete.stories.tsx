@@ -25,26 +25,11 @@ const meta: Meta<typeof Autocomplete> = {
     loading: {
       control: { type: "boolean" },
     },
-    color: {
-      control: { type: "select" },
-      options: [
-        "primary",
-        "secondary",
-        "error",
-        "warning",
-        "info",
-        "success",
-        "inherit",
-      ],
-    },
     size: {
       control: { type: "select" },
       options: ["small", "medium", "large"],
     },
     disabled: {
-      control: { type: "boolean" },
-    },
-    fullWidth: {
       control: { type: "boolean" },
     },
   },
