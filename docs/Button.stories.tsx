@@ -16,6 +16,7 @@ const meta: Meta<typeof Button> = {
       },
       canvas: { sourceState: "shown" },
     },
+    layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {

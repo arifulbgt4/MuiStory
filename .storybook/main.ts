@@ -20,5 +20,11 @@ const config: StorybookConfig = {
     autodocs: "tag",
     defaultName: "Documentation",
   },
+  refs: {
+    "design-system": {
+      title: "Mui default Design System",
+      url: "https://dev--647c84907213dc4172ffdcde.chromatic.com/",
+    },
+  },
 };
 export default config;
