@@ -1,6 +1,5 @@
-import { ThemeOptions } from "@mui/material";
+import { Components } from "@mui/material/styles";
 import Card from "./Card";
+import Button from "./Button";
 
-export default function ComponentsOverrides(theme: ThemeOptions) {
-  return Object.assign(Card(theme));
-}
+export default Object.assign(Button, Card) as Components<any>;

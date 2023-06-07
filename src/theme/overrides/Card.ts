@@ -1,15 +1,9 @@
-import { ThemeOptions, CardClasses } from "@mui/material";
+import { Theme, Components } from "@mui/material/styles";
 
-export interface CardOptions {
-  MuiCard: {
-    styleOverrides?: {
-      root?: {};
-    };
-  };
-}
+const MuiCard: Components<Theme>["MuiCard"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
 
-export default function Card(theme: ThemeOptions): CardOptions {
-  return {
-    MuiCard: {},
-  };
-}
+export default { MuiCard };
