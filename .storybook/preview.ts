@@ -1,19 +1,25 @@
 import "@fontsource/material-icons";
 import type { Preview } from "@storybook/react";
+import { PaletteMode } from "@mui/material";
+
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { themes } from "@storybook/theming";
 
 import light from "../src/theme/palette/light";
 import dark from "../src/theme/palette/dark";
+import componentsOverride from "../src/theme/overrides";
+import typography from "../src/theme/typography";
 
-const DEFAULT_THEME: "light" | "dark" = "light";
+const DEFAULT_THEME: PaletteMode = "light";
 
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
     ...light,
   },
+  typography,
+  components: componentsOverride,
 });
 
 export const darkTheme = createTheme({
@@ -21,6 +27,8 @@ export const darkTheme = createTheme({
     mode: "dark",
     ...dark,
   },
+  typography,
+  components: componentsOverride,
 });
 
 const preview: Preview = {

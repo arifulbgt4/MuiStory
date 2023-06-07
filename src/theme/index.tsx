@@ -10,6 +10,7 @@ import GlobalStyles from "./utils/GlobalStyles";
 import createEmotionCache from "./utils/createEmotionCache";
 import palette from "./palette";
 import typography from "./typography";
+import componentsOverride from "./overrides";
 
 const DEFAULT_PALETTE_MODE: PaletteMode = "light";
 
@@ -48,8 +49,9 @@ const ThemeContextProvider = ({
     () =>
       createTheme({
         palette: palette(mode),
-        spacing: (factor: number) => `${0.25 * factor}rem`,
+        // spacing: (factor: number) => `${0.5 * factor}rem`,
         typography,
+        components: componentsOverride,
       }),
     [mode]
   );
