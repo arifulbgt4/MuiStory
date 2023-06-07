@@ -2,8 +2,10 @@ import { Theme, Components } from "@mui/material/styles";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
-    dashed: true;
+    rounded: true;
   }
+  interface ButtonPropsColorOverrides {}
+  interface ButtonPropsSizeOverrides {}
 }
 
 const MuiButton: Components<Theme>["MuiButton"] = {
@@ -12,12 +14,10 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   },
   variants: [
     {
-      props: { variant: "dashed" },
-      style: ({ theme }) => ({}),
-    },
-    {
-      props: { variant: "dashed", color: "secondary" },
-      style: ({ theme }) => ({}),
+      props: { variant: "rounded" },
+      style: ({ theme }) => ({
+        borderRadius: 20,
+      }),
     },
   ],
 };
