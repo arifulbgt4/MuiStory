@@ -1,5 +1,8 @@
-import { Meta } from "@storybook/blocks";
+import { Meta, Preview, Story } from "@storybook/blocks";
+import * as Palette from "./Palette.stories";
 
-<Meta title="Palette" />
+<Meta title="Palette" of={Palette} />
 
 # Themeing palette configuration guide
+
+<Story of={Palette.Palette} />
