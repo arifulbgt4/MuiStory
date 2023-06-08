@@ -6,14 +6,13 @@ import {
   TypeText as TypeTextOptions,
   TypeAction as TypeActionOption,
   TypeBackground as TypeBackgroundOption,
+  CommonColors as CommonColorsOption,
 } from "@mui/material";
 
 import dark from "./dark";
 import light from "./light";
 
-export interface PaletteColorOptions extends SimplePaletteColorOptions {
-  darkens: string;
-}
+export interface PaletteColorOptions extends SimplePaletteColorOptions {}
 
 export interface GreyColorOptions extends Color {}
 
@@ -23,6 +22,8 @@ export interface TypeAction extends TypeActionOption {}
 
 export interface TypeBackground extends TypeBackgroundOption {}
 
+export interface CommonColors extends CommonColorsOption {}
+
 export interface PaletteOptions extends PaletteOptionsCustom {
   primary?: PaletteColorOptions;
   secondary?: PaletteColorOptions;
@@ -31,9 +32,11 @@ export interface PaletteOptions extends PaletteOptionsCustom {
   info?: PaletteColorOptions;
   success?: PaletteColorOptions;
   grey?: GreyColorOptions;
-  text?: TypeText;
-  action: TypeAction;
-  background: TypeBackground;
+  text?: Partial<TypeText>;
+  action?: Partial<TypeAction>;
+  background?: Partial<TypeBackground>;
+  common?: Partial<CommonColors>;
+  divider?: string;
 }
 
 export default (mode: PaletteMode): PaletteOptionsCustom => {

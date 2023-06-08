@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Typography from "@mui/material/Typography";
-import { argProps, argChildren } from "./utils/formatArgs";
 import typographyVars from "src/theme/typography";
+
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Typography> = {
   title: "Themeing/Typography",
@@ -287,10 +287,9 @@ export const Coustomize: Story = {
               borderRadius: 5,
             }}
           >
-            {" "}
             src/theme/typography.ts
           </pre>
-        </code>{" "}
+        </code>
         <code style={{ color: "red", fontStyle: "italic" }}>Note:</code> Don't
         change anywhere except the file.
       </p>
