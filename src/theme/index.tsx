@@ -8,8 +8,9 @@ import { useMemo, useState, createContext } from "react";
 
 import GlobalStyles from "./utils/GlobalStyles";
 import createEmotionCache from "./utils/createEmotionCache";
-import palette from "./palette";
+import palette, { PaletteOptions } from "./palette";
 import typography from "./typography";
+import shadowsTheme from "./shadows";
 import componentsOverride from "./overrides";
 
 const DEFAULT_PALETTE_MODE: PaletteMode = "light";
@@ -51,6 +52,7 @@ const ThemeContextProvider = ({
         palette: palette(mode),
         // spacing: (factor: number) => `${0.5 * factor}rem`,
         typography,
+        shadows: shadowsTheme(palette(mode) as PaletteOptions),
         components: componentsOverride,
       }),
     [mode]
