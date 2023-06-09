@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import type { Meta, StoryObj, StoryContext } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import light from "src/theme/palette/light";
@@ -7,6 +7,7 @@ import dark from "src/theme/palette/dark";
 
 const lightPallete: any = light;
 const darkPallete: any = dark;
+
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Box> = {
   title: "Themeing/Palette",
