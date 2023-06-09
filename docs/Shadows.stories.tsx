@@ -3,22 +3,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Shadows as ShadowsOptions } from "@mui/material/styles";
-import shadows from "src/theme/shadows";
-
-const SHADOWS: ShadowsOptions = shadows;
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Box> = {
   title: "Themeing/Shadows",
   component: Box,
   parameters: {
-    // docs: {
-    //   source: { language: "tsx", format: true, type: "dynamic" },
-    //   canvas: { sourceState: "shown" },
-    // },
     layout: "centered",
   },
-  // tags: ["autodocs"],
   argTypes: {},
 };
 
@@ -55,8 +47,11 @@ export const Shadows: Story = {
             Don't change anywhere except the file.
           </p>
         </Grid>
-        {SHADOWS.map((el, i) => (
-          <Grid key={i} item xs={2}>
+        {[
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+          20, 21, 22, 23, 24,
+        ].map((el) => (
+          <Grid key={el} item xs={2}>
             <Box
               sx={{
                 width: "100%",
@@ -68,7 +63,7 @@ export const Shadows: Story = {
                 borderRadius: "10px",
               }}
             >
-              {i}
+              {el}
             </Box>
           </Grid>
         ))}

@@ -80,5 +80,10 @@ export default {
     black: "#000",
     white: "#fff",
   },
+  shadows: {
+    transparentOne: "rgba(0,0,0,0.2)",
+    transparentTwo: "rgba(0,0,0,0.14)",
+    transparentThree: "rgba(0,0,0,0.12)",
+  },
   divider: "rgba(255, 255, 255, 0.12)",
 } as PaletteOptions;

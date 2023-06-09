@@ -10,6 +10,7 @@ import light from "../src/theme/palette/light";
 import dark from "../src/theme/palette/dark";
 import componentsOverride from "../src/theme/overrides";
 import typography from "../src/theme/typography";
+import shadowsTheme from "../src/theme/shadows";
 
 const DEFAULT_THEME: PaletteMode = "light";
 
@@ -19,6 +20,7 @@ export const lightTheme = createTheme({
     ...light,
   },
   typography,
+  shadows: shadowsTheme(light),
   components: componentsOverride,
 });
 
@@ -28,6 +30,7 @@ export const darkTheme = createTheme({
     ...dark,
   },
   typography,
+  shadows: shadowsTheme(dark),
   components: componentsOverride,
 });
 

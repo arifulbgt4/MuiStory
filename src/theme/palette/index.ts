@@ -37,6 +37,11 @@ export interface PaletteOptions extends PaletteOptionsCustom {
   background?: Partial<TypeBackground>;
   common?: Partial<CommonColors>;
   divider?: string;
+  shadows?: {
+    transparentOne: string;
+    transparentTwo: string;
+    transparentThree: string;
+  };
 }
 
 export default (mode: PaletteMode): PaletteOptionsCustom => {
