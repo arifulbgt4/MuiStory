@@ -8,6 +8,7 @@ import Backdrop from "./Backdrop";
 import Dialog from "./Dialog";
 import Progress from "./Progress";
 import Skeleton from "./Skeleton";
+import Snackbar from "./Snackbar";
 
 export default Object.assign(
   Button,
@@ -18,5 +19,6 @@ export default Object.assign(
   Backdrop,
   Dialog,
   Progress,
-  Skeleton
+  Skeleton,
+  Snackbar
 ) as Components<any>;
