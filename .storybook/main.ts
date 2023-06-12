@@ -25,7 +25,7 @@ const config: StorybookConfig = {
     "design-system": {
       title: "Mui default Design System",
       url: "https://dev--647c84907213dc4172ffdcde.chromatic.com/",
-      disable: false,
+      disable: true,
     },
   },
 };
