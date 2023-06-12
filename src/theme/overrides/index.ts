@@ -5,6 +5,7 @@ import TextField from "./TextField";
 import FormControl from "./FormControl";
 import Alert from "./Alert";
 import Backdrop from "./Backdrop";
+import Dialog from "./Dialog";
 
 export default Object.assign(
   Button,
@@ -12,5 +13,6 @@ export default Object.assign(
   TextField,
   FormControl,
   Alert,
-  Backdrop
+  Backdrop,
+  Dialog
 ) as Components<any>;
