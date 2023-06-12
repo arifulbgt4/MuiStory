@@ -10,6 +10,7 @@ import Progress from "./Progress";
 import Skeleton from "./Skeleton";
 import Snackbar from "./Snackbar";
 import Avatar from "./Avatar";
+import Badge from "./Badge";
 
 export default Object.assign(
   Button,
@@ -22,5 +23,6 @@ export default Object.assign(
   Progress,
   Skeleton,
   Snackbar,
-  Avatar
+  Avatar,
+  Badge
 ) as Components<any>;
