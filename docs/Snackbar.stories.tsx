@@ -52,7 +52,8 @@ export const Snackbars: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-        import Snackbar from "@mui/material/Snackbar";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
 <Snackbar
   ${argProps(storyContext)}

@@ -9,6 +9,7 @@ import Dialog from "./Dialog";
 import Progress from "./Progress";
 import Skeleton from "./Skeleton";
 import Snackbar from "./Snackbar";
+import Avatar from "./Avatar";
 
 export default Object.assign(
   Button,
@@ -20,5 +21,6 @@ export default Object.assign(
   Dialog,
   Progress,
   Skeleton,
-  Snackbar
+  Snackbar,
+  Avatar
 ) as Components<any>;
