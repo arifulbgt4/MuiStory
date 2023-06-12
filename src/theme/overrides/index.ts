@@ -7,6 +7,7 @@ import Alert from "./Alert";
 import Backdrop from "./Backdrop";
 import Dialog from "./Dialog";
 import Progress from "./Progress";
+import Skeleton from "./Skeleton";
 
 export default Object.assign(
   Button,
@@ -16,5 +17,6 @@ export default Object.assign(
   Alert,
   Backdrop,
   Dialog,
-  Progress
+  Progress,
+  Skeleton
 ) as Components<any>;
