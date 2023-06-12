@@ -11,6 +11,8 @@ import Skeleton from "./Skeleton";
 import Snackbar from "./Snackbar";
 import Avatar from "./Avatar";
 import Badge from "./Badge";
+import Chip from "./Chip";
+import Divider from "./Divider";
 
 export default Object.assign(
   Button,
@@ -24,5 +26,7 @@ export default Object.assign(
   Skeleton,
   Snackbar,
   Avatar,
-  Badge
+  Badge,
+  Chip,
+  Divider
 ) as Components<any>;
