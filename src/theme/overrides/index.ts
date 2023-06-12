@@ -13,6 +13,7 @@ import Avatar from "./Avatar";
 import Badge from "./Badge";
 import Chip from "./Chip";
 import Divider from "./Divider";
+import List from "./List";
 
 export default Object.assign(
   Button,
@@ -28,5 +29,6 @@ export default Object.assign(
   Avatar,
   Badge,
   Chip,
-  Divider
+  Divider,
+  List
 ) as Components<any>;
