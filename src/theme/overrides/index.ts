@@ -3,10 +3,24 @@ import Card from "./Card";
 import Button from "./Button";
 import TextField from "./TextField";
 import FormControl from "./FormControl";
+import Alert from "./Alert";
+import Backdrop from "./Backdrop";
+import Dialog from "./Dialog";
+import Progress from "./Progress";
+import Skeleton from "./Skeleton";
+import Snackbar from "./Snackbar";
+import Avatar from "./Avatar";
 
 export default Object.assign(
   Button,
   Card,
   TextField,
-  FormControl
+  FormControl,
+  Alert,
+  Backdrop,
+  Dialog,
+  Progress,
+  Skeleton,
+  Snackbar,
+  Avatar
 ) as Components<any>;

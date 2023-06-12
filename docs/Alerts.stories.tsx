@@ -1,0 +1,75 @@
+import type { Meta, StoryObj, StoryContext } from "@storybook/react";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import { argChildren, argProps } from "./utils/formatArgs";
+
+// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+const meta: Meta<typeof Alert> = {
+  title: "FEEDBACK/Alerts",
+  component: Alert,
+  parameters: {
+    docs: {
+      source: { language: "tsx", format: true, type: "dynamic" },
+      description: {
+        component:
+          "The value must be chosen from a predefined set of allowed values.",
+      },
+      canvas: { sourceState: "shown" },
+    },
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: ["filled", "outlined", "standard"],
+      description: "The variant to use.",
+      defaultValue: "standard",
+    },
+    severity: {
+      control: { type: "select" },
+      options: ["error", "info", "success", "warning"],
+      description:
+        "The severity of the alert. This defines the color and icon used.",
+      defaultValue: "success",
+    },
+    color: {
+      control: { type: "select" },
+      options: ["error", "info", "success", "warning"],
+      description:
+        "The color of the component. Unless provided, the value is taken from the `severity prop. It supports both default and custom theme colors, which can be added as shown in the `palette customization guide`.",
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Alert>;
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Alerts: Story = {
+  args: {
+    severity: "error",
+    children: (
+      <>
+        <AlertTitle>Hey</AlertTitle>
+        <p>Some text</p>
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+
+<Alert
+  ${argProps(storyContext)}
+>
+  <AlertTitle>Hey</AlertTitle>
+  <p>Some text</p>
+</Alert>
+        `,
+      },
+    },
+  },
+};

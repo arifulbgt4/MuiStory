@@ -1,0 +1,61 @@
+import type { Meta, StoryObj, StoryContext } from "@storybook/react";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import { argChildren, argProps } from "./utils/formatArgs";
+
+// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+const meta: Meta<typeof Backdrop> = {
+  title: "FEEDBACK/Backdrop",
+  component: Backdrop,
+  parameters: {
+    docs: {
+      source: { language: "tsx", format: true, type: "dynamic" },
+      description: {
+        component:
+          "The value must be chosen from a predefined set of allowed values.",
+      },
+      canvas: { sourceState: "shown" },
+    },
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    open: {
+      control: { type: "boolean" },
+      description: "If `true`, the component is shown.",
+      defaultValue: true,
+    },
+    invisible: {
+      control: { type: "boolean" },
+      description:
+        "If `true`, the backdrop is invisible. It can be used when rendering a popover or a custom select component.",
+      defaultValue: false,
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Backdrop>;
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Backdrops: Story = {
+  args: {
+    open: true,
+    children: <CircularProgress color="inherit" />,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+
+<Backdrop
+  ${argProps(storyContext)}
+>
+  <CircularProgress color="inherit" />
+</Backdrop>
+        `,
+      },
+    },
+  },
+};
