@@ -6,6 +6,7 @@ import FormControl from "./FormControl";
 import Alert from "./Alert";
 import Backdrop from "./Backdrop";
 import Dialog from "./Dialog";
+import Progress from "./Progress";
 
 export default Object.assign(
   Button,
@@ -14,5 +15,6 @@ export default Object.assign(
   FormControl,
   Alert,
   Backdrop,
-  Dialog
+  Dialog,
+  Progress
 ) as Components<any>;
