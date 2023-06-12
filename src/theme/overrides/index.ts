@@ -14,6 +14,7 @@ import Badge from "./Badge";
 import Chip from "./Chip";
 import Divider from "./Divider";
 import List from "./List";
+import Table from "./Table";
 
 export default Object.assign(
   Button,
@@ -30,5 +31,6 @@ export default Object.assign(
   Badge,
   Chip,
   Divider,
-  List
+  List,
+  Table
 ) as Components<any>;
