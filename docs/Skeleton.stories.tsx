@@ -48,7 +48,7 @@ export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Skeletons: Story = {
+export const Rectangular: Story = {
   args: {
     variant: "rectangular",
     width: 210,
@@ -62,6 +62,70 @@ import Skeleton from '@mui/material/Skeleton';
 
 <Skeleton
   ${argProps(storyContext)}
+/>
+        `,
+      },
+    },
+  },
+};
+
+export const Rounded: Story = {
+  args: {
+    variant: "rounded",
+    width: 210,
+    height: 60,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Skeleton from '@mui/material/Skeleton';
+
+<Skeleton
+  ${argProps(storyContext)}
+/>
+        `,
+      },
+    },
+  },
+};
+
+export const Circular: Story = {
+  args: {
+    variant: "circular",
+    width: 60,
+    height: 60,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Skeleton from '@mui/material/Skeleton';
+
+<Skeleton
+  ${argProps(storyContext)}
+/>
+        `,
+      },
+    },
+  },
+};
+export const Text: Story = {
+  args: {
+    variant: "text",
+    sx: { fontSize: "1rem" },
+    width: 260,
+    height: 30,
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Skeleton from '@mui/material/Skeleton';
+
+<Skeleton
+  sx={{ fontSize: "1rem" }},
+  ${argProps(storyContext, ["sx"])}
 />
         `,
       },
