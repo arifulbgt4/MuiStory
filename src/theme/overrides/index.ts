@@ -15,6 +15,8 @@ import Chip from "./Chip";
 import Divider from "./Divider";
 import List from "./List";
 import Table from "./Table";
+import Fab from "./Fab";
+import Radio from "./Radio";
 
 export default Object.assign(
   Button,
@@ -32,5 +34,7 @@ export default Object.assign(
   Chip,
   Divider,
   List,
-  Table
+  Table,
+  Fab,
+  Radio
 ) as Components<any>;
