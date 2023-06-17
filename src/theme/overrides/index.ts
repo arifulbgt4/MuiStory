@@ -10,6 +10,14 @@ import Progress from "./Progress";
 import Skeleton from "./Skeleton";
 import Snackbar from "./Snackbar";
 import Avatar from "./Avatar";
+import Badge from "./Badge";
+import Chip from "./Chip";
+import Divider from "./Divider";
+import List from "./List";
+import Table from "./Table";
+import Fab from "./Fab";
+import Radio from "./Radio";
+import Rating from "./Rating";
 
 export default Object.assign(
   Button,
@@ -22,5 +30,13 @@ export default Object.assign(
   Progress,
   Skeleton,
   Snackbar,
-  Avatar
+  Avatar,
+  Badge,
+  Chip,
+  Divider,
+  List,
+  Table,
+  Fab,
+  Radio,
+  Rating
 ) as Components<any>;
