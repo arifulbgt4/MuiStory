@@ -221,7 +221,6 @@ export const ButtonTypography: Story = {
   args: {
     variant: "button",
     children: "button text",
-    display: "display",
   },
   parameters: {
     docs: {
@@ -239,7 +238,6 @@ export const CaptionTypography: Story = {
   args: {
     variant: "caption",
     children: "caption text",
-    display: "display",
   },
   parameters: {
     docs: {
@@ -257,7 +255,6 @@ export const OverlinenTypography: Story = {
   args: {
     variant: "overline",
     children: "overline text",
-    display: "display",
   },
   parameters: {
     docs: {
@@ -294,7 +291,6 @@ export const Coustomize: Story = {
         change anywhere except the file.
       </p>
     ),
-    display: "display",
   },
   parameters: {
     layout: "centered",
