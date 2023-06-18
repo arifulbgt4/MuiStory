@@ -80,7 +80,12 @@ export const Accordions: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 <Accordion>
   <AccordionSummary
