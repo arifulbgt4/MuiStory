@@ -19,6 +19,7 @@ import Fab from "./Fab";
 import Radio from "./Radio";
 import Rating from "./Rating";
 import Switch from "./Switch";
+import Accordion from "./Accordion";
 
 export default Object.assign(
   Button,
@@ -40,5 +41,6 @@ export default Object.assign(
   Fab,
   Radio,
   Rating,
-  Switch
+  Switch,
+  Accordion
 ) as Components<any>;
