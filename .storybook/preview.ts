@@ -57,7 +57,7 @@ const preview: Preview = {
       Provider: ThemeProvider,
       GlobalStyles: CssBaseline,
     }),
-  ],
+  ] as any,
 };
 
 export default preview;

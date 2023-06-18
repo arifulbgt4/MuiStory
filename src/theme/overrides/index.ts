@@ -18,6 +18,9 @@ import Table from "./Table";
 import Fab from "./Fab";
 import Radio from "./Radio";
 import Rating from "./Rating";
+import Switch from "./Switch";
+import Accordion from "./Accordion";
+import AppBar from "./AppBar";
 
 export default Object.assign(
   Button,
@@ -38,5 +41,8 @@ export default Object.assign(
   Table,
   Fab,
   Radio,
-  Rating
+  Rating,
+  Switch,
+  Accordion,
+  AppBar
 ) as Components<any>;
