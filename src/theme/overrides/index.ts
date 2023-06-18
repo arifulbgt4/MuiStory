@@ -20,6 +20,7 @@ import Radio from "./Radio";
 import Rating from "./Rating";
 import Switch from "./Switch";
 import Accordion from "./Accordion";
+import AppBar from "./AppBar";
 
 export default Object.assign(
   Button,
@@ -42,5 +43,6 @@ export default Object.assign(
   Radio,
   Rating,
   Switch,
-  Accordion
+  Accordion,
+  AppBar
 ) as Components<any>;
