@@ -21,6 +21,7 @@ import Rating from "./Rating";
 import Switch from "./Switch";
 import Accordion from "./Accordion";
 import AppBar from "./AppBar";
+import Link from "./Link";
 
 export default Object.assign(
   Button,
@@ -44,5 +45,6 @@ export default Object.assign(
   Rating,
   Switch,
   Accordion,
-  AppBar
+  AppBar,
+  Link
 ) as Components<any>;
