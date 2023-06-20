@@ -5,6 +5,7 @@ import { PaletteMode } from "@mui/material";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
 import { themes } from "@storybook/theming";
+import * as locales from "@mui/material/locale";
 
 import light from "../src/theme/palette/light";
 import dark from "../src/theme/palette/dark";
@@ -12,27 +13,36 @@ import componentsOverride from "../src/theme/overrides";
 import typography from "../src/theme/typography";
 import shadowsTheme from "../src/theme/shadows";
 
+type SupportedLocales = keyof typeof locales;
+
 const DEFAULT_THEME: PaletteMode = "light";
+const DEFAULT_LOCAL: SupportedLocales = "enUS";
 
-export const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-    ...light,
+export const lightTheme = createTheme(
+  {
+    palette: {
+      mode: "light",
+      ...light,
+    },
+    typography,
+    shadows: shadowsTheme(light),
+    components: componentsOverride,
   },
-  typography,
-  shadows: shadowsTheme(light),
-  components: componentsOverride,
-});
+  locales[DEFAULT_LOCAL]
+);
 
-export const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    ...dark,
+export const darkTheme = createTheme(
+  {
+    palette: {
+      mode: "dark",
+      ...dark,
+    },
+    typography,
+    shadows: shadowsTheme(dark),
+    components: componentsOverride,
   },
-  typography,
-  shadows: shadowsTheme(dark),
-  components: componentsOverride,
-});
+  locales[DEFAULT_LOCAL]
+);
 
 const preview: Preview = {
   parameters: {

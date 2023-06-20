@@ -6,31 +6,31 @@ const MuiCard: Components<Theme>["MuiCard"] = {
   },
 };
 
-const CardActionArea: Components<Theme>["MuiCardActionArea"] = {
+const MuiCardActionArea: Components<Theme>["MuiCardActionArea"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-const CardActions: Components<Theme>["MuiCardActions"] = {
+const MuiCardActions: Components<Theme>["MuiCardActions"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-const CardContent: Components<Theme>["MuiCardContent"] = {
+const MuiCardContent: Components<Theme>["MuiCardContent"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-const CardHeader: Components<Theme>["MuiCardHeader"] = {
+const MuiCardHeader: Components<Theme>["MuiCardHeader"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-const CardMedia: Components<Theme>["MuiCardMedia"] = {
+const MuiCardMedia: Components<Theme>["MuiCardMedia"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
@@ -38,9 +38,9 @@ const CardMedia: Components<Theme>["MuiCardMedia"] = {
 
 export default {
   MuiCard,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
+  MuiCardActionArea,
+  MuiCardActions,
+  MuiCardContent,
+  MuiCardHeader,
+  MuiCardMedia,
 };

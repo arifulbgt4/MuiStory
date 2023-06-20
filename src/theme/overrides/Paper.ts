@@ -4,10 +4,10 @@ declare module "@mui/material/Paper" {
   interface PaperPropsVariantOverrides {}
 }
 
-const Paper: Components<Theme>["MuiPaper"] = {
+const MuiPaper: Components<Theme>["MuiPaper"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-export default { Paper };
+export default { MuiPaper };
