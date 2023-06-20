@@ -24,10 +24,10 @@ const clientSideEmotionCache = createEmotionCache();
 
 export const ColorModeContext = createContext<{
   toggleColorMode: () => void;
-  toggleLocalLang: (mode: SupportedLocales) => void
+  toggleLocalLang: (mode: SupportedLocales) => void;
 }>({
   toggleColorMode: (): void => {},
-  toggleLocalLang: (mode: SupportedLocales) => void
+  toggleLocalLang: (mode: SupportedLocales) => {},
 });
 
 export interface ThemeContextProviderProps {
@@ -55,7 +55,6 @@ const ThemeContextProvider = ({
     }),
     []
   );
-
 
   const theme = useMemo(
     () =>
