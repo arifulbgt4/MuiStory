@@ -35,6 +35,13 @@ const meta: Meta<typeof Paper> = {
       description: "If `true`, the card will use raised styling.",
       defaultValue: false,
     },
+    variant: {
+      control: { type: "select" },
+      options: ["elevation", "outlined"],
+
+      description: "The variant to use.",
+      defaultValue: "elevation",
+    },
   },
 };
 
