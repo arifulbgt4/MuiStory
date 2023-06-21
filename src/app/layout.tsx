@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeContextProvider>
-        <body suppressHydrationWarning={true}>
-          <div className="jkjk">{children}</div>
-        </body>
+        <body suppressHydrationWarning={true}>{children}</body>
       </ThemeContextProvider>
     </html>
   );
