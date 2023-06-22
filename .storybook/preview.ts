@@ -65,6 +65,7 @@ const preview: Preview = {
           "Deployment",
           "Dependencies",
           "Package & License",
+          "Environment Variables",
         ],
       },
     },
