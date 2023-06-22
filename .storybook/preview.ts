@@ -15,7 +15,7 @@ import shadowsTheme from "../src/theme/shadows";
 
 type SupportedLocales = keyof typeof locales;
 
-const DEFAULT_THEME: PaletteMode = "light";
+const DEFAULT_THEME: PaletteMode = "dark";
 const DEFAULT_LOCAL: SupportedLocales = "enUS";
 
 export const lightTheme = createTheme(
@@ -64,7 +64,7 @@ const preview: Preview = {
           "Usage",
           "Deployment",
           "Dependencies",
-          "Packagelicense",
+          "Package & License",
         ],
       },
     },

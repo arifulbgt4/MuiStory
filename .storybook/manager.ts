@@ -11,5 +11,5 @@ const theme = create({
 });
 
 addons.setConfig({
-  theme,
+  theme: themes.dark,
 });
