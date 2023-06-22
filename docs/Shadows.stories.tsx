@@ -10,6 +10,9 @@ const meta: Meta<typeof Box> = {
   component: Box,
   parameters: {
     layout: "centered",
+    viewport: {
+      disable: true,
+    },
   },
   argTypes: {},
 };

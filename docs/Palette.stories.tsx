@@ -18,6 +18,9 @@ const meta: Meta<typeof Box> = {
     //   canvas: { sourceState: "shown" },
     // },
     layout: "centered",
+    viewport: {
+      disable: true,
+    },
   },
   // tags: ["autodocs"],
   argTypes: {},

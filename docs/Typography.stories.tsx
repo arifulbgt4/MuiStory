@@ -13,6 +13,9 @@ const meta: Meta<typeof Typography> = {
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
+    viewport: {
+      disable: true,
+    },
   },
   // tags: ["autodocs"],
   argTypes: {

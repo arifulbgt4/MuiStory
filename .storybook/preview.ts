@@ -56,6 +56,18 @@ const preview: Preview = {
     docs: {
       theme: themes[DEFAULT_THEME],
     },
+    options: {
+      storySort: {
+        order: [
+          "Overview",
+          "Installation",
+          "Usage",
+          "Deployment",
+          "Dependencies",
+          "Packagelicense",
+        ],
+      },
+    },
   },
   decorators: [
     withThemeFromJSXProvider({
