@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sb": "dotenv -- cross-var storybook dev -p %STORYBOOK_PORT%",
+    "storybook": "dotenv -- cross-var storybook dev -p %STORYBOOK_PORT%",
     "build-storybook": "storybook build",
     "chromatic": "dotenv -- cross-var chromatic --project-token=%CHROMATIC_PROJECT_TOKEN% --exit-once-uploaded"
   },
