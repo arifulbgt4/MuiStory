@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import remarkGfm from "remark-gfm";
+
 const config: StorybookConfig = {
   stories: [
     "../docs/*.mdx",
@@ -12,6 +14,16 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-styling",
     "@storybook/addon-mdx-gfm",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/nextjs",

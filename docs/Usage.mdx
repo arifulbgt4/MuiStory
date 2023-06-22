@@ -1,0 +1,26 @@
+import { Meta, Canvas } from "@storybook/blocks";
+
+<Meta title="Usage" />
+
+# Usage
+
+Learn the basics of working with [Material UI](https://mui.com/material-ui/getting-started/overview/) components.
+
+## Quickstart
+
+The following code snippet demonstrates a simple app that uses the [Material UI Button](https://mui.com/material-ui/react-button/#basic-button) component:
+
+```js
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
+export default function BasicButtons() {
+  return (
+    <Stack spacing={2} direction="row">
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+    </Stack>
+  );
+}
+```

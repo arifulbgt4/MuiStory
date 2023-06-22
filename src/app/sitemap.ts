@@ -14,7 +14,7 @@ export const ROUTES_SITEMAP: ROUTES_SITEMAP_OPTIONS = {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return Object.keys(ROUTES_SITEMAP).map((d) => ({
-    url: `${process.env._PUBLISHED_DOMAIN}${ROUTES_SITEMAP[d].slice(1)}`,
+    url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}${ROUTES_SITEMAP[d].slice(1)}`,
     lastModified: new Date(),
   }));
 }

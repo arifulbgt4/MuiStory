@@ -47,6 +47,7 @@
     "dotenv-cli": "^7.2.1",
     "eslint-plugin-storybook": "^0.6.12",
     "react-element-to-jsx-string": "^15.0.0",
+    "remark-gfm": "^3.0.1",
     "storybook": "^7.0.20"
   },
   "readme": "ERROR: No README data found!",
