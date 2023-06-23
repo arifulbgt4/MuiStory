@@ -22,6 +22,7 @@ import Switch from "./Switch";
 import Accordion from "./Accordion";
 import AppBar from "./AppBar";
 import Link from "./Link";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default Object.assign(
   Button,
@@ -46,5 +47,6 @@ export default Object.assign(
   Switch,
   Accordion,
   AppBar,
-  Link
+  Link,
+  Breadcrumbs
 ) as Components<any>;
