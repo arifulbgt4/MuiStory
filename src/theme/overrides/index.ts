@@ -3,6 +3,7 @@ import Card from "./Card";
 import Button from "./Button";
 import TextField from "./TextField";
 import FormControl from "./FormControl";
+import Select from "./Select";
 import Alert from "./Alert";
 import Backdrop from "./Backdrop";
 import Dialog from "./Dialog";
@@ -30,6 +31,7 @@ export default Object.assign(
   Card,
   TextField,
   FormControl,
+  Select,
   Alert,
   Backdrop,
   Dialog,
