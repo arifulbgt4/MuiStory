@@ -23,6 +23,7 @@ import Accordion from "./Accordion";
 import AppBar from "./AppBar";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
+import Tooltip from "./Tooltip";
 
 export default Object.assign(
   Button,
@@ -48,5 +49,6 @@ export default Object.assign(
   Accordion,
   AppBar,
   Link,
-  Breadcrumbs
+  Breadcrumbs,
+  Tooltip
 ) as Components<any>;
