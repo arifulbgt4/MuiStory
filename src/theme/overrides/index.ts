@@ -3,6 +3,7 @@ import Card from "./Card";
 import Button from "./Button";
 import TextField from "./TextField";
 import FormControl from "./FormControl";
+import Select from "./Select";
 import Alert from "./Alert";
 import Backdrop from "./Backdrop";
 import Dialog from "./Dialog";
@@ -22,12 +23,15 @@ import Switch from "./Switch";
 import Accordion from "./Accordion";
 import AppBar from "./AppBar";
 import Link from "./Link";
+import Breadcrumbs from "./Breadcrumbs";
+import Tooltip from "./Tooltip";
 
 export default Object.assign(
   Button,
   Card,
   TextField,
   FormControl,
+  Select,
   Alert,
   Backdrop,
   Dialog,
@@ -46,5 +50,7 @@ export default Object.assign(
   Switch,
   Accordion,
   AppBar,
-  Link
+  Link,
+  Breadcrumbs,
+  Tooltip
 ) as Components<any>;
