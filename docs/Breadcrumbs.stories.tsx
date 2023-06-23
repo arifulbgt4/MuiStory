@@ -17,7 +17,7 @@ const meta: Meta<typeof Breadcrumbs> = {
       },
       canvas: { sourceState: "shown" },
     },
-    // layout: "centered",
+    layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {
