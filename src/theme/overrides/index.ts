@@ -25,6 +25,8 @@ import AppBar from "./AppBar";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
 import Tooltip from "./Tooltip";
+import Modal from "./Modal";
+import Tabs from "./Tabs";
 
 export default Object.assign(
   Button,
@@ -52,5 +54,7 @@ export default Object.assign(
   AppBar,
   Link,
   Breadcrumbs,
-  Tooltip
+  Tooltip,
+  Modal,
+  Tabs
 ) as Components<any>;
