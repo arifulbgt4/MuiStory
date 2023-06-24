@@ -1,15 +1,13 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import { useArgs } from "@storybook/addons";
 import { argProps, argChildren } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-const meta: Meta<typeof Modal> = {
+const meta: Meta<typeof Tabs> = {
   title: "NAVIGATION/Tabs",
-  component: Modal,
+  component: Tabs,
   parameters: {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
@@ -22,79 +20,41 @@ const meta: Meta<typeof Modal> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    color: {
-      control: { type: "select" },
-      options: [
-        "primary",
-        "secondary",
-        "error",
-        "warning",
-        "info",
-        "success",
-        "inherit",
-      ],
-    },
-    open: {
-      control: { type: "boolean" },
+    value: {
+      control: { type: "text" },
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Modal>;
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+type Story = StoryObj<typeof Tabs>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
-  render: ({ onClose, open, ...args }) => {
+  render: ({ onChange, value, ...args }) => {
+    console.log("value", value);
     return (
-      <Modal open={open} onClose={onClose} {...args}>
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
+      <Tabs {...args} value={value} onChange={onChange}>
+        <Tab value="one" label="Item One" />
+        <Tab value="two" label="Item Two" />
+        <Tab value="three" label="Item Three" />
+      </Tabs>
     );
   },
   args: {
-    open: false,
+    value: "one",
   },
   decorators: [
     (Story) => {
       const [args, updateArgs] = useArgs();
       return (
         <>
-          <Button
-            variant="contained"
-            onClick={() =>
-              updateArgs({
-                open: !args?.open,
-              })
-            }
-          >
-            Open Modal
-          </Button>
           <Story
             args={{
               ...args,
-              onClose: () =>
+              onChange: (e, newValue) =>
                 updateArgs({
-                  open: !args?.open,
+                  value: newValue,
                 }),
             }}
           />
@@ -106,9 +66,8 @@ export const Template: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
      
 ${code}
         `,
