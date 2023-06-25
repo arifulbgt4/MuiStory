@@ -27,6 +27,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import Tooltip from "./Tooltip";
 import Modal from "./Modal";
 import Tabs from "./Tabs";
+import Drawer from "./Drawer";
 
 export default Object.assign(
   Button,
@@ -56,5 +57,6 @@ export default Object.assign(
   Breadcrumbs,
   Tooltip,
   Modal,
-  Tabs
+  Tabs,
+  Drawer
 ) as Components<any>;
