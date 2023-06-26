@@ -54,6 +54,7 @@ export const Template: Story = {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
+        {...args}
       >
         <MenuItem onClick={onClose as any}>Profile</MenuItem>
         <MenuItem onClick={onClose as any}>My account</MenuItem>
