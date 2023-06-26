@@ -29,6 +29,7 @@ import Modal from "./Modal";
 import Tabs from "./Tabs";
 import Drawer from "./Drawer";
 import Pagination from "./Pagination";
+import BottomNavigation from "./BottomNavigation";
 
 export default Object.assign(
   Button,
@@ -60,5 +61,6 @@ export default Object.assign(
   Modal,
   Tabs,
   Drawer,
-  Pagination
+  Pagination,
+  BottomNavigation
 ) as Components<any>;
