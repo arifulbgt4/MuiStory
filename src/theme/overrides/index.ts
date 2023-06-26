@@ -28,6 +28,7 @@ import Tooltip from "./Tooltip";
 import Modal from "./Modal";
 import Tabs from "./Tabs";
 import Drawer from "./Drawer";
+import Pagination from "./Pagination";
 
 export default Object.assign(
   Button,
@@ -58,5 +59,6 @@ export default Object.assign(
   Tooltip,
   Modal,
   Tabs,
-  Drawer
+  Drawer,
+  Pagination
 ) as Components<any>;
