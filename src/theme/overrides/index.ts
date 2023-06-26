@@ -30,6 +30,7 @@ import Tabs from "./Tabs";
 import Drawer from "./Drawer";
 import Pagination from "./Pagination";
 import BottomNavigation from "./BottomNavigation";
+import Menu from "./Menu";
 
 export default Object.assign(
   Button,
@@ -62,5 +63,6 @@ export default Object.assign(
   Tabs,
   Drawer,
   Pagination,
-  BottomNavigation
+  BottomNavigation,
+  Menu
 ) as Components<any>;
