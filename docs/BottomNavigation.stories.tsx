@@ -35,18 +35,6 @@ const meta: Meta<typeof BottomNavigation> = {
 export default meta;
 type Story = StoryObj<typeof BottomNavigation>;
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
   render: ({ onChange, value, ...args }) => {
