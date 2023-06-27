@@ -32,7 +32,6 @@ type Story = StoryObj<typeof Tabs>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
   render: ({ onChange, value, ...args }) => {
-    console.log("value", value);
     return (
       <Tabs {...args} value={value} onChange={onChange}>
         <Tab value="one" label="Item One" />

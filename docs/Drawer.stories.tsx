@@ -89,6 +89,7 @@ export const Template: Story = {
               anchor={anchor}
               open={open}
               onClose={() => toggleDrawer(anchor, false)}
+              {...args}
             >
               {list(anchor)}
             </Drawer>
