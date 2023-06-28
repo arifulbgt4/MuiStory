@@ -40,5 +40,22 @@ const config: StorybookConfig = {
       disable: true,
     },
   },
+  managerHead: `
+    <style>
+    .css-mt2ehb, .css-1qjsijr {
+        width: auto !important;
+        top: 18px !important;
+        left: 18px !important;
+        height: auto !important;
+        bottom: 18px;
+        right: 18px;
+        border-radius: 10px !important;
+        box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12) !important;
+      }
+      .css-1nepfrt{
+        background-color: transparent !important;
+      }
+    </style>
+  `,
 };
 export default config;
