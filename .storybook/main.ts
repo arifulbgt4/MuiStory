@@ -74,8 +74,54 @@ const config: StorybookConfig = {
       background: #222941 !important;
       box-shadow: none !important;
     }
-    .css-c3junj{
-      display: none !important;
+    #storybook-explorer-menu svg {
+      color: #368bc8;
+    }
+    #storybook-explorer-menu button{
+      font-size: 16px;
+      border-radius: 0 20px 20px 0;
+      font-weight: 500;
+    }
+    
+    #storybook-explorer-menu button[aria-expanded="true"],
+    #storybook-explorer-menu button:focus,
+    #storybook-explorer-menu a[data-selected]:hover {
+      color: #f0f3ff;
+      background: transparent;
+    }
+    #storybook-explorer-menu .sidebar-subheading button{
+      font-size: 12px;
+      color: #7f7f7f;
+      letter-spacing: 2.5px;
+    }
+  
+    #storybook-explorer-menu a[data-selected="true"],
+    #storybook-explorer-menu a[data-selected="true"]:hover {
+      background-color: #131829;
+      color: #f0f3ff;
+      box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+    }
+    #storybook-explorer-menu a{
+      border-radius: 0 20px 20px 0;
+      font-size: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-weight: 500;
+    }
+    #storybook-explorer-menu a.css-q4vohu{
+      display: none;
+    }
+    #storybook-explorer-menu a[data-selected="true"] svg {
+      color: #f0f3ff;
+    }
+  
+    .os-content button:hover {
+      color: #fff;
+      background: transparent;
+    }
+  
+    .os-content button:hover svg {
+      color: #fff;
     }
   </style>
   `,
