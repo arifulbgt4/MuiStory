@@ -46,6 +46,7 @@ const config: StorybookConfig = {
       font-size: 16px;
       background: #0f1321 !important;
     }
+
     .css-mt2ehb, .css-1qjsijr {
       width: auto !important;
       top: 18px !important;
@@ -130,9 +131,13 @@ const config: StorybookConfig = {
     .sbdocs-wrapper{
       background: #131829;
     }
-    .sbdocs-preview{
+    .sbdocs-preview {
       box-shadow: 0px 6px 20px rgba(9, 11, 25, 0.5) !important;
       border-width: 0 !important;
+    }
+   
+    .sbdocs-content p {
+      font-size: 16px;
     }
   </style>
   `,
