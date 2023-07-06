@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import LinkNext, { LinkProps } from "next/link";
 import { Theme, Components } from "@mui/material/styles";
-import { LinkProps as LinkMUIProps } from "@mui/material";
+import { MenuItemProps as MenuItemMUIProps } from "@mui/material";
 
 // eslint-disable-next-line react/display-name
 const LinkBehavior = forwardRef<
@@ -12,13 +12,22 @@ const LinkBehavior = forwardRef<
   return <LinkNext ref={ref} href={href} {...other} />;
 });
 
-const MuiLink: Components<Theme>["MuiLink"] = {
+const MuiMenu: Components<Theme>["MuiMenu"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiMenuItem: Components<Theme>["MuiMenuItem"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
   defaultProps: {
     component: LinkBehavior,
-  } as LinkMUIProps,
+  } as MenuItemMUIProps,
 };
 
-export default { MuiLink };
+export default {
+  MuiMenu,
+  MuiMenuItem,
+};

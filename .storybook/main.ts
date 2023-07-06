@@ -135,6 +135,7 @@ const config: StorybookConfig = {
       box-shadow: 0px 6px 20px rgba(9, 11, 25, 0.5) !important;
       border-width: 0 !important;
     }
+    /*
     .sbdocs-content p,.sbdocs-content h1, .sbdocs-content h2, .sbdocs-content h3,.sbdocs-content h4,.sbdocs-content h5,.sbdocs-content h6{
       font-family: "Roboto";
       letter-spacing: 0.2px;
@@ -146,6 +147,7 @@ const config: StorybookConfig = {
       font-size: 20px;
       color: #b4b4b4;
     }
+    */
   </style>
   `,
   previewHead: `
