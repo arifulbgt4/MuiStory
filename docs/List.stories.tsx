@@ -1,13 +1,24 @@
+import { ReactElement, Fragment } from "react";
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import ListSubheader from "@mui/material/ListSubheader";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import Collapse from "@mui/material/Collapse";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import ImageIcon from "@mui/icons-material/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import { argChildren, argProps } from "./utils/formatArgs";
+import { Paper } from "@mui/material";
+import { useArgs, useState } from "@storybook/addons";
+import Home from "@mui/icons-material/Home";
+import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
+import { useRouter } from "next/navigation";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof List> = {
@@ -46,6 +57,152 @@ const meta: Meta<typeof List> = {
 
 export default meta;
 type Story = StoryObj<typeof List>;
+
+interface NavsOptions {
+  key: string;
+  name: string;
+  href: string;
+  icon: ReactElement;
+  nested?: NavsOptions[];
+}
+
+interface NavigationOptions {
+  key: string;
+  title: string;
+  navs: NavsOptions[];
+}
+
+const DATA: NavigationOptions[] = [
+  {
+    key: "OverView",
+    title: "Over view",
+    navs: [
+      {
+        key: "OverView_home",
+        name: "Home",
+        href: "/",
+        icon: <Home />,
+      },
+      {
+        key: "OverView_details",
+        name: "Details",
+        href: "/details",
+        icon: <Home />,
+      },
+    ],
+  },
+  {
+    key: "Management",
+    title: "Management",
+    navs: [
+      {
+        key: "Management_faq",
+        name: "Faq",
+        href: "#",
+        icon: <Home />,
+        nested: [
+          {
+            key: "Management_faq__post",
+            name: "Faq",
+            href: "/faq",
+            icon: <CircleRoundedIcon fontSize="small" />,
+          },
+          {
+            key: "Management_faq__about",
+            name: "Details about",
+            href: "/details/about",
+            icon: <CircleRoundedIcon />,
+          },
+        ],
+      },
+      {
+        key: "Management_details",
+        name: "Details",
+        href: "",
+        icon: <Home />,
+        nested: [
+          {
+            key: "Management_details__post",
+            name: "Details post",
+            href: "/details/post",
+            icon: <Home />,
+          },
+          {
+            key: "Management_details__about",
+            name: "Details about",
+            href: "/details/about",
+            icon: <Home />,
+            nested: [
+              {
+                key: "Management_details__about_as",
+                name: "Details about as",
+                href: "/details/aboutas",
+                icon: <Home />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const NestedNavs = ({ nav, open, setOpen }: any) => {
+  // const router = useRouter();
+  console.log("firstopen", open);
+  return (
+    <Fragment key={nav?.key}>
+      <ListItemButton
+        onClick={() => {
+          if (!Boolean(open.includes(nav.key))) {
+            setOpen((prevState: any) => [...prevState, nav.key]);
+          } else {
+            setOpen((prevState: any) =>
+              prevState.filter((d: any) => d !== nav.key)
+            );
+          }
+        }}
+      >
+        <ListItemIcon>{nav?.icon}</ListItemIcon>
+        <ListItemText primary={nav?.name} />
+
+        <KeyboardArrowRight
+          sx={{
+            transform: Boolean(open.includes(nav.key))
+              ? "rotate(90deg)"
+              : "rotate(0deg)",
+            transition: "0.2s",
+          }}
+        />
+      </ListItemButton>
+      <Collapse in={Boolean(open.includes(nav.key))}>
+        <List disablePadding>
+          {nav?.nested?.map((nest: any) => {
+            if (!Boolean(nest?.nested)) {
+              return (
+                <ListItemButton
+                  key={nest.key}
+                  // onClick={() => router.push(nest.href)}
+                >
+                  <ListItemIcon>{nest.icon}</ListItemIcon>
+                  <ListItemText primary={nest.name} />
+                </ListItemButton>
+              );
+            }
+            return (
+              <NestedNavs
+                key={nest.key}
+                nav={nest}
+                open={open}
+                setOpen={setOpen}
+              />
+            );
+          })}
+        </List>
+      </Collapse>
+    </Fragment>
+  );
+};
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Lists: Story = {
@@ -125,4 +282,91 @@ import BeachAccessIcon from "@mui/icons-material/BeachAccess";
       },
     },
   },
+};
+
+export const ListNavigation: Story = {
+  render: ({
+    groupCollapse,
+    setGroupCollapse,
+    open,
+    setOpen,
+    ...args
+  }: any) => {
+    return (
+      <Paper>
+        <List {...args}>
+          {DATA.map((item) => {
+            return (
+              <Fragment key={item.key}>
+                <ListSubheader
+                  disableSticky
+                  onClick={() => {
+                    if (!Boolean(groupCollapse.includes(item.key))) {
+                      setGroupCollapse((prevState: any) => [
+                        ...prevState,
+                        item.key,
+                      ]);
+                    } else {
+                      setGroupCollapse((prevState: any) =>
+                        prevState.filter((d: any) => d !== item.key)
+                      );
+                    }
+                  }}
+                  sx={{
+                    cursor: "pointer",
+                  }}
+                >
+                  {item.title}
+                </ListSubheader>
+                <Collapse in={Boolean(!groupCollapse.includes(item.key))}>
+                  {item.navs.map((nav) => {
+                    if (!Boolean(nav?.nested)) {
+                      return (
+                        <ListItemButton key={nav.key}>
+                          <ListItemIcon>{nav.icon}</ListItemIcon>
+                          <ListItemText primary={nav.name} />
+                        </ListItemButton>
+                      );
+                    }
+
+                    return (
+                      <NestedNavs
+                        key={nav.key}
+                        nav={nav}
+                        open={open}
+                        setOpen={setOpen}
+                      />
+                    );
+                  })}
+                </Collapse>
+              </Fragment>
+            );
+          })}
+        </List>
+      </Paper>
+    );
+  },
+  args: {
+    disablePadding: true,
+  },
+  decorators: [
+    (Story) => {
+      const [groupCollapse, setGroupCollapse] = useState<string[]>([""]);
+      const [open, setOpen] = useState<string[]>([""]);
+      const [args, updateArgs] = useArgs();
+      return (
+        <Story
+          args={
+            {
+              open,
+              setOpen,
+              ...args,
+              groupCollapse,
+              setGroupCollapse,
+            } as any
+          }
+        />
+      );
+    },
+  ],
 };

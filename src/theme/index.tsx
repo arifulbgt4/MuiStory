@@ -16,7 +16,7 @@ import componentsOverride from "./overrides";
 
 type SupportedLocales = keyof typeof locales;
 
-const DEFAULT_PALETTE_MODE: PaletteMode = "light";
+const DEFAULT_PALETTE_MODE: PaletteMode = "dark";
 const DEFAULT_LOCAL: SupportedLocales = "enUS";
 
 // Client-side cache, shared for the whole session of the user in the browser.

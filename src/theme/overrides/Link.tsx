@@ -12,10 +12,6 @@ const LinkBehavior = forwardRef<
   return <LinkNext ref={ref} href={href} {...other} />;
 });
 
-declare module "@mui/material/Paper" {
-  interface PaperPropsVariantOverrides {}
-}
-
 const MuiLink: Components<Theme>["MuiLink"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),

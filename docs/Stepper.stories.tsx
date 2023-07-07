@@ -69,25 +69,23 @@ export const Template: Story = {
         0: true,
       });
       return (
-        <>
-          <Story
-            args={
-              {
-                ...args,
-                completed,
-                onChange: (event: any, step: number) => {
-                  setcompleted((prevState) => ({
-                    ...prevState,
-                    [step]: true,
-                  }));
-                  updateArgs({
-                    activeStep: step,
-                  });
-                },
-              } as any
-            }
-          />
-        </>
+        <Story
+          args={
+            {
+              ...args,
+              completed,
+              onChange: (event: any, step: number) => {
+                setcompleted((prevState) => ({
+                  ...prevState,
+                  [step]: true,
+                }));
+                updateArgs({
+                  activeStep: step,
+                });
+              },
+            } as any
+          }
+        />
       );
     },
   ],

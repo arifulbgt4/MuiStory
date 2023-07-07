@@ -104,7 +104,6 @@ export const Template: Story = {
   decorators: [
     (Story) => {
       const [args, updateArgs] = useArgs();
-      console.log("args", args);
 
       const toggleDrawer = (anchor: Anchor, open: boolean) => {
         console.log("first");
