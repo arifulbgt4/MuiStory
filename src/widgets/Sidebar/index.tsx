@@ -8,11 +8,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
-import ArrowBack from "@mui/icons-material/Home";
+import Home from "@mui/icons-material/Home";
+import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
 import Divider from "@mui/material/Divider";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Collapse from "@mui/material/Collapse";
-import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
 import { useRouter } from "next/navigation";
 
 import { SidebarOptions, NavigationOptions } from "./Types";
@@ -26,13 +26,13 @@ const DATA: NavigationOptions[] = [
         key: "OverView_home",
         name: "Home",
         href: "/",
-        icon: <ArrowBack />,
+        icon: <Home />,
       },
       {
         key: "OverView_details",
         name: "Details",
         href: "/details",
-        icon: <ArrowBack />,
+        icon: <Home />,
       },
     ],
   },
@@ -44,7 +44,7 @@ const DATA: NavigationOptions[] = [
         key: "Management_faq",
         name: "Faq",
         href: "#",
-        icon: <ArrowBack />,
+        icon: <Home />,
         nested: [
           {
             key: "Management_faq__post",
@@ -64,25 +64,25 @@ const DATA: NavigationOptions[] = [
         key: "Management_details",
         name: "Details",
         href: "",
-        icon: <ArrowBack />,
+        icon: <Home />,
         nested: [
           {
             key: "Management_details__post",
             name: "Details post",
             href: "/details/post",
-            icon: <ArrowBack />,
+            icon: <Home />,
           },
           {
             key: "Management_details__about",
             name: "Details about",
             href: "/details/about",
-            icon: <ArrowBack />,
+            icon: <Home />,
             nested: [
               {
                 key: "Management_details__about_as",
                 name: "Details about as",
                 href: "/details/aboutas",
-                icon: <ArrowBack />,
+                icon: <Home />,
               },
             ],
           },
