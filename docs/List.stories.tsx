@@ -380,4 +380,220 @@ export const ListNavigation: Story = {
       );
     },
   ],
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+
+interface NavsOptions {
+  key: string;
+  name: string;
+  href: string;
+  icon: ReactElement;
+  nested?: NavsOptions[];
+}
+
+interface NavigationOptions {
+  key: string;
+  title: string;
+  navs: NavsOptions[];
+}
+
+const DATA: NavigationOptions[] = [
+  {
+    key: "OverView",
+    title: "Overview",
+    navs: [
+      {
+        key: "OverView_Menu_one_example",
+        name: "Menu one example",
+        href: "/menuone",
+        icon: <HomeIcon />,
+      },
+      {
+        key: "OverView_Menu_two_example",
+        name: "Menu two example",
+        href: "/menutwo",
+        icon: <ImageIcon />,
+      },
+    ],
+  },
+  {
+    key: "Management",
+    title: "Management",
+    navs: [
+      {
+        key: "Management_Menu Label one",
+        name: "Menu Label one",
+        href: "#",
+        icon: <AutoGraphOutlinedIcon />,
+        nested: [
+          {
+            key: "Management_Menu_Label_two",
+            name: "Menu Label two",
+            href: "/faq",
+            icon: <AlignHorizontalCenterIcon fontSize="small" />,
+          },
+          {
+            key: "Management_Menu_Label_2.2",
+            name: "Menu Label 2.2",
+            href: "/details/about",
+            icon: <WorkOutlineIcon fontSize="small" />,
+          },
+        ],
+      },
+      {
+        key: "Management_Menu_two_Label_one",
+        name: "Menu two Label one",
+        href: "",
+        icon: <BeachAccessIcon />,
+        nested: [
+          {
+            key: "Management_Menu_two_Label_2.1",
+            name: "Menu two Label 2.1",
+            href: "/details/post",
+            icon: <AspectRatioIcon fontSize="small" />,
+          },
+          {
+            key: "Management_Menu_two_Label_2.2",
+            name: "Menu two Label 2.2",
+            href: "/details/about",
+            icon: <AllInclusiveIcon fontSize="small" />,
+            nested: [
+              {
+                key: "Management_Menu_two_Label_3.1",
+                name: "Menu two Label 3.1",
+                href: "/details/aboutas",
+                icon: <AutoAwesomeMotionIcon fontSize="small" />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const NestedNavs = ({ nav, open, setOpen, nested = 2 }: any) => {
+  // const router = useRouter();
+  return (
+    <Fragment key={nav?.key}>
+      <ListItemButton
+        sx={{
+          pl: nested,
+        }}
+        onClick={() => {
+          if (!Boolean(open.includes(nav.key))) {
+            setOpen((prevState: any) => [...prevState, nav.key]);
+          } else {
+            setOpen((prevState: any) =>
+              prevState.filter((d: any) => d !== nav.key)
+            );
+          }
+        }}
+      >
+        <ListItemIcon>{nav?.icon}</ListItemIcon>
+        <ListItemText primary={nav?.name} />
+
+        <KeyboardArrowRight
+          sx={{
+            transform: Boolean(open.includes(nav.key))
+              ? "rotate(90deg)"
+              : "rotate(0deg)",
+            transition: "0.2s",
+          }}
+        />
+      </ListItemButton>
+      <Collapse in={Boolean(open.includes(nav.key))}>
+        <List disablePadding>
+          {nav?.nested?.map((nest: any) => {
+            if (!Boolean(nest?.nested)) {
+              return (
+                <ListItemButton
+                  sx={{
+                    pl: nested + 1,
+                  }}
+                  key={nest.key}
+                  // onClick={() => router.push(nest.href)}
+                >
+                  <ListItemIcon>{nest.icon}</ListItemIcon>
+                  <ListItemText primary={nest.name} />
+                </ListItemButton>
+              );
+            }
+            return (
+              <NestedNavs
+                key={nest.key}
+                nav={nest}
+                open={open}
+                setOpen={setOpen}
+                nested={nested + 1}
+              />
+            );
+          })}
+        </List>
+      </Collapse>
+    </Fragment>
+  );
+};
+     
+export default function Basic(){
+  return(
+    <Paper>
+      <List {...args}>
+        {DATA.map((item) => {
+          return (
+            <Fragment key={item.key}>
+              <ListSubheader
+                disableSticky
+                onClick={() => {
+                  if (!Boolean(groupCollapse.includes(item.key))) {
+                    setGroupCollapse((prevState: any) => [
+                      ...prevState,
+                      item.key,
+                    ]);
+                  } else {
+                    setGroupCollapse((prevState: any) =>
+                      prevState.filter((d: any) => d !== item.key)
+                    );
+                  }
+                }}
+                sx={{
+                  cursor: "pointer",
+                }}
+              >
+                {item.title}
+              </ListSubheader>
+              <Collapse in={Boolean(!groupCollapse.includes(item.key))}>
+                {item.navs.map((nav) => {
+                  if (!Boolean(nav?.nested)) {
+                    return (
+                      <ListItemButton key={nav.key}>
+                        <ListItemIcon>{nav.icon}</ListItemIcon>
+                        <ListItemText primary={nav.name} />
+                      </ListItemButton>
+                    );
+                  }
+
+                  return (
+                    <NestedNavs
+                      key={nav.key}
+                      nav={nav}
+                      open={open}
+                      setOpen={setOpen}
+                    />
+                  );
+                })}
+              </Collapse>
+            </Fragment>
+          );
+        })}
+      </List>
+    </Paper>
+  )
+}
+        `,
+      },
+    },
+  },
 };
