@@ -65,11 +65,6 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
-export interface NestedNavOptioms {
-  navigation: NavigationOptions;
-  nested?: number;
-}
-
 export interface NavOptions {
   key: string;
   title: string;
@@ -394,7 +389,7 @@ export const ListNavigation: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-
+"use client";
 import { FC, useState, Fragment } from "react";
 import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
@@ -511,6 +506,9 @@ export interface NestedNavOptioms {
   navigation: NavigationOptions;
   nested?: number;
 }
+
+const DEFUALT_NESTED_LEFT_PADDING: number = 1;
+
 
 const NestedNavs: FC<NestedNavOptioms> = ({ navigation, nested = 2 }) => {
   const { icon: NavIcon } = navigation;
