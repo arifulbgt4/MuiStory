@@ -1,4 +1,4 @@
-import { ReactElement, Fragment } from "react";
+import { ReactElement, Fragment, FC } from "react";
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -10,15 +10,22 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Collapse from "@mui/material/Collapse";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
-import WorkIcon from "@mui/icons-material/Work";
-import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import { argChildren, argProps } from "./utils/formatArgs";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import { useArgs, useState } from "@storybook/addons";
-import Home from "@mui/icons-material/Home";
-import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
-import { useRouter } from "next/navigation";
+import { SvgIconComponent } from "@mui/icons-material";
+
+// Icons
+import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import WorkIcon from "@mui/icons-material/Work";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ImageIcon from "@mui/icons-material/Image";
+import HomeIcon from "@mui/icons-material/Home";
+import AlignHorizontalCenterIcon from "@mui/icons-material/AlignHorizontalCenter";
+import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import AutoAwesomeMotionIcon from "@mui/icons-material/AutoAwesomeMotion";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof List> = {
@@ -58,36 +65,36 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
-interface NavsOptions {
+export interface NavOptions {
+  key: string;
+  title: string;
+  navs: NavigationOptions[];
+}
+
+export interface NavigationOptions {
   key: string;
   name: string;
   href: string;
-  icon: ReactElement;
-  nested?: NavsOptions[];
+  icon: SvgIconComponent;
+  nested?: NavigationOptions[];
 }
 
-interface NavigationOptions {
-  key: string;
-  title: string;
-  navs: NavsOptions[];
-}
-
-const DATA: NavigationOptions[] = [
+const NAVIGATIONS: NavOptions[] = [
   {
     key: "OverView",
-    title: "Over view",
+    title: "Overview",
     navs: [
       {
-        key: "OverView_home",
-        name: "Home",
+        key: "OverView_Menu_one_example",
+        name: "Menu one example",
         href: "/",
-        icon: <Home />,
+        icon: HomeIcon,
       },
       {
-        key: "OverView_details",
-        name: "Details",
-        href: "/details",
-        icon: <Home />,
+        key: "OverView_Menu_two_example",
+        name: "Menu two example",
+        href: "/menutwo",
+        icon: BeachAccessIcon,
       },
     ],
   },
@@ -96,48 +103,48 @@ const DATA: NavigationOptions[] = [
     title: "Management",
     navs: [
       {
-        key: "Management_faq",
-        name: "Faq",
+        key: "Management_Menu Label one",
+        name: "Menu Label one",
         href: "#",
-        icon: <Home />,
+        icon: AutoGraphOutlinedIcon,
         nested: [
           {
-            key: "Management_faq__post",
-            name: "Faq",
+            key: "Management_Menu_Label_two",
+            name: "Menu Label two",
             href: "/faq",
-            icon: <CircleRoundedIcon fontSize="small" />,
+            icon: AlignHorizontalCenterIcon,
           },
           {
-            key: "Management_faq__about",
-            name: "Details about",
+            key: "Management_Menu_Label_2.2",
+            name: "Menu Label 2.2",
             href: "/details/about",
-            icon: <CircleRoundedIcon />,
+            icon: WorkOutlineIcon,
           },
         ],
       },
       {
-        key: "Management_details",
-        name: "Details",
+        key: "Management_Menu_two_Label_one",
+        name: "Menu two Label one",
         href: "",
-        icon: <Home />,
+        icon: ImageIcon,
         nested: [
           {
-            key: "Management_details__post",
-            name: "Details post",
+            key: "Management_Menu_two_Label_2.1",
+            name: "Menu two Label 2.1",
             href: "/details/post",
-            icon: <Home />,
+            icon: AspectRatioIcon,
           },
           {
-            key: "Management_details__about",
-            name: "Details about",
+            key: "Management_Menu_two_Label_2.2",
+            name: "Menu two Label 2.2",
             href: "/details/about",
-            icon: <Home />,
+            icon: AllInclusiveIcon,
             nested: [
               {
-                key: "Management_details__about_as",
-                name: "Details about as",
+                key: "Management_Menu_two_Label_3.1",
+                name: "Menu two Label 3.1",
                 href: "/details/aboutas",
-                icon: <Home />,
+                icon: AutoAwesomeMotionIcon,
               },
             ],
           },
@@ -147,59 +154,81 @@ const DATA: NavigationOptions[] = [
   },
 ];
 
-const NestedNavs = ({ nav, open, setOpen }: any) => {
-  // const router = useRouter();
-  console.log("firstopen", open);
+const DEFUALT_NESTED_LEFT_PADDING: number = 1;
+
+const NestedNavs = ({ navigation, nested = 2, open, setOpen }: any) => {
+  const { icon: NavIcon } = navigation;
+
+  const onNavigationHandle = (href: string, isNested: boolean) => {
+    if (!Boolean(open.includes(isNested))) {
+      setOpen((prevState: string[]) => [...prevState, isNested]);
+      return;
+    }
+    setOpen((prevState: string[]) =>
+      prevState.filter((d: any) => d !== isNested)
+    );
+  };
+
   return (
-    <Fragment key={nav?.key}>
+    <Fragment key={navigation.key}>
       <ListItemButton
-        onClick={() => {
-          if (!Boolean(open.includes(nav.key))) {
-            setOpen((prevState: any) => [...prevState, nav.key]);
-          } else {
-            setOpen((prevState: any) =>
-              prevState.filter((d: any) => d !== nav.key)
-            );
-          }
+        onClick={() => onNavigationHandle(navigation.href, navigation.key)}
+        sx={{
+          pl: nested,
         }}
       >
-        <ListItemIcon>{nav?.icon}</ListItemIcon>
-        <ListItemText primary={nav?.name} />
+        <ListItemIcon>
+          <NavIcon fontSize={nested === 2 ? "medium" : "small"} />
+        </ListItemIcon>
+        <ListItemText primary={navigation.name} />
 
-        <KeyboardArrowRight
-          sx={{
-            transform: Boolean(open.includes(nav.key))
-              ? "rotate(90deg)"
-              : "rotate(0deg)",
-            transition: "0.2s",
-          }}
-        />
+        {Boolean(navigation.nested) && (
+          <KeyboardArrowRight
+            sx={{
+              transform: Boolean(open.includes(navigation.key))
+                ? "rotate(90deg)"
+                : "rotate(0deg)",
+              transition: "0.2s",
+            }}
+          />
+        )}
       </ListItemButton>
-      <Collapse in={Boolean(open.includes(nav.key))}>
-        <List disablePadding>
-          {nav?.nested?.map((nest: any) => {
-            if (!Boolean(nest?.nested)) {
+      {Boolean(navigation.nested) && (
+        <Collapse in={Boolean(open.includes(navigation.key))}>
+          <List disablePadding>
+            {navigation?.nested?.map((nest: NavigationOptions) => {
+              if (!Boolean(nest.nested)) {
+                const { icon: NestIcon } = nest;
+                return (
+                  <ListItemButton
+                    key={nest.key}
+                    onClick={() =>
+                      onNavigationHandle(nest.href, Boolean(nest.nested))
+                    }
+                    sx={{
+                      pl: nested + DEFUALT_NESTED_LEFT_PADDING,
+                    }}
+                  >
+                    <ListItemIcon>
+                      <NestIcon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText primary={nest.name} />
+                  </ListItemButton>
+                );
+              }
               return (
-                <ListItemButton
+                <NestedNavs
                   key={nest.key}
-                  // onClick={() => router.push(nest.href)}
-                >
-                  <ListItemIcon>{nest.icon}</ListItemIcon>
-                  <ListItemText primary={nest.name} />
-                </ListItemButton>
+                  navigation={nest}
+                  nested={nested + DEFUALT_NESTED_LEFT_PADDING}
+                  open={open}
+                  setOpen={setOpen}
+                />
               );
-            }
-            return (
-              <NestedNavs
-                key={nest.key}
-                nav={nest}
-                open={open}
-                setOpen={setOpen}
-              />
-            );
-          })}
-        </List>
-      </Collapse>
+            })}
+          </List>
+        </Collapse>
+      )}
     </Fragment>
   );
 };
@@ -292,52 +321,39 @@ export const ListNavigation: Story = {
     setOpen,
     ...args
   }: any) => {
+    const onHandleCollapse = (navKey: string) => {
+      if (!Boolean(groupCollapse.includes(navKey))) {
+        setGroupCollapse((prevState: string[]) => [...prevState, navKey]);
+        return;
+      }
+      setGroupCollapse((prevState: string[]) =>
+        prevState.filter((d: string) => d !== navKey)
+      );
+    };
     return (
       <Paper>
         <List {...args}>
-          {DATA.map((item) => {
+          {NAVIGATIONS.map(({ key, title, navs }: NavOptions) => {
             return (
-              <Fragment key={item.key}>
+              <Fragment key={key}>
                 <ListSubheader
                   disableSticky
-                  onClick={() => {
-                    if (!Boolean(groupCollapse.includes(item.key))) {
-                      setGroupCollapse((prevState: any) => [
-                        ...prevState,
-                        item.key,
-                      ]);
-                    } else {
-                      setGroupCollapse((prevState: any) =>
-                        prevState.filter((d: any) => d !== item.key)
-                      );
-                    }
-                  }}
+                  onClick={() => onHandleCollapse(key)}
                   sx={{
                     cursor: "pointer",
                   }}
                 >
-                  {item.title}
+                  {title}
                 </ListSubheader>
-                <Collapse in={Boolean(!groupCollapse.includes(item.key))}>
-                  {item.navs.map((nav) => {
-                    if (!Boolean(nav?.nested)) {
-                      return (
-                        <ListItemButton key={nav.key}>
-                          <ListItemIcon>{nav.icon}</ListItemIcon>
-                          <ListItemText primary={nav.name} />
-                        </ListItemButton>
-                      );
-                    }
-
-                    return (
-                      <NestedNavs
-                        key={nav.key}
-                        nav={nav}
-                        open={open}
-                        setOpen={setOpen}
-                      />
-                    );
-                  })}
+                <Collapse in={Boolean(!groupCollapse.includes(key))}>
+                  {navs.map((navigation: NavigationOptions) => (
+                    <NestedNavs
+                      key={navigation.key}
+                      navigation={navigation}
+                      open={open}
+                      setOpen={setOpen}
+                    />
+                  ))}
                 </Collapse>
               </Fragment>
             );
@@ -369,4 +385,251 @@ export const ListNavigation: Story = {
       );
     },
   ],
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+"use client";
+import { FC, useState, Fragment } from "react";
+import Paper from "@mui/material/Paper";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ListSubheader from "@mui/material/ListSubheader";
+import Collapse from "@mui/material/Collapse";
+import { useRouter } from "next/navigation";
+
+// Icons
+import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ImageIcon from "@mui/icons-material/Image";
+import HomeIcon from "@mui/icons-material/Home";
+import AlignHorizontalCenterIcon from "@mui/icons-material/AlignHorizontalCenter";
+import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import AutoAwesomeMotionIcon from "@mui/icons-material/AutoAwesomeMotion";
+import { SvgIconComponent } from "@mui/icons-material";
+
+export interface NavOptions {
+  key: string;
+  title: string;
+  navs: NavigationOptions[];
+}
+
+export interface NavigationOptions {
+  key: string;
+  name: string;
+  href: string;
+  icon: SvgIconComponent;
+  nested?: NavigationOptions[];
+}
+
+export const NAVIGATIONS: NavOptions[] = [
+  {
+    key: "OverView",
+    title: "Overview",
+    navs: [
+      {
+        key: "OverView_Menu_one_example",
+        name: "Menu one example",
+        href: "/",
+        icon: HomeIcon,
+      },
+      {
+        key: "OverView_Menu_two_example",
+        name: "Menu two example",
+        href: "/menutwo",
+        icon: BeachAccessIcon,
+      },
+    ],
+  },
+  {
+    key: "Management",
+    title: "Management",
+    navs: [
+      {
+        key: "Management_Menu Label one",
+        name: "Menu Label one",
+        href: "#",
+        icon: AutoGraphOutlinedIcon,
+        nested: [
+          {
+            key: "Management_Menu_Label_two",
+            name: "Menu Label two",
+            href: "/faq",
+            icon: AlignHorizontalCenterIcon,
+          },
+          {
+            key: "Management_Menu_Label_2.2",
+            name: "Menu Label 2.2",
+            href: "/details/about",
+            icon: WorkOutlineIcon,
+          },
+        ],
+      },
+      {
+        key: "Management_Menu_two_Label_one",
+        name: "Menu two Label one",
+        href: "",
+        icon: ImageIcon,
+        nested: [
+          {
+            key: "Management_Menu_two_Label_2.1",
+            name: "Menu two Label 2.1",
+            href: "/details/post",
+            icon: AspectRatioIcon,
+          },
+          {
+            key: "Management_Menu_two_Label_2.2",
+            name: "Menu two Label 2.2",
+            href: "/details/about",
+            icon: AllInclusiveIcon,
+            nested: [
+              {
+                key: "Management_Menu_two_Label_3.1",
+                name: "Menu two Label 3.1",
+                href: "/details/aboutas",
+                icon: AutoAwesomeMotionIcon,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export interface NestedNavOptioms {
+  navigation: NavigationOptions;
+  nested?: number;
+}
+
+const DEFUALT_NESTED_LEFT_PADDING: number = 1;
+
+
+const NestedNavs: FC<NestedNavOptioms> = ({ navigation, nested = 2 }) => {
+  const { icon: NavIcon } = navigation;
+
+  const [open, setOpen] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const onNavigationHandle = (href: string, isNested: boolean) => {
+    if (isNested) {
+      setOpen((prevState: boolean) => !prevState);
+      return;
+    }
+    router.push(href);
+  };
+
+  return (
+    <Fragment key={navigation.key}>
+      <ListItemButton
+        onClick={() =>
+          onNavigationHandle(navigation.href, Boolean(navigation.nested))
+        }
+        sx={{
+          pl: nested,
+        }}
+      >
+        <ListItemIcon>
+          <NavIcon fontSize={nested === 2 ? "medium" : "small"} />
+        </ListItemIcon>
+        <ListItemText primary={navigation.name} />
+
+        {Boolean(navigation.nested) && (
+          <KeyboardArrowRight
+            sx={{
+              transform: open ? "rotate(90deg)" : "rotate(0deg)",
+              transition: "0.2s",
+            }}
+          />
+        )}
+      </ListItemButton>
+      {Boolean(navigation.nested) && (
+        <Collapse in={open}>
+          <List disablePadding>
+            {navigation?.nested?.map((nest: NavigationOptions) => {
+              if (!Boolean(nest.nested)) {
+                const { icon: NestIcon } = nest;
+                return (
+                  <ListItemButton
+                    key={nest.key}
+                    onClick={() =>
+                      onNavigationHandle(nest.href, Boolean(nest.nested))
+                    }
+                    sx={{
+                      pl: nested + DEFUALT_NESTED_LEFT_PADDING,
+                    }}
+                  >
+                    <ListItemIcon>
+                      <NestIcon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText primary={nest.name} />
+                  </ListItemButton>
+                );
+              }
+              return (
+                <NestedNavs
+                  key={nest.key}
+                  navigation={nest}
+                  nested={nested + DEFUALT_NESTED_LEFT_PADDING}
+                />
+              );
+            })}
+          </List>
+        </Collapse>
+      )}
+    </Fragment>
+  );
+};
+
+     
+export default function Basic(){
+  const [groupCollapse, setGroupCollapse] = useState<string[]>([""]);
+
+  const onHandleCollapse = (navKey: string) => {
+    if (!Boolean(groupCollapse.includes(navKey))) {
+      setGroupCollapse((prevState: string[]) => [...prevState, navKey]);
+      return;
+    }
+    setGroupCollapse((prevState: string[]) =>
+      prevState.filter((d: string) => d !== navKey)
+    );
+  };
+
+  return(
+    <Paper>
+      <List disablePadding>
+        {NAVIGATIONS.map(({ key, title, navs }: NavOptions) => {
+          return (
+            <Fragment key={key}>
+              <ListSubheader
+                disableSticky
+                onClick={() => onHandleCollapse(key)}
+                sx={{
+                  cursor: "pointer",
+                }}
+              >
+                {title}
+              </ListSubheader>
+              <Collapse in={Boolean(!groupCollapse.includes(key))}>
+                {navs.map((navigation: NavigationOptions) => (
+                  <NestedNavs key={navigation.key} navigation={navigation} />
+                ))}
+              </Collapse>
+            </Fragment>
+          );
+        })}
+      </List>
+    </Paper>
+  )
+}
+        `,
+      },
+    },
+  },
 };
