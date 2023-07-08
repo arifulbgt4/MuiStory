@@ -35,3 +35,22 @@ export const argProps = (
 export const argChildren = (context: StoryContext): string => {
   return reactElementToJSXString(context.args.children as ReactElement);
 };
+
+export const overViewRef = ({
+  component,
+  selector,
+  props,
+  css,
+}: {
+  component: string;
+  selector?: string;
+  props: string;
+  css?: string;
+}): string => {
+  return `<hr> 
+  \`${component}\` ${
+    selector && `- Style selector \`${selector}\``
+  } ∞ <a href="${props}" target="_blank">props</a>  ∞ ${
+    css && `<a href="${css}" target="_blank">css</a>`
+  } `;
+};
