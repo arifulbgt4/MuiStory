@@ -147,12 +147,15 @@ const DATA: NavigationOptions[] = [
   },
 ];
 
-const NestedNavs = ({ nav, open, setOpen }: any) => {
+const NestedNavs = ({ nav, open, setOpen, nested = 0 }: any) => {
   // const router = useRouter();
   console.log("firstopen", open);
   return (
     <Fragment key={nav?.key}>
       <ListItemButton
+        sx={{
+          pl: nested === 0 ? nested + 1 : nested + 2,
+        }}
         onClick={() => {
           if (!Boolean(open.includes(nav.key))) {
             setOpen((prevState: any) => [...prevState, nav.key]);
@@ -181,6 +184,9 @@ const NestedNavs = ({ nav, open, setOpen }: any) => {
             if (!Boolean(nest?.nested)) {
               return (
                 <ListItemButton
+                  sx={{
+                    pl: nested === 0 ? nested + 3 : nested + 4,
+                  }}
                   key={nest.key}
                   // onClick={() => router.push(nest.href)}
                 >
@@ -195,6 +201,7 @@ const NestedNavs = ({ nav, open, setOpen }: any) => {
                 nav={nest}
                 open={open}
                 setOpen={setOpen}
+                nested={nested + 1}
               />
             );
           })}

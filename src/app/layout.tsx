@@ -1,5 +1,4 @@
 import ThemeContextProvider from "src/theme";
-import Sidebar from "src/widgets/Sidebar";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,10 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeContextProvider>
-        <body suppressHydrationWarning={true}>
-          <Sidebar />
-          {children}
-        </body>
+        <body suppressHydrationWarning={true}>{children}</body>
       </ThemeContextProvider>
     </html>
   );
