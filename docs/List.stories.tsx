@@ -1,4 +1,4 @@
-import { ReactElement, Fragment } from "react";
+import { ReactElement, Fragment, FC } from "react";
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -63,18 +63,23 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
-interface NavsOptions {
+export interface NestedNavOptioms {
+  navigation: NavigationOptions;
+  nested?: number;
+}
+
+export interface NavigationOptions {
   key: string;
   name: string;
   href: string;
   icon: ReactElement;
-  nested?: NavsOptions[];
+  nested?: NavigationOptions[];
 }
 
-interface NavigationOptions {
+export interface NavOptions {
   key: string;
   title: string;
-  navs: NavsOptions[];
+  navs: NavigationOptions[];
 }
 
 const DATA: NavigationOptions[] = [
@@ -152,65 +157,145 @@ const DATA: NavigationOptions[] = [
   },
 ];
 
-const NestedNavs = ({ nav, open, setOpen, nested = 2 }: any) => {
+const NAVIGATIONS: NavOptions[] = [
+  {
+    key: "OverView",
+    title: "Overview",
+    navs: [
+      {
+        key: "OverView_Menu_one_example",
+        name: "Menu one example",
+        href: "/",
+        icon: <HomeIcon />,
+      },
+      {
+        key: "OverView_Menu_two_example",
+        name: "Menu two example",
+        href: "/menutwo",
+        icon: <ImageIcon />,
+      },
+    ],
+  },
+  {
+    key: "Management",
+    title: "Management",
+    navs: [
+      {
+        key: "Management_Menu Label one",
+        name: "Menu Label one",
+        href: "#",
+        icon: <AutoGraphOutlinedIcon />,
+        nested: [
+          {
+            key: "Management_Menu_Label_two",
+            name: "Menu Label two",
+            href: "/faq",
+            icon: <AlignHorizontalCenterIcon fontSize="small" />,
+          },
+          {
+            key: "Management_Menu_Label_2.2",
+            name: "Menu Label 2.2",
+            href: "/details/about",
+            icon: <WorkOutlineIcon fontSize="small" />,
+          },
+        ],
+      },
+      {
+        key: "Management_Menu_two_Label_one",
+        name: "Menu two Label one",
+        href: "",
+        icon: <BeachAccessIcon />,
+        nested: [
+          {
+            key: "Management_Menu_two_Label_2.1",
+            name: "Menu two Label 2.1",
+            href: "/details/post",
+            icon: <AspectRatioIcon fontSize="small" />,
+          },
+          {
+            key: "Management_Menu_two_Label_2.2",
+            name: "Menu two Label 2.2",
+            href: "/details/about",
+            icon: <AllInclusiveIcon fontSize="small" />,
+            nested: [
+              {
+                key: "Management_Menu_two_Label_3.1",
+                name: "Menu two Label 3.1",
+                href: "/details/aboutas",
+                icon: <AutoAwesomeMotionIcon fontSize="small" />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const NestedNavs = ({ navigation, nested = 2, open, setOpen }: any) => {
   // const router = useRouter();
+
+  const onNavigationHandle = (href: string, isNested: boolean) => {
+    if (isNested) {
+      setOpen((prevState: boolean) => !prevState);
+      return;
+    }
+    // router.push(href);
+  };
+
   return (
-    <Fragment key={nav?.key}>
+    <Fragment key={navigation.key}>
       <ListItemButton
+        onClick={() =>
+          onNavigationHandle(navigation.href, Boolean(navigation.nested))
+        }
         sx={{
           pl: nested,
         }}
-        onClick={() => {
-          if (!Boolean(open.includes(nav.key))) {
-            setOpen((prevState: any) => [...prevState, nav.key]);
-          } else {
-            setOpen((prevState: any) =>
-              prevState.filter((d: any) => d !== nav.key)
-            );
-          }
-        }}
       >
-        <ListItemIcon>{nav?.icon}</ListItemIcon>
-        <ListItemText primary={nav?.name} />
+        <ListItemIcon>{navigation.icon}</ListItemIcon>
+        <ListItemText primary={navigation.name} />
 
-        <KeyboardArrowRight
-          sx={{
-            transform: Boolean(open.includes(nav.key))
-              ? "rotate(90deg)"
-              : "rotate(0deg)",
-            transition: "0.2s",
-          }}
-        />
+        {Boolean(navigation.nested) && (
+          <KeyboardArrowRight
+            sx={{
+              transform: open ? "rotate(90deg)" : "rotate(0deg)",
+              transition: "0.2s",
+            }}
+          />
+        )}
       </ListItemButton>
-      <Collapse in={Boolean(open.includes(nav.key))}>
-        <List disablePadding>
-          {nav?.nested?.map((nest: any) => {
-            if (!Boolean(nest?.nested)) {
+      {Boolean(navigation.nested) && (
+        <Collapse in={open}>
+          <List disablePadding>
+            {navigation.nested.map((nest: NavigationOptions) => {
+              if (!Boolean(nest.nested)) {
+                return (
+                  <ListItemButton
+                    key={nest.key}
+                    onClick={() =>
+                      onNavigationHandle(nest.href, Boolean(nest.nested))
+                    }
+                    sx={{
+                      pl: nested + 1,
+                    }}
+                  >
+                    <ListItemIcon>{nest.icon}</ListItemIcon>
+                    <ListItemText primary={nest.name} />
+                  </ListItemButton>
+                );
+              }
               return (
-                <ListItemButton
-                  sx={{
-                    pl: nested + 1,
-                  }}
+                <NestedNavs
                   key={nest.key}
-                  // onClick={() => router.push(nest.href)}
-                >
-                  <ListItemIcon>{nest.icon}</ListItemIcon>
-                  <ListItemText primary={nest.name} />
-                </ListItemButton>
+                  navigation={nest}
+                  nested={nested + 1}
+                />
               );
-            }
-            return (
-              <NestedNavs
-                key={nest.key}
-                nav={nest}
-                open={open}
-                setOpen={setOpen}
-                nested={nested + 1}
-              />
-            );
-          })}
-        </List>
-      </Collapse>
+            })}
+          </List>
+        </Collapse>
+      )}
     </Fragment>
   );
 };
