@@ -17,12 +17,13 @@ const Laboratory = ({ children }: { children: React.ReactNode }) => {
           boxShadow: 1,
           alignItems: "center",
           background: (theme) => theme.palette.action.focus,
-          p: 2,
+          py: 2,
+          px: 4,
           mb: 4,
         }}
       >
-        <Typography textTransform="uppercase" variant="h2" color="primary">
-          Components Laboratory
+        <Typography variant="h2" color="primary">
+          Laboratory
         </Typography>
         <Button variant="contained" onClick={toggleColorMode}>
           Change Color Mode

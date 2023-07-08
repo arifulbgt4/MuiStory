@@ -1,7 +1,7 @@
 import Laboratory from "src/widgets/Laboratory";
 
 export const metadata = {
-  title: "Components Laboratory",
+  title: "Laboratory",
   description: "Experiment components",
   viewport: "initial-scale=1, width=device-width",
 };
