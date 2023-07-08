@@ -10,15 +10,20 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Collapse from "@mui/material/Collapse";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
-import WorkIcon from "@mui/icons-material/Work";
-import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import { argChildren, argProps } from "./utils/formatArgs";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import { useArgs, useState } from "@storybook/addons";
-import Home from "@mui/icons-material/Home";
-import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
-import { useRouter } from "next/navigation";
+// Icons
+import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import WorkIcon from "@mui/icons-material/Work";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ImageIcon from "@mui/icons-material/Image";
+import HomeIcon from "@mui/icons-material/Home";
+import AlignHorizontalCenterIcon from "@mui/icons-material/AlignHorizontalCenter";
+import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
+import AutoAwesomeMotionIcon from "@mui/icons-material/AutoAwesomeMotion";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof List> = {
@@ -75,19 +80,19 @@ interface NavigationOptions {
 const DATA: NavigationOptions[] = [
   {
     key: "OverView",
-    title: "Over view",
+    title: "Overview",
     navs: [
       {
-        key: "OverView_home",
-        name: "Home",
-        href: "/",
-        icon: <Home />,
+        key: "OverView_Menu_one_example",
+        name: "Menu one example",
+        href: "/menuone",
+        icon: <HomeIcon />,
       },
       {
-        key: "OverView_details",
-        name: "Details",
-        href: "/details",
-        icon: <Home />,
+        key: "OverView_Menu_two_example",
+        name: "Menu two example",
+        href: "/menutwo",
+        icon: <ImageIcon />,
       },
     ],
   },
@@ -96,48 +101,48 @@ const DATA: NavigationOptions[] = [
     title: "Management",
     navs: [
       {
-        key: "Management_faq",
-        name: "Faq",
+        key: "Management_Menu Label one",
+        name: "Menu Label one",
         href: "#",
-        icon: <Home />,
+        icon: <AutoGraphOutlinedIcon />,
         nested: [
           {
-            key: "Management_faq__post",
-            name: "Faq",
+            key: "Management_Menu_Label_two",
+            name: "Menu Label two",
             href: "/faq",
-            icon: <CircleRoundedIcon fontSize="small" />,
+            icon: <AlignHorizontalCenterIcon fontSize="small" />,
           },
           {
-            key: "Management_faq__about",
-            name: "Details about",
+            key: "Management_Menu_Label_2.2",
+            name: "Menu Label 2.2",
             href: "/details/about",
-            icon: <CircleRoundedIcon />,
+            icon: <WorkOutlineIcon fontSize="small" />,
           },
         ],
       },
       {
-        key: "Management_details",
-        name: "Details",
+        key: "Management_Menu_two_Label_one",
+        name: "Menu two Label one",
         href: "",
-        icon: <Home />,
+        icon: <BeachAccessIcon />,
         nested: [
           {
-            key: "Management_details__post",
-            name: "Details post",
+            key: "Management_Menu_two_Label_2.1",
+            name: "Menu two Label 2.1",
             href: "/details/post",
-            icon: <Home />,
+            icon: <AspectRatioIcon fontSize="small" />,
           },
           {
-            key: "Management_details__about",
-            name: "Details about",
+            key: "Management_Menu_two_Label_2.2",
+            name: "Menu two Label 2.2",
             href: "/details/about",
-            icon: <Home />,
+            icon: <AllInclusiveIcon fontSize="small" />,
             nested: [
               {
-                key: "Management_details__about_as",
-                name: "Details about as",
+                key: "Management_Menu_two_Label_3.1",
+                name: "Menu two Label 3.1",
                 href: "/details/aboutas",
-                icon: <Home />,
+                icon: <AutoAwesomeMotionIcon fontSize="small" />,
               },
             ],
           },
