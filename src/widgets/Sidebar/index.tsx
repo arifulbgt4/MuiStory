@@ -15,10 +15,10 @@ const Sidebar: FC<SidebarOptions> = () => {
 
   const onHandleCollapse = (navKey: string) => {
     if (!Boolean(groupCollapse.includes(navKey))) {
-      setGroupCollapse((prevState) => [...prevState, navKey]);
+      setGroupCollapse((prevState: string[]) => [...prevState, navKey]);
       return;
     }
-    setGroupCollapse((prevState) =>
+    setGroupCollapse((prevState: string[]) =>
       prevState.filter((d: string) => d !== navKey)
     );
   };
