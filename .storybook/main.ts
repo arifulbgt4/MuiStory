@@ -135,6 +135,14 @@ const config: StorybookConfig = {
       box-shadow: 0px 6px 20px rgba(9, 11, 25, 0.5) !important;
       border-width: 0 !important;
     }
+    mark {
+      background: #104b49;
+      color: #d5d5d5;
+      border-radius: 5px;
+      padding: 2px 5px;
+      font-size: 16px;
+      font-weight: 700;
+    }
     /*
     .sbdocs-content p,.sbdocs-content h1, .sbdocs-content h2, .sbdocs-content h3,.sbdocs-content h4,.sbdocs-content h5,.sbdocs-content h6{
       font-family: "Roboto";
@@ -156,7 +164,6 @@ const config: StorybookConfig = {
       background: #252c45;
       box-shadow: none;
     }
-   
   </style>
   `,
 };
