@@ -75,6 +75,12 @@ const config: StorybookConfig = {
       background: #222941 !important;
       box-shadow: none !important;
     }
+    .css-vkdvsj{
+      color: #ffbc00 !important;
+    }
+    #storybook-explorer-menu a[data-selected="true"] .css-vkdvsj{
+      color: #ffffff !important;
+    }
     #storybook-explorer-menu svg {
       color: #368bc8;
     }
