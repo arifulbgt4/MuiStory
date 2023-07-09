@@ -46,14 +46,16 @@ type Story = StoryObj<typeof Alert>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Alerts: Story = {
-  args: {
-    severity: "error",
-    children: (
-      <>
+  render: (args) => {
+    return (
+      <Alert {...args}>
         <AlertTitle>Hey</AlertTitle>
         <p>Some text</p>
-      </>
-    ),
+      </Alert>
+    );
+  },
+  args: {
+    severity: "error",
   },
   parameters: {
     docs: {

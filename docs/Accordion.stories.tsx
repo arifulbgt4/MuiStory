@@ -16,7 +16,7 @@ const meta: Meta<any> = {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
         component: overView({
-          override: "src/theme/overrides/Accordion.ts",
+          override: "Accordion",
           description:
             "An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.",
           components: [

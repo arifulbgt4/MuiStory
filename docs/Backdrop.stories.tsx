@@ -2,6 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import { argChildren, argProps } from "./utils/formatArgs";
+import Box from "@mui/material/Box";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Backdrop> = {
@@ -38,9 +39,17 @@ type Story = StoryObj<typeof Backdrop>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Backdrops: Story = {
+  render: (args) => {
+    return (
+      <Box minHeight={50}>
+        <Backdrop {...args}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      </Box>
+    );
+  },
   args: {
     open: true,
-    children: <CircularProgress color="inherit" />,
   },
   parameters: {
     docs: {

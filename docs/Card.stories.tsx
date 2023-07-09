@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Card> = {
@@ -15,8 +15,49 @@ const meta: Meta<typeof Card> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Card",
+          description:
+            "Cards are surfaces that display content and actions on a single topic. They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.",
+          components: [
+            {
+              component: "Card",
+              selector: "MuiCard",
+              props: "https://mui.com/material-ui/api/card/#props",
+              css: "https://mui.com/material-ui/api/card/#css",
+            },
+            {
+              component: "CardActionArea",
+              selector: "MuiCardActionArea",
+              props: "https://mui.com/material-ui/api/card-action-area/#props",
+              css: "https://mui.com/material-ui/api/card-action-area/#css",
+            },
+            {
+              component: "CardActions",
+              selector: "MuiCardActions",
+              props: "https://mui.com/material-ui/api/card-actions/#props",
+              css: "https://mui.com/material-ui/api/card-actions/#css",
+            },
+            {
+              component: "CardContent",
+              selector: "MuiCardContent",
+              props: "https://mui.com/material-ui/api/card-content/#props",
+              css: "https://mui.com/material-ui/api/card-content/#css",
+            },
+            {
+              component: "CardHeader",
+              selector: "MuiCardHeader",
+              props: "https://mui.com/material-ui/api/card-header/#props",
+              css: "https://mui.com/material-ui/api/card-header/#css",
+            },
+            {
+              component: "CardMedia",
+              selector: "MuiCardMedia",
+              props: "https://mui.com/material-ui/api/card-media/#props",
+              css: "https://mui.com/material-ui/api/card-media/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
