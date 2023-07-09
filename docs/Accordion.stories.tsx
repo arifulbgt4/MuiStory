@@ -5,7 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { argChildren, argProps, overViewRef } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<any> = {
@@ -15,39 +15,37 @@ const meta: Meta<any> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: `**OVERVIEW**
-        <br> 
-        ***Styles Override: *** <mark>src/theme/overrides/Accordion.ts</mark>
-        <br>
-        <br>
-        ***Components: *** \`Accordion, AccordionSummary, AccordionDetails, AccordionActions\`
-        <br>
-        ${overViewRef({
-          component: "Accordion",
-          selector: "MuiAccordion",
-          props: "https://mui.com/material-ui/api/accordion/#props",
-          css: "https://mui.com/material-ui/api/accordion/#css",
-        })}
-        ${overViewRef({
-          component: "AccordionSummary",
-          selector: "MuiAccordionSummary",
-          props: "https://mui.com/material-ui/api/accordion-summary/#props",
-          css: "https://mui.com/material-ui/api/accordion-summary/#css",
-        })}
-        ${overViewRef({
-          component: "AccordionDetails",
-          selector: "MuiAccordionDetails",
-          props: "https://mui.com/material-ui/api/accordion-details/#props",
-          css: "https://mui.com/material-ui/api/accordion-details/#css",
-        })}
-        ${overViewRef({
-          component: "AccordionActions",
-          selector: "MuiAccordionActions",
-          props: "https://mui.com/material-ui/api/accordion-actions/#props",
-          css: "https://mui.com/material-ui/api/accordion-actions/#css",
-        })}
-
-        `,
+        component: overView({
+          override: "src/theme/overrides/Accordion.ts",
+          description:
+            "An accordion is a lightweight container that may either be used standalone, or be connected to a larger surface, such as a card.",
+          components: [
+            {
+              component: "Accordion",
+              selector: "MuiAccordion",
+              props: "https://mui.com/material-ui/api/accordion/#props",
+              css: "https://mui.com/material-ui/api/accordion/#css",
+            },
+            {
+              component: "AccordionDetails",
+              selector: "MuiAccordionDetails",
+              props: "https://mui.com/material-ui/api/accordion-details/#props",
+              css: "https://mui.com/material-ui/api/accordion-details/#css",
+            },
+            {
+              component: "AccordionSummary",
+              selector: "MuiAccordionSummary",
+              props: "https://mui.com/material-ui/api/accordion-summary/#props",
+              css: "https://mui.com/material-ui/api/accordion-summary/#css",
+            },
+            {
+              component: "AccordionActions",
+              selector: "MuiAccordionActions",
+              props: "https://mui.com/material-ui/api/accordion-actions/#props",
+              css: "https://mui.com/material-ui/api/accordion-actions/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
