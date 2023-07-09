@@ -6,4 +6,10 @@ const MuiAppBar: Components<Theme>["MuiAppBar"] = {
   },
 };
 
-export default { MuiAppBar };
+const MuiToolbar: Components<Theme>["MuiToolbar"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+export default { MuiAppBar, MuiToolbar };

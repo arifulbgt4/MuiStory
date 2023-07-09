@@ -61,7 +61,7 @@ export const overView = ({
   `
       : ""
   }
-  ***Styles Override: *** <mark>${override}</mark>
+  ***Styles Override: *** <mark>src/theme/overrides/${override}.ts</mark>
   <br>
   <br>
   ***Components: *** \`${components.map((d) => d?.component).join(", ")}\`

@@ -16,7 +16,7 @@ const meta: Meta<typeof AppBar> = {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
         component: overView({
-          override: "src/theme/overrides/AppBar.ts",
+          override: "AppBar",
           description:
             "The top App bar provides content and actions related to the current screen. It's used for branding, screen titles, navigation, and actions.",
           components: [

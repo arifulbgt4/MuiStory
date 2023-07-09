@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Paper from "@mui/material/Paper";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Paper> = {
@@ -10,8 +10,17 @@ const meta: Meta<typeof Paper> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Paper",
+          components: [
+            {
+              component: "Paper",
+              selector: "MuiPaper",
+              props: "https://mui.com/material-ui/api/paper/#props",
+              css: "https://mui.com/material-ui/api/paper/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
