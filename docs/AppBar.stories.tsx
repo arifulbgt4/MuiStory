@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { Box } from "@mui/material";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof AppBar> = {
@@ -54,25 +55,34 @@ type Story = StoryObj<typeof AppBar>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const AppBars: Story = {
-  args: {
-    children: (
-      <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          News
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    ),
+  render: (args) => {
+    return (
+      <Box
+        sx={{
+          minHeight: 50,
+        }}
+      >
+        <AppBar {...args}>
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              News
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
   },
+  args: {},
   parameters: {
     docs: {
       source: {
