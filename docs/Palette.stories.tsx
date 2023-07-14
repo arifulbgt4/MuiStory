@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import light from "src/theme/palette/light";
 import dark from "src/theme/palette/dark";
+import { Paper, Stack, Typography } from "@mui/material";
+import { Fragment } from "react";
 
 const lightPallete: any = light;
 const darkPallete: any = dark;
@@ -39,7 +41,7 @@ export const Palette: Story = {
           <p
             style={{
               padding: "20px",
-              background: "#ffa9a9",
+              background: "#e65100",
             }}
           >
             If you need to change the light palette then change in the file:
@@ -55,49 +57,66 @@ export const Palette: Story = {
                 src/theme/palette/light.ts
               </pre>
             </code>
-            <code style={{ color: "red", fontStyle: "italic" }}>Note:</code>
+            <code
+              style={{ color: "red", fontStyle: "italic", background: "#fff" }}
+            >
+              Note:
+            </code>
             Don't change anywhere except the file.
           </p>
-          {Object.keys(lightPallete as any).map((key, q) => {
+          {Object.keys(lightPallete as any).map((key, i) => {
             return (
-              <div key={q} style={{ margin: "0 0 40px" }}>
-                <p style={{ textTransform: "uppercase", fontWeight: 500 }}>
-                  {key}
-                </p>
-
-                <Box
-                  sx={{
-                    background: "transparent",
-                  }}
+              <Fragment key={i}>
+                <Typography
+                  variant="h6"
+                  textTransform="capitalize"
+                  mb={1}
+                  ml={2}
                 >
+                  {key}
+                </Typography>
+                <Stack direction="row" flexWrap="wrap" mb={3}>
                   {typeof lightPallete[key] === "string" ? (
-                    <Box
+                    <Paper
                       sx={{
-                        backgroundColor: lightPallete[key],
-                        padding: "10px",
-                        boxShadow:
-                          "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                        m: 2,
+                        p: 2,
                       }}
                     >
                       {key}: {lightPallete[key]}
-                    </Box>
+                    </Paper>
                   ) : (
                     Object.keys(lightPallete[key]).map((el, i) => (
-                      <Box
+                      <Stack
                         key={i}
                         sx={{
-                          backgroundColor: lightPallete[key][el],
-                          padding: "10px",
-                          boxShadow:
-                            "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                          m: "16px",
+                          p: 2,
+                          backgroundColor: "#0f1321",
+                          boxShadow: 4,
+                          alignItems: "center",
+                          borderRadius: 3,
+                          width: `calc(50% - 32px)`,
                         }}
                       >
-                        {key} - {el}: {lightPallete[key][el]}
-                      </Box>
+                        <Typography variant="subtitle2" mb={2}>
+                          {el}
+                        </Typography>
+                        <Box
+                          sx={{
+                            width: 80,
+                            height: 80,
+                            mb: 2,
+                            borderRadius: 2,
+                            background: lightPallete[key][el],
+                          }}
+                        ></Box>
+                        <code>{lightPallete[key][el]}</code>
+                      </Stack>
                     ))
                   )}
-                </Box>
-              </div>
+                </Stack>
+              </Fragment>
             );
           })}
         </Grid>
@@ -106,7 +125,7 @@ export const Palette: Story = {
           <p
             style={{
               padding: "20px",
-              background: "#ffa9a9",
+              background: "#e65100",
             }}
           >
             If you need to change the dark palette then change in the file:
@@ -122,48 +141,66 @@ export const Palette: Story = {
                 src/theme/palette/dark.ts
               </pre>
             </code>
-            <code style={{ color: "red", fontStyle: "italic" }}>Note:</code>
+            <code
+              style={{ color: "red", fontStyle: "italic", background: "#fff" }}
+            >
+              Note:
+            </code>
             Don't change anywhere except the file.
           </p>
-          {Object.keys(darkPallete as any).map((key, q) => {
+          {Object.keys(darkPallete as any).map((key, i) => {
             return (
-              <div key={q} style={{ margin: "0 0 40px" }}>
-                <p style={{ textTransform: "uppercase", fontWeight: 500 }}>
-                  {key}
-                </p>
-                <Box
-                  sx={{
-                    background: "transparent",
-                  }}
+              <Fragment key={i}>
+                <Typography
+                  variant="h6"
+                  textTransform="capitalize"
+                  mb={1}
+                  ml={2}
                 >
+                  {key}
+                </Typography>
+                <Stack direction="row" flexWrap="wrap" mb={3}>
                   {typeof darkPallete[key] === "string" ? (
-                    <Box
+                    <Paper
                       sx={{
-                        backgroundColor: darkPallete[key],
-                        padding: "10px",
-                        boxShadow:
-                          "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                        m: 2,
+                        p: 2,
                       }}
                     >
                       {key}: {darkPallete[key]}
-                    </Box>
+                    </Paper>
                   ) : (
                     Object.keys(darkPallete[key]).map((el, i) => (
-                      <Box
+                      <Stack
                         key={i}
                         sx={{
-                          backgroundColor: darkPallete[key][el],
-                          padding: "10px",
-                          boxShadow:
-                            "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                          m: "16px",
+                          p: 2,
+                          backgroundColor: "#0f1321",
+                          boxShadow: 4,
+                          alignItems: "center",
+                          borderRadius: 3,
+                          width: `calc(50% - 32px)`,
                         }}
                       >
-                        {key} - {el}: {darkPallete[key][el]}
-                      </Box>
+                        <Typography variant="subtitle2" mb={1}>
+                          {el}
+                        </Typography>
+                        <Box
+                          sx={{
+                            width: 80,
+                            height: 80,
+                            mb: 2,
+                            borderRadius: 2,
+                            background: darkPallete[key][el],
+                          }}
+                        ></Box>
+                        <code>{darkPallete[key][el]}</code>
+                      </Stack>
                     ))
                   )}
-                </Box>
-              </div>
+                </Stack>
+              </Fragment>
             );
           })}
         </Grid>
