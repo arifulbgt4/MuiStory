@@ -72,15 +72,15 @@ const ThemeContextProvider = ({
   );
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ColorModeContext.Provider value={themingUpdate}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <GlobalStyles />
-          {children}
-        </ThemeProvider>
-      </ColorModeContext.Provider>
-    </CacheProvider>
+    <ColorModeContext.Provider value={themingUpdate}>
+      {/* <CacheProvider value={emotionCache}> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
+      {/* </CacheProvider> */}
+    </ColorModeContext.Provider>
   );
 };
 
