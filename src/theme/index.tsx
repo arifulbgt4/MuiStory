@@ -1,14 +1,16 @@
 "use client";
 
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  StyledEngineProvider,
+} from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useMemo, useState, createContext } from "react";
 import * as locales from "@mui/material/locale";
 
 import GlobalStyles from "./utils/GlobalStyles";
-import createEmotionCache from "./utils/createEmotionCache";
 import palette, { PaletteOptions } from "./palette";
 import typography from "./typography";
 import shadowsTheme from "./shadows";
@@ -18,9 +20,6 @@ type SupportedLocales = keyof typeof locales;
 
 const DEFAULT_PALETTE_MODE: PaletteMode = "dark";
 const DEFAULT_LOCAL: SupportedLocales = "enUS";
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
 
 export const ColorModeContext = createContext<{
   toggleColorMode: () => void;
@@ -32,13 +31,9 @@ export const ColorModeContext = createContext<{
 
 export interface ThemeContextProviderProps {
   children: React.ReactNode;
-  emotionCache?: EmotionCache;
 }
 
-const ThemeContextProvider = ({
-  children,
-  emotionCache = clientSideEmotionCache,
-}: ThemeContextProviderProps) => {
+const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {
   const [mode, setMode] = useState<PaletteMode>(DEFAULT_PALETTE_MODE);
   const [locale, setLocale] = useState<SupportedLocales>(DEFAULT_LOCAL);
 
@@ -49,8 +44,8 @@ const ThemeContextProvider = ({
           prevMode === "light" ? "dark" : "light"
         );
       },
-      toggleLocalLang: (mode: SupportedLocales): void => {
-        setLocale(mode);
+      toggleLocalLang: (lang: SupportedLocales): void => {
+        setLocale(lang);
       },
     }),
     []
@@ -72,15 +67,15 @@ const ThemeContextProvider = ({
   );
 
   return (
-    <ColorModeContext.Provider value={themingUpdate}>
-      {/* <CacheProvider value={emotionCache}> */}
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <GlobalStyles />
-        {children}
-      </ThemeProvider>
-      {/* </CacheProvider> */}
-    </ColorModeContext.Provider>
+    <StyledEngineProvider injectFirst>
+      <ColorModeContext.Provider value={themingUpdate}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <GlobalStyles />
+          {children}
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+    </StyledEngineProvider>
   );
 };
 

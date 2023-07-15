@@ -12,9 +12,7 @@
     "chromatic": "dotenv -- cross-var chromatic --project-token=%CHROMATIC_PROJECT_TOKEN% --exit-once-uploaded"
   },
   "dependencies": {
-    "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.0",
-    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/material-icons": "^5.0.2",
     "@mui/icons-material": "^5.11.16",
