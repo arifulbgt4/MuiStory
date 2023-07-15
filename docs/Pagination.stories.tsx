@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Pagination from "@mui/material/Pagination";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Pagination> = {
@@ -10,9 +10,25 @@ const meta: Meta<typeof Pagination> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
-      },
+        component: overView({
+          override: "Pagination",
+          description:
+            "The Pagination component enables the user to select a specific page from a range of pages.",
+          components: [
+            {
+              component: "Pagination",
+              selector: "MuiPagination",
+              props: "https://mui.com/material-ui/api/pagination/#props",
+              css: "https://mui.com/material-ui/api/pagination/#css"
+            },
+            {
+              component: "PaginationItem ",
+              selector: "MuiPaginationItem",
+              props: "https://mui.com/material-ui/api/pagination-item/#props",
+              css: "https://mui.com/material-ui/api/pagination-item/#css"
+            }
+          ],
+        }),   },
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
