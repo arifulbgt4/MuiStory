@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Fab> = {
@@ -11,7 +11,18 @@ const meta: Meta<typeof Fab> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Fab",
+          description: "A Floating Action Button (FAB) performs the primary, or most common, action on a screen.",
+          components: [
+            {
+              component: "Fab",
+              selector: "MuiFab",
+              props: "https://mui.com/material-ui/api/fab/#props",
+              css: "https://mui.com/material-ui/api/fab/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
