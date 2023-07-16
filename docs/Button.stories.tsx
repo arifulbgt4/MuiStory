@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Button> = {
@@ -12,7 +12,36 @@ const meta: Meta<typeof Button> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Button",
+          description: "Buttons allow users to take actions, and make choices, with a single tap.",
+          components: [
+            {
+              component: "Button",
+              selector: "MuiButton",
+              props: "https://mui.com/material-ui/api/button/#props",
+              css: "https://mui.com/material-ui/api/button/#css"
+            },
+            {
+              component: "ButtonBase",
+              selector: "MuiButtonBase",
+              props: "https://mui.com/material-ui/api/button-base/#props",
+              css: "https://mui.com/material-ui/api/button-base/#css"
+            },
+            {
+              component: "IconButton",
+              selector: "MuiIconButton",
+              props: "https://mui.com/material-ui/api/icon-button/#props",
+              css: "https://mui.com/material-ui/api/icon-button/#css"
+            },
+            {
+              component: "LoadingButton",
+              selector: "MuiLoadingButton",
+              props: "https://mui.com/material-ui/api/loading-button/#props",
+              css: "https://mui.com/material-ui/api/loading-button/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
