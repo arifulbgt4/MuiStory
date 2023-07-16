@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof IconButton> = {
@@ -11,7 +11,18 @@ const meta: Meta<typeof IconButton> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Button",
+          description: "Icon buttons are commonly found in app bars and toolbars.Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.",
+          components: [
+            {
+              component: "IconButton",
+              selector: "MuiIconButton",
+              props: "https://mui.com/material-ui/api/icon-button/#props",
+              css: "https://mui.com/material-ui/api/icon-button/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
