@@ -3,7 +3,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { useArgs } from "@storybook/addons";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Menu> = {
@@ -13,7 +13,31 @@ const meta: Meta<typeof Menu> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Menu",
+          description: "Menus display a list of choices on temporary surfaces.",
+          components: [
+            {
+              component: "Menu",
+              selector: "MuiMenu",
+              props: "https://mui.com/material-ui/api/menu/#props",
+              css: "https://mui.com/material-ui/api/menu/#css"
+            },
+            {
+              component: "MenuList ",
+              selector: "MuiMenuList",
+              props: "https://mui.com/material-ui/api/menu-list/#props",
+              css: "https://mui.com/material-ui/api/menu-list/#css"
+            },
+            {
+              component: "MenuItem  ",
+              selector: "MuiMenuItem",
+              props: "https://mui.com/material-ui/api/menu-item/#props",
+              css: "https://mui.com/material-ui/api/menu-item/#css"
+            },
+          ]
+
+        }),
       },
       canvas: { sourceState: "shown" },
     },

@@ -7,7 +7,7 @@ import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
 import ShareIcon from "@mui/icons-material/Share";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof SpeedDial> = {
@@ -17,8 +17,31 @@ const meta: Meta<typeof SpeedDial> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"SpeedDial",
+          description:"When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.",
+          components:[
+            {
+              component:"SpeedDial",
+              selector:"MuiSpeedDial",
+              props:"https://mui.com/material-ui/api/speed-dial/#props",
+              css:"https://mui.com/material-ui/api/speed-dial/#css"
+            },
+            {
+              component:"SpeedDialAction ",
+              selector:"MuiSpeedDialAction",
+              props:"https://mui.com/material-ui/api/speed-dial-action/#props",
+              css:"https://mui.com/material-ui/api/speed-dial-action/#css"
+            },
+            {
+              component:"SpeedDialIcon  ",
+              selector:"MuiSpeedDialIcon",
+              props:"https://mui.com/material-ui/api/speed-dial-icon/#props",
+              css:"https://mui.com/material-ui/api/speed-dial-icon/#css"
+            }
+          ]
+        })
+      
       },
       canvas: { sourceState: "shown" },
     },

@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Breadcrumbs> = {
@@ -12,8 +12,18 @@ const meta: Meta<typeof Breadcrumbs> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"Breadcrumbs",
+          description:"A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.",
+          components:[
+            {
+              component:"Breadcrumbs",
+              selector:"MuiBreadcrumbs",
+              props:"https://mui.com/material-ui/api/breadcrumbs/#props",
+              css:"https://mui.com/material-ui/api/breadcrumbs/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
