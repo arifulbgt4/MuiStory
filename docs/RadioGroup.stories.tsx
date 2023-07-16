@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof RadioGroup> = {
@@ -12,7 +12,24 @@ const meta: Meta<typeof RadioGroup> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Radio",
+          description: "The Radio Group allows the user to select one option from a set.",
+          components: [
+            {
+              component: "RadioGroup",
+              selector: "MuiRadioGroup",
+              props: "https://mui.com/material-ui/api/radio-group/#props",
+              css: "https://mui.com/material-ui/api/radio-group/#css"
+            },
+            {
+              component: "Radio",
+              selector: "MuiRadio",
+              props: "https://mui.com/material-ui/api/radio/#props",
+              css: "https://mui.com/material-ui/api/radio/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
