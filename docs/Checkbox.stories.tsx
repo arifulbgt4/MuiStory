@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Checkbox from "@mui/material/Checkbox";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import { argProps } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Checkbox> = {
@@ -12,7 +12,18 @@ const meta: Meta<typeof Checkbox> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Checkbox",
+          description: "Checkboxes allow the user to select one or more items from a set.",
+          components: [
+            {
+              component: "Checkbox",
+              selector: "MuiCheckbox",
+              props: "https://mui.com/material-ui/api/checkbox/#props",
+              css: "https://mui.com/material-ui/api/checkbox/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
