@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof LoadingButton> = {
@@ -12,7 +12,18 @@ const meta: Meta<typeof LoadingButton> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Button",
+          description: "@mui/lab offers loading buttons that can show loading state and disable interactions.",
+          components: [
+            {
+              component: "LoadingButton",
+              selector: "MuiLoadingButton",
+              props: "https://mui.com/material-ui/api/loading-button/#props",
+              css: "https://mui.com/material-ui/api/loading-button/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },

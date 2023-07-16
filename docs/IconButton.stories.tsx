@@ -17,7 +17,6 @@ const meta: Meta<typeof IconButton> = {
           components: [
             {
               component: "IconButton",
-              selector: "MuiIconButton",
               props: "https://mui.com/material-ui/api/icon-button/#props",
               css: "https://mui.com/material-ui/api/icon-button/#css"
             }
