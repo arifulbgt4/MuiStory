@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 import Box from "@mui/material/Box";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -12,8 +12,19 @@ const meta: Meta<typeof Backdrop> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"Backdrop",
+          description:"The Backdrop component narrows the user's focus to a particular element on the screen.",
+          components:[
+            {
+              component:"Backdrop",
+              selector:"MuiBackdrop",
+              props:"https://mui.com/material-ui/api/backdrop/#props",
+              css:"https://mui.com/material-ui/api/backdrop/#css"
+            }
+          ]
+        })
+      
       },
       canvas: { sourceState: "shown" },
     },
