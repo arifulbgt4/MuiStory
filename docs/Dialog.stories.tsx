@@ -10,39 +10,39 @@ const meta: Meta<typeof Dialog> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Dialog",
-          description:"Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.",
-          components:[
+        component: overView({
+          override: "Dialog",
+          description: "Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.",
+          components: [
             {
-              component:"Dialog",
-              selector:"MuiDialog",
-              props:"https://mui.com/material-ui/api/dialog/#props",
-              css:"https://mui.com/material-ui/api/dialog/#css"
+              component: "Dialog",
+              selector: "MuiDialog",
+              props: "https://mui.com/material-ui/api/dialog/#props",
+              css: "https://mui.com/material-ui/api/dialog/#css"
             },
             {
-              component:"DialogActions",
-              selector:"MuiDialogActions",
-              props:"https://mui.com/material-ui/api/dialog-actions/#props",
-              css:"https://mui.com/material-ui/api/dialog-actions/#css"
+              component: "DialogActions",
+              selector: "MuiDialogActions",
+              props: "https://mui.com/material-ui/api/dialog-actions/#props",
+              css: "https://mui.com/material-ui/api/dialog-actions/#css"
             },
             {
-              component:"DialogContent",
-              selector:"MuiDialogContent",
-              props:"https://mui.com/material-ui/api/dialog-content/#props",
-              css:"https://mui.com/material-ui/api/dialog-content/#css"
+              component: "DialogContent",
+              selector: "MuiDialogContent",
+              props: "https://mui.com/material-ui/api/dialog-content/#props",
+              css: "https://mui.com/material-ui/api/dialog-content/#css"
             },
             {
-              component:"DialogContentText",
-              selector:"MuiDialogContentText",
-              props:"https://mui.com/material-ui/api/dialog-content-text/#props",
-              css:"https://mui.com/material-ui/api/dialog-content-text/#css"
+              component: "DialogContentText",
+              selector: "MuiDialogContentText",
+              props: "https://mui.com/material-ui/api/dialog-content-text/#props",
+              css: "https://mui.com/material-ui/api/dialog-content-text/#css"
             },
             {
-              component:"DialogTitle",
-              selector:"MuiDialogTitle",
-              props:"https://mui.com/material-ui/api/dialog-title/#props",
-              css:"https://mui.com/material-ui/api/dialog-title/#css"
+              component: "DialogTitle",
+              selector: "MuiDialogTitle",
+              props: "https://mui.com/material-ui/api/dialog-title/#props",
+              css: "https://mui.com/material-ui/api/dialog-title/#css"
             }
           ]
         })
