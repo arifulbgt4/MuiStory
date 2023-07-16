@@ -24,22 +24,22 @@ const meta: Meta<typeof Drawer> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-     component:overView({
-      override:"Drawer",
-      description:"The navigation drawers (or 'sidebars') provide ergonomic access to destinations in a site or app functionality such as switching accounts.",
-      components:[
-        {
-          component:"Drawer",
-          selector:"MuiDrawer",
-          props:"https://mui.com/material-ui/api/drawer/#props",
-          css:"https://mui.com/material-ui/api/drawer/#css"
-        },
-       { 
-        component:"SwipeableDrawer",
-        props:"SwipeableDrawer "
-      }
-      ]
-     })
+        component: overView({
+          override: "Drawer",
+          description: "The navigation drawers (or 'sidebars') provide ergonomic access to destinations in a site or app functionality such as switching accounts.",
+          components: [
+            {
+              component: "Drawer",
+              selector: "MuiDrawer",
+              props: "https://mui.com/material-ui/api/drawer/#props",
+              css: "https://mui.com/material-ui/api/drawer/#css"
+            },
+            {
+              component: "SwipeableDrawer",
+              props: "https://mui.com/material-ui/api/swipeable-drawer/#props"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
@@ -58,7 +58,6 @@ const meta: Meta<typeof Drawer> = {
 
 export default meta;
 type Story = StoryObj<typeof Drawer>;
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
   render: ({ onClick, toggleDrawer, anchor, open, ...args }: any) => {
