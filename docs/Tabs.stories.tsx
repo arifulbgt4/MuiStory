@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useArgs } from "@storybook/addons";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Tabs> = {
@@ -12,7 +12,45 @@ const meta: Meta<typeof Tabs> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component:overView({
+          override:"Tabs",
+          description:"Tabs make it easy to explore and switch between different views.",
+          components:[
+            {
+              component:"Tabs",
+              selector:"MuiTabs",
+              props:"https://mui.com/material-ui/api/tabs/#props",
+              css:"https://mui.com/material-ui/api/tabs/#css"
+          },
+          {
+            component:"Tab",
+            selector:"MuiTab",
+            props:"https://mui.com/material-ui/api/tab/#props",
+            css:"https://mui.com/material-ui/api/tab/#css"
+          },{
+            component:"TabContext",
+            props:"https://mui.com/material-ui/api/tab-context/#props" 
+          },
+          {
+            component:"TabList",
+            selector:"MuiTabList",
+            props:"https://mui.com/material-ui/api/tab-list/#props",
+            css:"https://mui.com/material-ui/api/tab-list/#css"
+          },
+          {
+            component:"TabPanel",
+            selector:"MuiTabPanel",
+            props:"https://mui.com/material-ui/api/tab-panel/#props",
+            css:"https://mui.com/material-ui/api/tab-panel/#props"
+          },
+          {
+            component:"TabScrollButton",
+            selector:"MuiTabScrollButton",
+            props:"https://mui.com/material-ui/api/tab-scroll-button/#props",
+            css:"https://mui.com/material-ui/api/tab-scroll-button/#css"
+          }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
