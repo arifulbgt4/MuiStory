@@ -12,19 +12,18 @@ const meta: Meta<typeof Backdrop> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Backdrop",
-          description:"The Backdrop component narrows the user's focus to a particular element on the screen.",
-          components:[
+        component: overView({
+          override: "Backdrop",
+          description: "The Backdrop component narrows the user's focus to a particular element on the screen.",
+          components: [
             {
-              component:"Backdrop",
-              selector:"MuiBackdrop",
-              props:"https://mui.com/material-ui/api/backdrop/#props",
-              css:"https://mui.com/material-ui/api/backdrop/#css"
+              component: "Backdrop",
+              selector: "MuiBackdrop",
+              props: "https://mui.com/material-ui/api/backdrop/#props",
+              css: "https://mui.com/material-ui/api/backdrop/#css"
             }
           ]
         })
-      
       },
       canvas: { sourceState: "shown" },
     },
