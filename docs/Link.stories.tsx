@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Link from "@mui/material/Link";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Link> = {
@@ -10,8 +10,18 @@ const meta: Meta<typeof Link> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"Link",
+          description:"The Link component allows you to easily customize anchor elements with your theme colors and typography styles.",
+          components:[
+            {
+              component:"Link",
+              selector:"MuiLink",
+              props:"https://mui.com/material-ui/api/link/#props",
+              css:"https://mui.com/material-ui/api/link/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },

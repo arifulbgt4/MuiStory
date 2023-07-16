@@ -7,7 +7,7 @@ import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useArgs, useState } from "@storybook/addons";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Stepper> = {
@@ -17,7 +17,60 @@ const meta: Meta<typeof Stepper> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Stepper",
+          description: "Steppers convey progress through numbered steps. It provides a wizard-like workflow.",
+          components: [
+            {
+              component: "Stepper",
+              selector: "MuiStepper",
+              props: "https://mui.com/material-ui/api/stepper/#props",
+              css: "https://mui.com/material-ui/api/stepper/#css"
+            },
+            {
+              component: "MobileStepper",
+              selector: "MuiMobileStepper",
+              props: "https://mui.com/material-ui/api/mobile-stepper/#props",
+              css: "https://mui.com/material-ui/api/mobile-stepper/#props"
+            },
+            {
+              component: "Step ",
+              selector: "MuiStep",
+              props: "https://mui.com/material-ui/api/step/#props",
+              css: "https://mui.com/material-ui/api/step/#css",
+            },
+            {
+              component: "StepLabel ",
+              selector: "MuiStepLabel",
+              props: "https://mui.com/material-ui/api/step-label/#props",
+              css: "https://mui.com/material-ui/api/step-label/#css"
+            },
+            {
+              component: "StepButton ",
+              selector: "MuiStepButton",
+              props: "https://mui.com/material-ui/api/step-button/#props",
+              css: "https://mui.com/material-ui/api/step-button/#css"
+            },
+            {
+              component: "StepConnector",
+              selector: "MuiStepConnector",
+              props: "https://mui.com/material-ui/api/step-connector/#props",
+              css: "https://mui.com/material-ui/api/step-connector/#css"
+            },
+            {
+              component: "StepContent ",
+              selector: "MuiStepContent",
+              props: "https://mui.com/material-ui/api/step-content/#props",
+              css: "https://mui.com/material-ui/api/step-content/#css"
+            },
+            {
+              component: "StepIcon",
+              selector: "MuiStepIcon",
+              props: "https://mui.com/material-ui/api/step-icon/#props",
+              css: "https://mui.com/material-ui/api/step-icon/#css"
+            },
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },

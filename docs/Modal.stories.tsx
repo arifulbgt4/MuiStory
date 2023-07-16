@@ -4,7 +4,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useArgs } from "@storybook/addons";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
+
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Modal> = {
@@ -14,7 +15,19 @@ const meta: Meta<typeof Modal> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Modal",
+          description:
+            "The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.",
+          components: [
+            {
+              component: "Modal",
+              selector: "MuiModal",
+              props: "https://mui.com/material-ui/api/modal/#props",
+              css: "https://mui.com/material-ui/api/modal/#css"
+            }
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -68,6 +81,7 @@ export const Template: Story = {
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography>
         </Box>
+
       </Modal>
     );
   },
@@ -75,7 +89,7 @@ export const Template: Story = {
     open: false,
   },
   decorators: [
-    (Story) => {
+    (Story: any) => {
       const [args, updateArgs] = useArgs();
       return (
         <>
