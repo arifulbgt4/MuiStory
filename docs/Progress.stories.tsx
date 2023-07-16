@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import CircularProgress from "@mui/material/CircularProgress";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof CircularProgress> = {
@@ -10,8 +10,24 @@ const meta: Meta<typeof CircularProgress> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Progress",
+          description: "Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.",
+          components: [
+            {
+              component: "CircularProgress",
+              selector: "MuiCircularProgress",
+              props: "https://mui.com/material-ui/api/circular-progress/#props",
+              css: "https://mui.com/material-ui/api/circular-progress/#css"
+            },
+            {
+              component: "LinearProgress",
+              selector: "MuiLinearProgress",
+              props: "https://mui.com/material-ui/api/linear-progress/#props",
+              css: "https://mui.com/material-ui/api/linear-progress/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
