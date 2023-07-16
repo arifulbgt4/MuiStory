@@ -28,18 +28,6 @@ const meta: Meta<typeof Button> = {
               props: "https://mui.com/material-ui/api/button-base/#props",
               css: "https://mui.com/material-ui/api/button-base/#css"
             },
-            {
-              component: "IconButton",
-              selector: "MuiIconButton",
-              props: "https://mui.com/material-ui/api/icon-button/#props",
-              css: "https://mui.com/material-ui/api/icon-button/#css"
-            },
-            {
-              component: "LoadingButton",
-              selector: "MuiLoadingButton",
-              props: "https://mui.com/material-ui/api/loading-button/#props",
-              css: "https://mui.com/material-ui/api/loading-button/#css"
-            }
           ]
         })
       },
