@@ -28,7 +28,6 @@ const meta: Meta<typeof Modal> = {
             }
           ],
         }),
-        // component: "Another description, overriding the comments",
       },
       canvas: { sourceState: "shown" },
     },
