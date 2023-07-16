@@ -5,5 +5,10 @@ const MuiFormControl: Components<Theme>["MuiFormControl"] = {
     root: ({ theme, ownerState }) => ({}),
   },
 };
+const MuiAutocomplete: Components<Theme>["MuiAutocomplete"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
 
-export default { MuiFormControl };
+export default { MuiFormControl,MuiAutocomplete };
