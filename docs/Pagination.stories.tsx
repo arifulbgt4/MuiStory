@@ -22,7 +22,7 @@ const meta: Meta<typeof Pagination> = {
               css: "https://mui.com/material-ui/api/pagination/#css"
             },
             {
-              component: "PaginationItem ",
+              component: "PaginationItem",
               selector: "MuiPaginationItem",
               props: "https://mui.com/material-ui/api/pagination-item/#props",
               css: "https://mui.com/material-ui/api/pagination-item/#css"

@@ -26,7 +26,7 @@ const meta: Meta<typeof BottomNavigation> = {
               css: "https://mui.com/material-ui/api/bottom-navigation/#css"
             },
             {
-              component: "BottomNavigationAction ",
+              component: "BottomNavigationAction",
               selector: "MuiBottomNavigationAction",
               props: "https://mui.com/material-ui/api/bottom-navigation-action/#props",
               css: "https://mui.com/material-ui/api/bottom-navigation-action/#css"

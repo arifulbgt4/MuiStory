@@ -24,13 +24,13 @@ const meta: Meta<typeof Menu> = {
               css: "https://mui.com/material-ui/api/menu/#css"
             },
             {
-              component: "MenuList ",
+              component: "MenuList",
               selector: "MuiMenuList",
               props: "https://mui.com/material-ui/api/menu-list/#props",
               css: "https://mui.com/material-ui/api/menu-list/#css"
             },
             {
-              component: "MenuItem  ",
+              component: "MenuItem",
               selector: "MuiMenuItem",
               props: "https://mui.com/material-ui/api/menu-item/#props",
               css: "https://mui.com/material-ui/api/menu-item/#css"
