@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Snackbar> = {
@@ -11,9 +11,25 @@ const meta: Meta<typeof Snackbar> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
-      },
+        component:overView({
+          override:"Snackbar",
+          description:"Snackbars provide brief notifications. The component is also known as a toast.",
+          components:[
+            {
+              component:"Snackbar",
+              selector:"MuiSnackbar",
+              props:"https://mui.com/material-ui/api/snackbar/#props",
+              css:"https://mui.com/material-ui/api/snackbar/#css"
+            },
+            {
+              component:"SnackbarContent",
+              selector:"MuiSnackbarContent",
+              props:"https://mui.com/material-ui/api/snackbar-content/#props",
+              css:"https://mui.com/material-ui/api/snackbar-content/#css"
+            }
+          ]
+        })
+        },
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
