@@ -3,7 +3,7 @@ import Autocomplete, {
   AutocompleteRenderInputParams,
 } from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { argProps } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 import { ReactNode } from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -14,8 +14,18 @@ const meta: Meta<typeof Autocomplete> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"FormControl",
+          description:"The autocomplete is a normal text input enhanced by a panel of suggested options.",
+          components:[
+            {
+              component:"Autocomplete",
+              selector:"MuiAutocomplete",
+              props:"https://mui.com/material-ui/api/autocomplete/#props",
+              css:"https://mui.com/material-ui/api/autocomplete/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
