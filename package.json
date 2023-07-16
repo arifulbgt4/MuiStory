@@ -1,6 +1,6 @@
 {
-  "name": "next-mui-boilerplate",
-  "version": "0.1.0",
+  "name": "muistory",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -47,6 +47,9 @@
     "react-element-to-jsx-string": "^15.0.0",
     "remark-gfm": "^3.0.1",
     "storybook": "^7.0.26"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "readme": "ERROR: No README data found!",
   "_id": "next-mui-boilerplate@0.1.0"
