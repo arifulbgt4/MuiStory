@@ -34,19 +34,19 @@ const meta: Meta<typeof Stepper> = {
               css: "https://mui.com/material-ui/api/mobile-stepper/#props"
             },
             {
-              component: "Step ",
+              component: "Step",
               selector: "MuiStep",
               props: "https://mui.com/material-ui/api/step/#props",
               css: "https://mui.com/material-ui/api/step/#css",
             },
             {
-              component: "StepLabel ",
+              component: "StepLabel",
               selector: "MuiStepLabel",
               props: "https://mui.com/material-ui/api/step-label/#props",
               css: "https://mui.com/material-ui/api/step-label/#css"
             },
             {
-              component: "StepButton ",
+              component: "StepButton",
               selector: "MuiStepButton",
               props: "https://mui.com/material-ui/api/step-button/#props",
               css: "https://mui.com/material-ui/api/step-button/#css"
@@ -58,7 +58,7 @@ const meta: Meta<typeof Stepper> = {
               css: "https://mui.com/material-ui/api/step-connector/#css"
             },
             {
-              component: "StepContent ",
+              component: "StepContent",
               selector: "MuiStepContent",
               props: "https://mui.com/material-ui/api/step-content/#props",
               css: "https://mui.com/material-ui/api/step-content/#css"
