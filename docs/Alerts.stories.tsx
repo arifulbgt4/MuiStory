@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Alert> = {
@@ -11,8 +11,24 @@ const meta: Meta<typeof Alert> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component:overView({
+          override:"Alert",
+          description:"An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.",
+          components:[
+            {
+              component:"Alert",
+              selector:"MuiAlert",
+              props:"https://mui.com/material-ui/api/alert/#props",
+              css:"https://mui.com/material-ui/api/alert/#css"
+            },
+            {
+              component:"AlertTitle",
+              selector:"MuiAlertTitle",
+              props:"https://mui.com/material-ui/api/alert-title/#props",
+              css:"https://mui.com/material-ui/api/alert-title/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
