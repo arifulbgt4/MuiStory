@@ -23,40 +23,40 @@ const meta: Meta<typeof TextField> = {
               css: "https://mui.com/material-ui/api/text-field/#css"
             },
             {
-              component:"Input",
-              selector:"MuiInput",
-              props:"https://mui.com/material-ui/api/input/#props",
-              css:"https://mui.com/material-ui/api/input/#css"
+              component: "Input",
+              selector: "MuiInput",
+              props: "https://mui.com/material-ui/api/input/#props",
+              css: "https://mui.com/material-ui/api/input/#css"
             },
             {
-              component:"FilledInput",
-              selector:"MuiFilledInput",
-              props:"https://mui.com/material-ui/api/filled-input/#props",
-              css:"https://mui.com/material-ui/api/filled-input/#css"
+              component: "FilledInput",
+              selector: "MuiFilledInput",
+              props: "https://mui.com/material-ui/api/filled-input/#props",
+              css: "https://mui.com/material-ui/api/filled-input/#css"
             },
             {
-              component:"InputAdornment",
-              selector:"MuiInputAdornment",
-              props:"https://mui.com/material-ui/api/input-adornment/#props",
-              css:"https://mui.com/material-ui/api/input-adornment/#css"
+              component: "InputAdornment",
+              selector: "MuiInputAdornment",
+              props: "https://mui.com/material-ui/api/input-adornment/#props",
+              css: "https://mui.com/material-ui/api/input-adornment/#css"
             },
             {
-              component:"InputBase",
-              selector:"MuiInputBase",
-              props:"https://mui.com/material-ui/api/input-base/#props",
-              css:"https://mui.com/material-ui/api/input-base/#css"
+              component: "InputBase",
+              selector: "MuiInputBase",
+              props: "https://mui.com/material-ui/api/input-base/#props",
+              css: "https://mui.com/material-ui/api/input-base/#css"
             },
             {
-              component:"InputLabel",
-              selector:"MuiInputLabel",
-              props:"https://mui.com/material-ui/api/input-label/#props",
-              css:"https://mui.com/material-ui/api/input-label/#css"
+              component: "InputLabel",
+              selector: "MuiInputLabel",
+              props: "https://mui.com/material-ui/api/input-label/#props",
+              css: "https://mui.com/material-ui/api/input-label/#css"
             },
             {
-              component:"OutlinedInput",
-              selector:"MuiOutlinedInput",
-              props:"https://mui.com/material-ui/api/outlined-input/#props",
-              css:"https://mui.com/material-ui/api/outlined-input/#css"
+              component: "OutlinedInput",
+              selector: "MuiOutlinedInput",
+              props: "https://mui.com/material-ui/api/outlined-input/#props",
+              css: "https://mui.com/material-ui/api/outlined-input/#css"
             }
           ]
         }),
