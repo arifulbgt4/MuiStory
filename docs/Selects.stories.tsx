@@ -4,7 +4,7 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Select> = {
@@ -14,8 +14,24 @@ const meta: Meta<typeof Select> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Select",
+          description: "Select components are used for collecting user provided information from a list of options.",
+          components: [
+            {
+              component: "Select",
+              selector: "MuiSelect",
+              props: "https://mui.com/material-ui/api/select/#props",
+              css: "https://mui.com/material-ui/api/select/#css"
+            },
+            {
+              component: "NativeSelect",
+              selector: "MuiNativeSelect",
+              props: "https://mui.com/material-ui/api/native-select/#props",
+              css: "https://mui.com/material-ui/api/native-select/#css"
+            }
+          ]
+        })
       },
       canvas: { sourceState: "shown" },
     },
