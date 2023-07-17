@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Rating from "@mui/material/Rating";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Rating> = {
@@ -10,7 +10,18 @@ const meta: Meta<typeof Rating> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "Rating",
+          description: "Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.",
+          components: [
+            {
+              component: "Rating",
+              selector: "MuiRating",
+              props: "https://mui.com/material-ui/api/rating/#props",
+              css: "https://mui.com/material-ui/api/rating/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
