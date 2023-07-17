@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof TextField> = {
@@ -12,7 +12,54 @@ const meta: Meta<typeof TextField> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "TextField",
+          description: "Text Fields let users enter and edit text.",
+          components: [
+            {
+              component: "TextField",
+              selector: "MuiTextField",
+              props: "https://mui.com/material-ui/api/text-field/#props",
+              css: "https://mui.com/material-ui/api/text-field/#css"
+            },
+            {
+              component:"Input",
+              selector:"MuiInput",
+              props:"https://mui.com/material-ui/api/input/#props",
+              css:"https://mui.com/material-ui/api/input/#css"
+            },
+            {
+              component:"FilledInput",
+              selector:"MuiFilledInput",
+              props:"https://mui.com/material-ui/api/filled-input/#props",
+              css:"https://mui.com/material-ui/api/filled-input/#css"
+            },
+            {
+              component:"InputAdornment",
+              selector:"MuiInputAdornment",
+              props:"https://mui.com/material-ui/api/input-adornment/#props",
+              css:"https://mui.com/material-ui/api/input-adornment/#css"
+            },
+            {
+              component:"InputBase",
+              selector:"MuiInputBase",
+              props:"https://mui.com/material-ui/api/input-base/#props",
+              css:"https://mui.com/material-ui/api/input-base/#css"
+            },
+            {
+              component:"InputLabel",
+              selector:"MuiInputLabel",
+              props:"https://mui.com/material-ui/api/input-label/#props",
+              css:"https://mui.com/material-ui/api/input-label/#css"
+            },
+            {
+              component:"OutlinedInput",
+              selector:"MuiOutlinedInput",
+              props:"https://mui.com/material-ui/api/outlined-input/#props",
+              css:"https://mui.com/material-ui/api/outlined-input/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
