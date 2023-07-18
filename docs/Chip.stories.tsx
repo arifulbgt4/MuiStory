@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Chip from "@mui/material/Chip";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Chip> = {
@@ -10,8 +10,18 @@ const meta: Meta<typeof Chip> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Chip",
+          description: "Chips are compact elements that represent an input, attribute, or action.",
+          components: [
+            {
+              component: "Chip",
+              selector: "MuiChip",
+              props: "https://mui.com/material-ui/api/chip/#props",
+              css: "https://mui.com/material-ui/api/chip/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
