@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Badge> = {
@@ -11,8 +11,18 @@ const meta: Meta<typeof Badge> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Badge",
+          description: "Badge generates a small badge to the top-right of its child(ren).",
+          components: [
+            {
+              component: "Badge",
+              selector: "MuiBadge",
+              props: "https://mui.com/material-ui/api/badge/#props",
+              css: "https://mui.com/material-ui/api/badge/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
