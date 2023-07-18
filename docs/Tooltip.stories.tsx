@@ -2,7 +2,7 @@ import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Tooltip> = {
@@ -12,8 +12,18 @@ const meta: Meta<typeof Tooltip> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Tooltip",
+          description: "Tooltips display informative text when users hover over, focus on, or tap an element.",
+          components: [
+            {
+              component: "Tooltip",
+              selector: "MuiTooltip",
+              props: "https://mui.com/material-ui/api/tooltip/#props",
+              css: "https://mui.com/material-ui/api/tooltip/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
