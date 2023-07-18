@@ -10,7 +10,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Collapse from "@mui/material/Collapse";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
 import Paper from "@mui/material/Paper";
 import { useArgs, useState } from "@storybook/addons";
 import { SvgIconComponent } from "@mui/icons-material";
@@ -35,8 +35,60 @@ const meta: Meta<typeof List> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "List",
+          description: "Lists are continuous, vertical indexes of text or images.",
+          components: [
+            {
+              component: "List",
+              selector: "MuiList",
+              props: "https://mui.com/material-ui/api/list/#props",
+              css: "https://mui.com/material-ui/api/list/#css"
+            },
+            {
+              component: "ListItem",
+              selector: "MuiListItem",
+              props: "https://mui.com/material-ui/api/list-item/#props",
+              css: "https://mui.com/material-ui/api/list-item/#css"
+            },
+            {
+              component: "ListItemAvatar",
+              selector: "MuiListItemAvatar",
+              props: "https://mui.com/material-ui/api/list-item-avatar/#props",
+              css: "https://mui.com/material-ui/api/list-item-avatar/#css"
+            },
+            {
+              component: "ListItemButton",
+              selector: "MuiListItemButton",
+              props: "https://mui.com/material-ui/api/list-item-button/#props",
+              css: "https://mui.com/material-ui/api/list-item-button/#css"
+            },
+            {
+              component: "ListItemIcon",
+              selector: "MuiListItemIcon",
+              props: "https://mui.com/material-ui/api/list-item-icon/#props",
+              css: "https://mui.com/material-ui/api/list-item-icon/#css"
+            },
+            {
+              component: "ListItemSecondaryAction",
+              selector: "MuiListItemSecondaryAction",
+              props: "https://mui.com/material-ui/api/list-item-secondary-action/#props",
+              css: "https://mui.com/material-ui/api/list-item-secondary-action/#css"
+            },
+            {
+              component: "ListItemText",
+              selector: "MuiListItemText",
+              props: "https://mui.com/material-ui/api/list-item-text/#props",
+              css: "https://mui.com/material-ui/api/list-item-text/#css"
+            },
+            {
+              component: "ListSubheader",
+              selector: "MuiListSubheader",
+              props: "https://mui.com/material-ui/api/list-subheader/#props",
+              css: "https://mui.com/material-ui/api/list-subheader/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
