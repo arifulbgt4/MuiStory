@@ -6,7 +6,7 @@ import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { useArgs } from "@storybook/addons";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof ToggleButtonGroup> = {
@@ -16,7 +16,23 @@ const meta: Meta<typeof ToggleButtonGroup> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "ToggleButton",
+          description: "A Toggle Button can be used to group related options.",
+          components: [
+            {
+              component: "ToggleButtonGroup",
+              selector: "MuiToggleButtonGroup",
+              props: "https://mui.com/material-ui/api/toggle-button-group/#props",
+              css: "https://mui.com/material-ui/api/toggle-button-group/#css"
+            }, {
+              component: "ToggleButton",
+              selector: "MuiToggleButton",
+              props: "https://mui.com/material-ui/api/toggle-button/#props",
+              css: "https://mui.com/material-ui/api/toggle-button/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
