@@ -5,7 +5,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { argChildren, argProps } from "./utils/formatArgs";
+import { argChildren, argProps, overView } from "./utils/formatArgs";
+import css from "styled-jsx/css";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof TableContainer> = {
@@ -15,8 +16,66 @@ const meta: Meta<typeof TableContainer> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:
-          "The value must be chosen from a predefined set of allowed values.",
+        component: overView({
+          override: "Table",
+          description: "Tables display sets of data. They can be fully customized.",
+          components: [
+            {
+              component: "Table",
+              selector: "MuiTable",
+              props: "https://mui.com/material-ui/api/table/#props",
+              css: "https://mui.com/material-ui/api/table/#css"
+            },
+            {
+              component: "TableBody",
+              selector: "MuiTableBody",
+              props: "https://mui.com/material-ui/api/table-body/#props",
+              css: "https://mui.com/material-ui/api/table-body/#css"
+            },
+            {
+              component: "TableCell",
+              selector: "MuiTableCell",
+              props: "https://mui.com/material-ui/api/table-cell/#props",
+              css: "https://mui.com/material-ui/api/table-cell/#css"
+            },
+            {
+              component: "TableContainer",
+              selector: "MuiTableContainer",
+              props: "https://mui.com/material-ui/api/table-container/#props",
+              css: "https://mui.com/material-ui/api/table-container/#css"
+            },
+            {
+              component: "TableFooter",
+              selector: "MuiTableFooter",
+              props: "https://mui.com/material-ui/api/table-footer/#props",
+              css: "https://mui.com/material-ui/api/table-footer/#css"
+            },
+            {
+              component: "TableHead",
+              selector: "MuiTableHead",
+              props: "https://mui.com/material-ui/api/table-head/#props",
+              css: "https://mui.com/material-ui/api/table-head/#css"
+            },
+            {
+              component: "TablePagination",
+              selector: "MuiTablePagination",
+              props: "https://mui.com/material-ui/api/table-pagination/#props",
+              css: "https://mui.com/material-ui/api/table-pagination/#css"
+            },
+            {
+              component: "TableRow",
+              selector: "MuiTableRow",
+              props: "https://mui.com/material-ui/api/table-row/#props",
+              css: "https://mui.com/material-ui/api/table-row/#css"
+            },
+            {
+              component: "TableSortLabel",
+              selector: "MuiTableSortLabel",
+              props: "https://mui.com/material-ui/api/table-sort-label/#props",
+              css: "https://mui.com/material-ui/api/table-sort-label/#css"
+            }
+          ]
+        }),
       },
       canvas: { sourceState: "shown" },
     },
