@@ -13,7 +13,7 @@ const meta: Meta<typeof Badge> = {
       description: {
         component: overView({
           override: "Badge",
-          description: "Badge generates a small badge to the top-right of its child(ren).",
+          description: "Badge generates a small badge to the top-right of its children.",
           components: [
             {
               component: "Badge",
