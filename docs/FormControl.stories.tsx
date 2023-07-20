@@ -21,11 +21,13 @@ const meta: Meta<typeof FormControl> = {
               component: "FormControl",
               selector: "MuiFormControl",
               props: "https://mui.com/material-ui/api/form-control/#props",
+
               css: "https://mui.com/material-ui/api/form-control/#css",
             },
             {
               component: "FormControlLabel",
               selector: "MuiFormControlLabel",
+
               props:
                 "https://mui.com/material-ui/api/form-control-label/#props",
               css: "https://mui.com/material-ui/api/form-control-label/#css",
@@ -46,6 +48,7 @@ const meta: Meta<typeof FormControl> = {
               component: "FormLabel",
               selector: "MuiFormLabel",
               props: "https://mui.com/material-ui/api/form-label/#props",
+
               css: "https://mui.com/material-ui/api/form-label/#css",
             },
           ],
