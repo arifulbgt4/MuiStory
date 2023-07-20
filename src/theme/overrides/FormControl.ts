@@ -42,4 +42,5 @@ export default {
   MuiFormControlLabel,
   MuiFormGroup,
   MuiFormHelperText,
+  MuiFormLabel,
 };
