@@ -1,6 +1,6 @@
 # [MuiStory](https://dev--647c84907213dc4172ffdcde.chromatic.com/?path=/docs/overview--documentation)
 
-## Getting Started
+## Development
 
 First, run the development server:
 
