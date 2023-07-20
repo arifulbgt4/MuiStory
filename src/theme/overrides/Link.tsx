@@ -18,7 +18,7 @@ const MuiLink: Components<Theme>["MuiLink"] = {
   },
   defaultProps: {
     component: LinkBehavior,
-  } as LinkMUIProps,
+  } as unknown as LinkMUIProps,
 };
 
 export default { MuiLink };
