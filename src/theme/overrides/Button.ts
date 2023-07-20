@@ -22,4 +22,10 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   ],
 };
 
+const MuiButtonBase: Components<Theme>["MuiButtonBase"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
 export default { MuiButton };
