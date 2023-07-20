@@ -4,8 +4,8 @@ declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     rounded: true;
   }
-  interface ButtonPropsColorOverrides {}
-  interface ButtonPropsSizeOverrides {}
+  interface ButtonPropsColorOverrides { }
+  interface ButtonPropsSizeOverrides { }
 }
 
 const MuiButton: Components<Theme>["MuiButton"] = {
