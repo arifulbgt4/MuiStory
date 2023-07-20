@@ -14,15 +14,14 @@ const meta: Meta<typeof LoadingButton> = {
       description: {
         component: overView({
           override: "Button",
-          description: "@mui/lab offers loading buttons that can show loading state and disable interactions.",
+          description:
+            "@mui/lab offers loading buttons that can show loading state and disable interactions.",
           components: [
             {
               component: "LoadingButton",
-              selector: "MuiLoadingButton",
               props: "https://mui.com/material-ui/api/loading-button/#props",
-              css: "https://mui.com/material-ui/api/loading-button/#css"
-            }
-          ]
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
