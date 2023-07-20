@@ -12,7 +12,6 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
-
   variants: [
     {
       props: { variant: "rounded" },
@@ -23,4 +22,10 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   ],
 };
 
-export default { MuiButton };
+const MuiIconButton: Components<Theme>["MuiIconButton"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+export default { MuiButton, MuiIconButton };
