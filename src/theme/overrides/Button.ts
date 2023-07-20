@@ -12,6 +12,7 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
+
   variants: [
     {
       props: { variant: "rounded" },
