@@ -34,4 +34,4 @@ const MuiIconButton: Components<Theme>["MuiIconButton"] = {
   },
 };
 
-export default { MuiButton, MuiIconButton };
+export default { MuiButton, MuiIconButton, MuiButtonBase };
