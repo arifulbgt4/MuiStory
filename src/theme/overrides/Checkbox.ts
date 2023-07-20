@@ -6,4 +6,4 @@ const MuiCheckbox: Components<Theme>["MuiCheckbox"] = {
   },
 };
 
-export default [MuiCheckbox];
+export default { MuiCheckbox };
