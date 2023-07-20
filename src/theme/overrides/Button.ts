@@ -4,8 +4,8 @@ declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     rounded: true;
   }
-  interface ButtonPropsColorOverrides { }
-  interface ButtonPropsSizeOverrides { }
+  interface ButtonPropsColorOverrides {}
+  interface ButtonPropsSizeOverrides {}
 }
 
 const MuiButton: Components<Theme>["MuiButton"] = {
@@ -22,10 +22,10 @@ const MuiButton: Components<Theme>["MuiButton"] = {
   ],
 };
 
-const MuiButtonBase: Components<Theme>["MuiButtonBase"] = {
+const MuiIconButton: Components<Theme>["MuiIconButton"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
 };
 
-export default { MuiButton };
+export default { MuiButton, MuiIconButton };
