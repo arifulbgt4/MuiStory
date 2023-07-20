@@ -21,22 +21,19 @@ const meta: Meta<typeof Menu> = {
               component: "Menu",
               selector: "MuiMenu",
               props: "https://mui.com/material-ui/api/menu/#props",
-              css: "https://mui.com/material-ui/api/menu/#css"
-            },
-            {
-              component: "MenuList",
-              selector: "MuiMenuList",
-              props: "https://mui.com/material-ui/api/menu-list/#props",
-              css: "https://mui.com/material-ui/api/menu-list/#css"
+              css: "https://mui.com/material-ui/api/menu/#css",
             },
             {
               component: "MenuItem",
               selector: "MuiMenuItem",
               props: "https://mui.com/material-ui/api/menu-item/#props",
-              css: "https://mui.com/material-ui/api/menu-item/#css"
+              css: "https://mui.com/material-ui/api/menu-item/#css",
             },
-          ]
-
+            {
+              component: "MenuList",
+              props: "https://mui.com/material-ui/api/menu-list/#props",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
