@@ -30,7 +30,6 @@ const MuiInputBase: Components<Theme>["MuiInputBase"] = {
   },
 };
 
-
 const MuiInputLabel: Components<Theme>["MuiInputLabel"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
@@ -38,7 +37,7 @@ const MuiInputLabel: Components<Theme>["MuiInputLabel"] = {
 };
 
 
-const OutlinedInput: Components<Theme>["MuiOutlinedInput"] = {
+const MuiOutlinedInput: Components<Theme>["MuiOutlinedInput"] = {
   styleOverrides: {
     root: ({ theme, ownerState }) => ({}),
   },
@@ -51,6 +50,6 @@ export default {
   MuiInputAdornment,
   MuiInputBase,
   MuiInputLabel,
-  OutlinedInput,
+  MuiOutlinedInput,
 };
 
