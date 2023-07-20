@@ -40,7 +40,6 @@ const meta: Meta<typeof FormControl> = {
               component: "FormHelperText",
               selector: "MuiFormHelperText",
               props: "https://mui.com/material-ui/api/form-helper-text/#props",
-
               css: "https://mui.com/material-ui/api/form-helper-text/#css",
             },
             {
