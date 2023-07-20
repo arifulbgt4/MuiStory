@@ -16,6 +16,7 @@ const meta: Meta<typeof FormControl> = {
       description: {
         component: overView({
           override: "FormControl",
+          description: "",
           components: [
             {
               component: "FormControl",
