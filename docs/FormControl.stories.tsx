@@ -16,39 +16,39 @@ const meta: Meta<typeof FormControl> = {
       description: {
         component: overView({
           override: "FormControl",
-          description: "",
           components: [
             {
               component: "FormControl",
               selector: "MuiFormControl",
               props: "https://mui.com/material-ui/api/form-control/#props",
-              css: "https://mui.com/material-ui/api/form-control/#css"
+              css: "https://mui.com/material-ui/api/form-control/#css",
             },
             {
               component: "FormControlLabel",
               selector: "MuiFormControlLabel",
-              props: "https://mui.com/material-ui/api/form-control-label/#props",
-              css: "https://mui.com/material-ui/api/form-control-label/#css"
+              props:
+                "https://mui.com/material-ui/api/form-control-label/#props",
+              css: "https://mui.com/material-ui/api/form-control-label/#css",
             },
             {
               component: "FormGroup",
               selector: "MuiFormGroup",
               props: "https://mui.com/material-ui/api/form-group/#props",
-              css: "https://mui.com/material-ui/api/form-group/#css"
+              css: "https://mui.com/material-ui/api/form-group/#css",
             },
             {
               component: "FormHelperText",
               selector: "MuiFormHelperText",
               props: "https://mui.com/material-ui/api/form-helper-text/#props",
-              css: "https://mui.com/material-ui/api/form-helper-text/#css"
+              css: "https://mui.com/material-ui/api/form-helper-text/#css",
             },
             {
               component: "FormLabel",
               selector: "MuiFormLabel",
               props: "https://mui.com/material-ui/api/form-label/#props",
-              css: "https://mui.com/material-ui/api/form-label/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/form-label/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
