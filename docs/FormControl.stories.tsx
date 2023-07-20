@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import FormControl from "@mui/material/FormControl";
-import { argProps, argChildren, overView } from "./utils/formatArgs";
+import { argProps, argChildren, overView, overView } from "./utils/formatArgs";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -16,6 +16,7 @@ const meta: Meta<typeof FormControl> = {
       description: {
         component: overView({
           override: "FormControl",
+          description: "",
           components: [
             {
               component: "FormControl",
