@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import FormControl from "@mui/material/FormControl";
-import { argProps, argChildren } from "./utils/formatArgs";
+import { argProps, argChildren, overView } from "./utils/formatArgs";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -14,7 +14,43 @@ const meta: Meta<typeof FormControl> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component: "Another description, overriding the comments",
+        component: overView({
+          override: "FormControl",
+          components: [
+            {
+              component: "FormControl",
+
+              selector: "MuiFormControl",
+              props: "https://mui.com/material-ui/api/form-control/#props",
+              css: "https://mui.com/material-ui/api/form-control/#css",
+            },
+            {
+              component: "FormControlLabel",
+              selector: "MuiFormControlLabel",
+              props:
+                "https://mui.com/material-ui/api/form-control-label/#props",
+              css: "https://mui.com/material-ui/api/form-control-label/#css",
+            },
+            {
+              component: "FormGroup",
+              selector: "MuiFormGroup",
+              props: "https://mui.com/material-ui/api/form-group/#props",
+              css: "https://mui.com/material-ui/api/form-group/#css",
+            },
+            {
+              component: "FormHelperText",
+              selector: "MuiFormHelperText",
+              props: "https://mui.com/material-ui/api/form-helper-text/#props",
+              css: "https://mui.com/material-ui/api/form-helper-text/#css",
+            },
+            {
+              component: "FormLabel",
+              selector: "MuiFormLabel",
+              props: "https://mui.com/material-ui/api/form-label/#props",
+              css: "https://mui.com/material-ui/api/form-label/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },

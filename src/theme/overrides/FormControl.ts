@@ -12,4 +12,35 @@ const MuiAutocomplete: Components<Theme>["MuiAutocomplete"] = {
   },
 };
 
-export default { MuiFormControl, MuiAutocomplete };
+const MuiFormControlLabel: Components<Theme>["MuiFormControlLabel"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiFormGroup: Components<Theme>["MuiFormGroup"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiFormHelperText: Components<Theme>["MuiFormHelperText"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiFormLabel: Components<Theme>["MuiFormLabel"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+export default {
+  MuiFormControl,
+  MuiAutocomplete,
+  MuiFormGroup,
+  MuiFormControlLabel,
+  MuiFormHelperText,
+  MuiFormLabel,
+};

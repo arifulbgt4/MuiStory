@@ -13,14 +13,16 @@ const meta: Meta<typeof IconButton> = {
       description: {
         component: overView({
           override: "Button",
-          description: "Icon buttons are commonly found in app bars and toolbars.Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.",
+          description:
+            "Icon buttons are commonly found in app bars and toolbars.Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.",
           components: [
             {
               component: "IconButton",
+              selector: "MuiIconButton",
               props: "https://mui.com/material-ui/api/icon-button/#props",
-              css: "https://mui.com/material-ui/api/icon-button/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/icon-button/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },

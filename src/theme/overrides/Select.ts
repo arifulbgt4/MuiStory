@@ -6,4 +6,10 @@ const MuiSelect: Components<Theme>["MuiSelect"] = {
   },
 };
 
-export default { MuiSelect };
+const MuiNativeSelect: Components<Theme>["MuiNativeSelect"] = {
+  styleOverrides: {
+    select: ({ theme, ownerState }) => ({}),
+  },
+};
+
+export default { MuiSelect, MuiNativeSelect };

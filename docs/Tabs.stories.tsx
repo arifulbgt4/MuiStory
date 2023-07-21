@@ -12,45 +12,41 @@ const meta: Meta<typeof Tabs> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Tabs",
-          description:"Tabs make it easy to explore and switch between different views.",
-          components:[
+        component: overView({
+          override: "Tabs",
+          description:
+            "Tabs make it easy to explore and switch between different views.",
+          components: [
             {
-              component:"Tabs",
-              selector:"MuiTabs",
-              props:"https://mui.com/material-ui/api/tabs/#props",
-              css:"https://mui.com/material-ui/api/tabs/#css"
-          },
-          {
-            component:"Tab",
-            selector:"MuiTab",
-            props:"https://mui.com/material-ui/api/tab/#props",
-            css:"https://mui.com/material-ui/api/tab/#css"
-          },{
-            component:"TabContext",
-            props:"https://mui.com/material-ui/api/tab-context/#props" 
-          },
-          {
-            component:"TabList",
-            selector:"MuiTabList",
-            props:"https://mui.com/material-ui/api/tab-list/#props",
-            css:"https://mui.com/material-ui/api/tab-list/#css"
-          },
-          {
-            component:"TabPanel",
-            selector:"MuiTabPanel",
-            props:"https://mui.com/material-ui/api/tab-panel/#props",
-            css:"https://mui.com/material-ui/api/tab-panel/#props"
-          },
-          {
-            component:"TabScrollButton",
-            selector:"MuiTabScrollButton",
-            props:"https://mui.com/material-ui/api/tab-scroll-button/#props",
-            css:"https://mui.com/material-ui/api/tab-scroll-button/#css"
-          }
-          ]
-        })
+              component: "Tabs",
+              selector: "MuiTabs",
+              props: "https://mui.com/material-ui/api/tabs/#props",
+              css: "https://mui.com/material-ui/api/tabs/#css",
+            },
+            {
+              component: "Tab",
+              selector: "MuiTab",
+              props: "https://mui.com/material-ui/api/tab/#props",
+              css: "https://mui.com/material-ui/api/tab/#css",
+            },
+            {
+              component: "TabContext",
+              props: "https://mui.com/material-ui/api/tab-context/#props",
+            },
+            {
+              component: "TabList",
+              props: "https://mui.com/material-ui/api/tab-list/#props",
+            },
+            {
+              component: "TabPanel",
+              props: "https://mui.com/material-ui/api/tab-panel/#props",
+            },
+            {
+              component: "TabScrollButton",
+              props: "https://mui.com/material-ui/api/tab-scroll-button/#props",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },

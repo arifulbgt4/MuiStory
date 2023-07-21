@@ -24,4 +24,38 @@ const MuiListItemIcon: Components<Theme>["MuiListItemIcon"] = {
   },
 };
 
-export default { MuiList, MuiListItem, MuiListItemIcon, MuiListItemButton };
+const MuiListItemAvatar: Components<Theme>["MuiListItemAvatar"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiListItemSecondaryAction: Components<Theme>["MuiListItemSecondaryAction"] =
+  {
+    styleOverrides: {
+      root: ({ theme, ownerState }) => ({}),
+    },
+  };
+
+const MuiListItemText: Components<Theme>["MuiListItemText"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+const MuiListSubheader: Components<Theme>["MuiListSubheader"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+
+export default {
+  MuiList,
+  MuiListItem,
+  MuiListItemIcon,
+  MuiListItemButton,
+  MuiListItemAvatar,
+  MuiListItemSecondaryAction,
+  MuiListItemText,
+  MuiListSubheader,
+};

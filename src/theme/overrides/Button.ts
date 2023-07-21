@@ -21,5 +21,15 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     },
   ],
 };
+const MuiButtonBase: Components<Theme>["MuiButtonBase"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
+const MuiIconButton: Components<Theme>["MuiIconButton"] = {
+  styleOverrides: {
+    root: ({ theme, ownerState }) => ({}),
+  },
+};
 
-export default { MuiButton };
+export default { MuiButton, MuiButtonBase, MuiIconButton };
