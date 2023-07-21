@@ -12,6 +12,8 @@ const meta: Meta<typeof Paper> = {
       description: {
         component: overView({
           override: "Paper",
+          description:
+            "In Material Design, the physical properties of paper are translated to the screen.",
           components: [
             {
               component: "Paper",
