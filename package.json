@@ -51,9 +51,34 @@
   "resolutions": {
     "jackspeak": "2.1.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arifulbgt4/MuiStory"
+  },
+  "bugs": {
+    "url": "https://github.com/arifulbgt4/MuiStory/issues"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "boilerplate",
+    "reactjs",
+    "nextjs",
+    "boilerplate-template",
+    "storybook",
+    "mui",
+    "next",
+    "boilerplate-application",
+    "boilerplate-front-end",
+    "storybook-ui",
+    "muiv5",
+    "nextjs13",
+    "mui-material",
+    "muistory"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "next-mui-boilerplate@0.1.0"
+  "_id": "MuiStory@1.0.0"
 }
