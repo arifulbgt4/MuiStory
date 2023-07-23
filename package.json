@@ -17,7 +17,7 @@
     "@fontsource/material-icons": "^5.0.2",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.132",
-    "@mui/material": "^5.13.3",
+    "@mui/material": "^5.14.1",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -46,6 +46,9 @@
     "react-element-to-jsx-string": "^15.0.0",
     "remark-gfm": "^3.0.1",
     "storybook": "^7.1.0"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   },
   "engines": {
     "node": ">=18.0.0"
