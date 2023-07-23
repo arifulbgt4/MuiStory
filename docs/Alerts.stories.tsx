@@ -11,24 +11,25 @@ const meta: Meta<typeof Alert> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Alert",
-          description:"An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.",
-          components:[
+        component: overView({
+          override: "Alert",
+          description:
+            "An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.",
+          components: [
             {
-              component:"Alert",
-              selector:"MuiAlert",
-              props:"https://mui.com/material-ui/api/alert/#props",
-              css:"https://mui.com/material-ui/api/alert/#css"
+              component: "Alert",
+              selector: "MuiAlert",
+              props: "https://mui.com/material-ui/api/alert/#props",
+              css: "https://mui.com/material-ui/api/alert/#css",
             },
             {
-              component:"AlertTitle",
-              selector:"MuiAlertTitle",
-              props:"https://mui.com/material-ui/api/alert-title/#props",
-              css:"https://mui.com/material-ui/api/alert-title/#css"
-            }
-          ]
-        })
+              component: "AlertTitle",
+              selector: "MuiAlertTitle",
+              props: "https://mui.com/material-ui/api/alert-title/#props",
+              css: "https://mui.com/material-ui/api/alert-title/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -80,12 +81,14 @@ export const Alerts: Story = {
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 
-<Alert
-  ${argProps(storyContext)}
->
-  <AlertTitle>Hey</AlertTitle>
-  <p>Some text</p>
-</Alert>
+export default function Basic() {
+  return (
+    <Alert ${argProps(storyContext)}>
+      <AlertTitle>Hey</AlertTitle>
+      <p>Some text</p>
+    </Alert>
+  );
+}
         `,
       },
     },
