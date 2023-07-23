@@ -2,6 +2,7 @@
   "name": "muistory",
   "version": "1.0.0",
   "private": true,
+  "description": "MuiStory is a design system for Next.js that uses MUI Core v5.14.1 theming. It provides a boilerplate that makes it easy to integrate Storybook with MUI to preview your components and their themes in a live environment.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
