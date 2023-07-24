@@ -1,5 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Dialog from "@mui/material/Dialog";
+import { Typography } from "@mui/material";
 import { argChildren, argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -81,8 +82,8 @@ export const Dialogs: Story = {
   render: (args) => {
     return (
       <Dialog {...args}>
-        <h2>Hello modal</h2>
-        <p>Some text</p>
+        <Typography variant="h4">Hello modal</Typography>
+        <Typography>Hello modal</Typography>
       </Dialog>
     );
   },
@@ -94,12 +95,13 @@ export const Dialogs: Story = {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Dialog from "@mui/material/Dialog";
+import { Typography } from "@mui/material";
 
 export default function Basic() {
   return (
     <Dialog ${argProps(storyContext)}>
-      <h2>Hello modal</h2>
-      <p>Some text</p>
+    <Typography variant="h4">Hello modal</Typography>
+    <Typography >Some text</Typography>
     </Dialog>
   );
 }
