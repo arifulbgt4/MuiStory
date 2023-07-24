@@ -80,13 +80,15 @@ type Story = StoryObj<typeof Dialog>;
 export const Dialogs: Story = {
   render: (args) => {
     return (
-      <Dialog open={true}>
+      <Dialog {...args}>
         <h2>Hello modal</h2>
         <p>Some text</p>
       </Dialog>
     );
   },
-  args: {},
+  args: {
+    open: true,
+  },
   parameters: {
     docs: {
       source: {
