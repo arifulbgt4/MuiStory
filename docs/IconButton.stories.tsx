@@ -64,10 +64,16 @@ type Story = StoryObj<typeof IconButton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const IconButtons: Story = {
+  render: (args) => {
+    return (
+      <IconButton {...args}>
+        <DeleteIcon />
+      </IconButton>
+    );
+  },
   args: {
     color: "primary",
     size: "medium",
-    children: <DeleteIcon />,
   },
   parameters: {
     docs: {
@@ -76,11 +82,13 @@ export const IconButtons: Story = {
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-<IconButton
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</IconButton>
+export default function Basic() {
+  return (
+    <IconButton ${argProps(storyContext)}>
+      <DeleteIcon />
+    </IconButton>
+  );
+}
         `,
       },
     },
