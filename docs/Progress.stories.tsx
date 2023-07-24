@@ -90,7 +90,7 @@ type Story = StoryObj<typeof CircularProgress>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const CircularProgresses: Story = {
   render: (args) => {
-    return <CircularProgress />;
+    return <CircularProgress {...args} />;
   },
   args: {},
   parameters: {
@@ -98,6 +98,7 @@ export const CircularProgresses: Story = {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import CircularProgress from "@mui/material/CircularProgress";
+
 export default function CircularIndeterminate() {
   return <CircularProgress ${argProps(storyContext)} />;
 }
