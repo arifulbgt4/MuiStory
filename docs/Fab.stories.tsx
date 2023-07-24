@@ -13,15 +13,16 @@ const meta: Meta<typeof Fab> = {
       description: {
         component: overView({
           override: "Fab",
-          description: "A Floating Action Button (FAB) performs the primary, or most common, action on a screen.",
+          description:
+            "A Floating Action Button (FAB) performs the primary, or most common, action on a screen.",
           components: [
             {
               component: "Fab",
               selector: "MuiFab",
               props: "https://mui.com/material-ui/api/fab/#props",
-              css: "https://mui.com/material-ui/api/fab/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/fab/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -67,10 +68,16 @@ type Story = StoryObj<typeof Fab>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Fabs: Story = {
+  render: (args) => {
+    return (
+      <Fab {...args}>
+        <AddIcon />
+      </Fab>
+    );
+  },
   args: {
     color: "primary",
     size: "medium",
-    children: <AddIcon />,
   },
   parameters: {
     docs: {
@@ -78,11 +85,14 @@ export const Fabs: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-<Fab
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</Fab>
+
+export default function Basic() {
+  return (
+    <Fab ${argProps(storyContext)}>
+      <AddIcon />
+    </Fab>
+  );
+}
         `,
       },
     },
