@@ -78,7 +78,7 @@ type Story = StoryObj<typeof Dialog>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Dialogs: Story = {
-  render: () => {
+  render: (args) => {
     return (
       <Dialog open={true}>
         <h2>Hello modal</h2>
