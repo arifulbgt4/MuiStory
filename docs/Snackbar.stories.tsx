@@ -11,25 +11,26 @@ const meta: Meta<typeof Snackbar> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Snackbar",
-          description:"Snackbars provide brief notifications. The component is also known as a toast.",
-          components:[
+        component: overView({
+          override: "Snackbar",
+          description:
+            "Snackbars provide brief notifications. The component is also known as a toast.",
+          components: [
             {
-              component:"Snackbar",
-              selector:"MuiSnackbar",
-              props:"https://mui.com/material-ui/api/snackbar/#props",
-              css:"https://mui.com/material-ui/api/snackbar/#css"
+              component: "Snackbar",
+              selector: "MuiSnackbar",
+              props: "https://mui.com/material-ui/api/snackbar/#props",
+              css: "https://mui.com/material-ui/api/snackbar/#css",
             },
             {
-              component:"SnackbarContent",
-              selector:"MuiSnackbarContent",
-              props:"https://mui.com/material-ui/api/snackbar-content/#props",
-              css:"https://mui.com/material-ui/api/snackbar-content/#css"
-            }
-          ]
-        })
-        },
+              component: "SnackbarContent",
+              selector: "MuiSnackbarContent",
+              props: "https://mui.com/material-ui/api/snackbar-content/#props",
+              css: "https://mui.com/material-ui/api/snackbar-content/#css",
+            },
+          ],
+        }),
+      },
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
@@ -60,9 +61,15 @@ type Story = StoryObj<typeof Snackbar>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Snackbars: Story = {
+  render: (args) => {
+    return (
+      <Snackbar {...args}>
+        <Alert>Hello Snackbar</Alert>
+      </Snackbar>
+    );
+  },
   args: {
     open: true,
-    children: <Alert>Hello Snackbar</Alert>,
   },
   parameters: {
     docs: {
@@ -71,11 +78,13 @@ export const Snackbars: Story = {
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
-<Snackbar
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</Snackbar>
+export default function Basic() {
+  return (
+    <Snackbar ${argProps(storyContext)}>
+      <Alert>Hello Snackbar</Alert>
+    </Snackbar>
+  );
+}
         `,
       },
     },
