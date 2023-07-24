@@ -12,40 +12,42 @@ const meta: Meta<typeof Dialog> = {
       description: {
         component: overView({
           override: "Dialog",
-          description: "Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.",
+          description:
+            "Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.",
           components: [
             {
               component: "Dialog",
               selector: "MuiDialog",
               props: "https://mui.com/material-ui/api/dialog/#props",
-              css: "https://mui.com/material-ui/api/dialog/#css"
+              css: "https://mui.com/material-ui/api/dialog/#css",
             },
             {
               component: "DialogActions",
               selector: "MuiDialogActions",
               props: "https://mui.com/material-ui/api/dialog-actions/#props",
-              css: "https://mui.com/material-ui/api/dialog-actions/#css"
+              css: "https://mui.com/material-ui/api/dialog-actions/#css",
             },
             {
               component: "DialogContent",
               selector: "MuiDialogContent",
               props: "https://mui.com/material-ui/api/dialog-content/#props",
-              css: "https://mui.com/material-ui/api/dialog-content/#css"
+              css: "https://mui.com/material-ui/api/dialog-content/#css",
             },
             {
               component: "DialogContentText",
               selector: "MuiDialogContentText",
-              props: "https://mui.com/material-ui/api/dialog-content-text/#props",
-              css: "https://mui.com/material-ui/api/dialog-content-text/#css"
+              props:
+                "https://mui.com/material-ui/api/dialog-content-text/#props",
+              css: "https://mui.com/material-ui/api/dialog-content-text/#css",
             },
             {
               component: "DialogTitle",
               selector: "MuiDialogTitle",
               props: "https://mui.com/material-ui/api/dialog-title/#props",
-              css: "https://mui.com/material-ui/api/dialog-title/#css"
-            }
-          ]
-        })
+              css: "https://mui.com/material-ui/api/dialog-title/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -76,27 +78,29 @@ type Story = StoryObj<typeof Dialog>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Dialogs: Story = {
-  args: {
-    open: true,
-    children: (
-      <>
+  render: () => {
+    return (
+      <Dialog open={true}>
         <h2>Hello modal</h2>
         <p>Some text</p>
-      </>
-    ),
+      </Dialog>
+    );
   },
+  args: {},
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Dialog from "@mui/material/Dialog";
 
-<Dialog
-  ${argProps(storyContext)}
->
-  <h2>Hello modal</h2>
-  <p>Some text</p>
-</Dialog>
+export default function Basic() {
+  return (
+    <Dialog ${argProps(storyContext)}>
+      <h2>Hello modal</h2>
+      <p>Some text</p>
+    </Dialog>
+  );
+}
         `,
       },
     },
