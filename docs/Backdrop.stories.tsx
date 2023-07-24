@@ -14,16 +14,17 @@ const meta: Meta<typeof Backdrop> = {
       description: {
         component: overView({
           override: "Backdrop",
-          description: "The Backdrop component narrows the user's focus to a particular element on the screen.",
+          description:
+            "The Backdrop component narrows the user's focus to a particular element on the screen.",
           components: [
             {
               component: "Backdrop",
               selector: "MuiBackdrop",
               props: "https://mui.com/material-ui/api/backdrop/#props",
-              css: "https://mui.com/material-ui/api/backdrop/#css"
-            }
-          ]
-        })
+              css: "https://mui.com/material-ui/api/backdrop/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -68,11 +69,13 @@ export const Backdrops: Story = {
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
-<Backdrop
-  ${argProps(storyContext)}
->
-  <CircularProgress color="inherit" />
-</Backdrop>
+export default function Basic() {
+  return (
+    <Backdrop ${argProps(storyContext)}>
+      <CircularProgress color="inherit" />
+    </Backdrop>
+  );
+}
         `,
       },
     },
