@@ -14,22 +14,23 @@ const meta: Meta<typeof Button> = {
       description: {
         component: overView({
           override: "Button",
-          description: "Buttons allow users to take actions, and make choices, with a single tap.",
+          description:
+            "Buttons allow users to take actions, and make choices, with a single tap.",
           components: [
             {
               component: "Button",
               selector: "MuiButton",
               props: "https://mui.com/material-ui/api/button/#props",
-              css: "https://mui.com/material-ui/api/button/#css"
+              css: "https://mui.com/material-ui/api/button/#css",
             },
             {
               component: "ButtonBase",
               selector: "MuiButtonBase",
               props: "https://mui.com/material-ui/api/button-base/#props",
-              css: "https://mui.com/material-ui/api/button-base/#css"
+              css: "https://mui.com/material-ui/api/button-base/#css",
             },
-          ]
-        })
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -80,11 +81,13 @@ type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Buttons: Story = {
+  render: (args) => {
+    return <Button {...args}>Hello</Button>;
+  },
   args: {
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
   },
   parameters: {
     docs: {
@@ -92,7 +95,13 @@ export const Buttons: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
 
-${code}
+export default function Basic() {
+  return (
+    <Button ${argProps(storyContext)}>
+      Hello
+    </Button>
+  );
+}
         `,
       },
     },
@@ -100,11 +109,13 @@ ${code}
 };
 
 export const LeftIconButtons: Story = {
+  render: (args) => {
+    return <Button {...args}>Hello</Button>;
+  },
   args: {
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
     startIcon: <ArrowBackIcon />,
   },
   parameters: {
@@ -114,22 +125,26 @@ export const LeftIconButtons: Story = {
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-<Button 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</Button>
+export default function Basic() {
+  return (
+    <Button ${argProps(storyContext)}>
+      Hello
+    </Button>
+  );
+}
         `,
       },
     },
   },
 };
 export const RightIconButtons: Story = {
+  render: (args) => {
+    return <Button {...args}>Hello</Button>;
+  },
   args: {
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
     endIcon: <SendIcon />,
   },
   parameters: {
@@ -138,12 +153,13 @@ export const RightIconButtons: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-
-<Button 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</Button>
+export default function Basic() {
+  return (
+    <Button ${argProps(storyContext)}>
+      Hello
+    </Button>
+  );
+}
         `,
       },
     },
