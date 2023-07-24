@@ -14,21 +14,22 @@ const meta: Meta<typeof RadioGroup> = {
       description: {
         component: overView({
           override: "Radio",
-          description: "The Radio Group allows the user to select one option from a set.",
+          description:
+            "The Radio Group allows the user to select one option from a set.",
           components: [
             {
               component: "RadioGroup",
               selector: "MuiRadioGroup",
               props: "https://mui.com/material-ui/api/radio-group/#props",
-              css: "https://mui.com/material-ui/api/radio-group/#css"
+              css: "https://mui.com/material-ui/api/radio-group/#css",
             },
             {
               component: "Radio",
               selector: "MuiRadio",
               props: "https://mui.com/material-ui/api/radio/#props",
-              css: "https://mui.com/material-ui/api/radio/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/radio/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -57,15 +58,17 @@ type Story = StoryObj<typeof RadioGroup>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Fabs: Story = {
-  args: {
-    color: "primary",
-    children: (
-      <>
+  render: (args) => {
+    return (
+      <RadioGroup {...args}>
         <FormControlLabel value="female" control={<Radio />} label="Female" />
         <FormControlLabel value="male" control={<Radio />} label="Male" />
         <FormControlLabel value="other" control={<Radio />} label="Other" />
-      </>
-    ),
+      </RadioGroup>
+    );
+  },
+  args: {
+    color: "primary",
   },
   parameters: {
     docs: {
@@ -75,13 +78,15 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-<RadioGroup
-  ${argProps(storyContext)}
->
-  <FormControlLabel value="female" control={<Radio />} label="Female" />
-  <FormControlLabel value="male" control={<Radio />} label="Male" />
-  <FormControlLabel value="other" control={<Radio />} label="Other" />
-</RadioGroup>
+export default function Basic() {
+  return (
+    <RadioGroup color="primary">
+      <FormControlLabel value="female" control={<Radio />} label="Female" />
+      <FormControlLabel value="male" control={<Radio />} label="Male" />
+      <FormControlLabel value="other" control={<Radio />} label="Other" />
+    </RadioGroup>
+  )
+}
         `,
       },
     },
