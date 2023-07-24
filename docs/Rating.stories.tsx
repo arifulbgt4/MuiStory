@@ -12,15 +12,16 @@ const meta: Meta<typeof Rating> = {
       description: {
         component: overView({
           override: "Rating",
-          description: "Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.",
+          description:
+            "Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.",
           components: [
             {
               component: "Rating",
               selector: "MuiRating",
               props: "https://mui.com/material-ui/api/rating/#props",
-              css: "https://mui.com/material-ui/api/rating/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/rating/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -40,6 +41,9 @@ type Story = StoryObj<typeof Rating>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Ratings: Story = {
+  render: (args) => {
+    return <Rating {...args} />;
+  },
   args: {
     defaultValue: 3,
   },
@@ -48,8 +52,9 @@ export const Ratings: Story = {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Rating from "@mui/material/Rating";
-
-${code}
+export default function Basic() {
+  return <Rating ${argProps(storyContext)} />;
+}
         `,
       },
     },
