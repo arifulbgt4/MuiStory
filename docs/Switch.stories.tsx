@@ -14,15 +14,16 @@ const meta: Meta<typeof Switch> = {
       description: {
         component: overView({
           override: "Switch",
-          description: "Switches toggle the state of a single setting on or off.",
+          description:
+            "Switches toggle the state of a single setting on or off.",
           components: [
             {
               component: "Switch",
               selector: "MuiSwitch",
               props: "https://mui.com/material-ui/api/switch/#props",
-              css: "https://mui.com/material-ui/api/switch/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/switch/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -95,6 +96,9 @@ type Story = StoryObj<typeof Switch>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Switchs: Story = {
+  render: (args) => {
+    return <Switch {...args} />;
+  },
   args: {
     color: "primary",
     size: "medium",
@@ -103,9 +107,11 @@ export const Switchs: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-import Switch from '@mui/material/Switch';
+import Switch from "@mui/material/Switch";
 
-${code}
+export default function Basic() {
+  return <Switch ${argProps(storyContext)} />;
+}
         `,
       },
     },
