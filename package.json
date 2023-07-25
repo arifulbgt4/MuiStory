@@ -24,9 +24,11 @@
     "@types/react-dom": "18.2.7",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "final-form": "^4.20.9",
     "next": "13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-final-form": "^6.5.9",
     "typescript": "5.1.6"
   },
   "devDependencies": {
