@@ -4,3 +4,4 @@ export * from "./Types";
 export * from "./util";
 // Components
 export { default as TextField } from "./TextField";
+export { default as Slider } from "./Slider";
