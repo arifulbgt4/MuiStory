@@ -12,18 +12,19 @@ const meta: Meta<typeof Breadcrumbs> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Breadcrumbs",
-          description:"A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.",
-          components:[
+        component: overView({
+          override: "Breadcrumbs",
+          description:
+            "A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.",
+          components: [
             {
-              component:"Breadcrumbs",
-              selector:"MuiBreadcrumbs",
-              props:"https://mui.com/material-ui/api/breadcrumbs/#props",
-              css:"https://mui.com/material-ui/api/breadcrumbs/#css"
-            }
-          ]
-        })
+              component: "Breadcrumbs",
+              selector: "MuiBreadcrumbs",
+              props: "https://mui.com/material-ui/api/breadcrumbs/#props",
+              css: "https://mui.com/material-ui/api/breadcrumbs/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -69,21 +70,23 @@ type Story = StoryObj<typeof Breadcrumbs>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Breadcrumbss: Story = {
-  render: ({ ...restArgs }) => (
-    <Breadcrumbs {...restArgs}>
-      <Link underline="hover" color="inherit" href="/">
-        MUI
-      </Link>
-      <Link
-        underline="hover"
-        color="inherit"
-        href="/material-ui/getting-started/installation/"
-      >
-        Core
-      </Link>
-      <Typography color="text.primary">Breadcrumbs</Typography>
-    </Breadcrumbs>
-  ),
+  render: (args) => {
+    return (
+      <Breadcrumbs {...args}>
+        <Link underline="hover" color="inherit" href="/">
+          MUI
+        </Link>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/material-ui/getting-started/installation/"
+        >
+          Core
+        </Link>
+        <Typography color="text.primary">Breadcrumbs</Typography>
+      </Breadcrumbs>
+    );
+  },
   args: {
     separator: "/",
   },
@@ -95,7 +98,23 @@ import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 
-${code}
+export default function BAsic() {
+  return (
+    <Breadcrumbs ${argProps(storyContext)}>
+      <Link color="inherit" href="/" underline="hover">
+        MUI
+      </Link>
+      <Link
+        color="inherit"
+        href="/material-ui/getting-started/installation/"
+        underline="hover"
+      >
+        Core
+      </Link>
+      <Typography color="text.primary">Breadcrumbs</Typography>
+    </Breadcrumbs>
+  );
+}
         `,
       },
     },
