@@ -12,15 +12,16 @@ const meta: Meta<typeof Chip> = {
       description: {
         component: overView({
           override: "Chip",
-          description: "Chips are compact elements that represent an input, attribute, or action.",
+          description:
+            "Chips are compact elements that represent an input, attribute, or action.",
           components: [
             {
               component: "Chip",
               selector: "MuiChip",
               props: "https://mui.com/material-ui/api/chip/#props",
-              css: "https://mui.com/material-ui/api/chip/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/chip/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -84,6 +85,9 @@ type Story = StoryObj<typeof Chip>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Chips: Story = {
+  render: (args) => {
+    return <Chip {...args}></Chip>;
+  },
   args: {
     label: "Chip Filled",
   },
@@ -93,7 +97,9 @@ export const Chips: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Chip from "@mui/material/Chip";
 
-${code}
+export default function LabPage() {
+  return <Chip ${argProps(storyContext)} />;
+}
         `,
       },
     },
