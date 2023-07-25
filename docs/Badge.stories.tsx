@@ -13,15 +13,16 @@ const meta: Meta<typeof Badge> = {
       description: {
         component: overView({
           override: "Badge",
-          description: "Badge generates a small badge to the top-right of its children.",
+          description:
+            "Badge generates a small badge to the top-right of its children.",
           components: [
             {
               component: "Badge",
               selector: "MuiBadge",
               props: "https://mui.com/material-ui/api/badge/#props",
-              css: "https://mui.com/material-ui/api/badge/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/badge/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -84,10 +85,16 @@ type Story = StoryObj<typeof Badge>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Badges: Story = {
+  render: (args) => {
+    return (
+      <Badge {...args}>
+        <MailIcon color="action" />
+      </Badge>
+    );
+  },
   args: {
     badgeContent: 5,
     color: "primary",
-    children: <MailIcon color="action" />,
   },
   parameters: {
     docs: {
@@ -96,11 +103,13 @@ export const Badges: Story = {
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 
-<Badge
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</Badge>
+export default function LabPage() {
+  return (
+    <Badge ${argProps(storyContext)}>
+      <MailIcon color="action" />
+    </Badge>
+  );
+}
         `,
       },
     },
