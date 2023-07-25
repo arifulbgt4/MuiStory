@@ -1,19 +1,19 @@
 // React
 import { FC } from "react";
 // @mui
-import { Slider as MuiSlider } from "@mui/material";
+import { Switch as MuiSwitch } from "@mui/material";
 // packages
 import { Field } from "react-final-form";
 
 // Types
-import { SliderProps, SlideWrapperProps } from "./Types";
+import { SwitchProps, SwitchWrapperProps } from "./Types";
 
-const Slider: FC<SliderProps> = ({ name, fieldProps, ...rest }) => {
+const Slider: FC<SwitchProps> = ({ name, fieldProps, ...rest }) => {
   return (
     <Field
       name={name}
       render={({ input, meta }) => (
-        <SliderWrapper input={input} meta={meta} {...rest} />
+        <SwitchWrapper input={input} meta={meta} {...rest} />
       )}
       {...fieldProps}
     />
@@ -21,20 +21,25 @@ const Slider: FC<SliderProps> = ({ name, fieldProps, ...rest }) => {
 };
 
 // ||-----------------------------------||
-// ||   Mui Slider Wrapper           ||
+// ||   Mui Switch Wrapper           ||
 // ||   *** Don't export the component  ||
 // ||-----------------------------------||
-const SliderWrapper: FC<SlideWrapperProps> = ({
-  input: { name, value, onChange, onBlur, onFocus },
+const SwitchWrapper: FC<SwitchWrapperProps> = ({
+  input: { name, value, onChange, onBlur, onFocus, ...restInput },
+  meta,
+  helperText,
+  required,
   ...rest
 }) => {
   return (
-    <MuiSlider
+    <MuiSwitch
       onChange={onChange}
       onBlur={onBlur}
       onFocus={onFocus}
       name={name}
-      value={value as any}
+      value={value}
+      required={required}
+      inputProps={{ required, ...restInput }}
       {...rest}
     />
   );
