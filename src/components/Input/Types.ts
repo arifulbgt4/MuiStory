@@ -3,6 +3,7 @@ import {
   TextFieldProps as MuiTextFieldProps,
   SliderProps as MuiSliderProps,
   SwitchProps as MuiSwitchProps,
+  SelectProps as MuiSelectProps,
 } from "@mui/material";
 // packages
 import { FieldProps, FieldRenderProps, FieldMetaState } from "react-final-form";
@@ -29,6 +30,13 @@ export interface SwitchProps extends Partial<Omit<MuiSwitchProps, "onChange">> {
 }
 
 export interface SwitchWrapperProps extends FieldRenderProps<MuiSwitchProps> {}
+
+export interface SelectProps extends Partial<Omit<MuiSelectProps, "onChange">> {
+  name: string;
+  fieldProps?: Partial<FieldProps<any, any>>;
+}
+
+export interface SelectWrapperProps extends FieldRenderProps<MuiSelectProps> {}
 
 export type FieldShowErrorOptions = (props: FieldMetaOptions) => boolean;
 
