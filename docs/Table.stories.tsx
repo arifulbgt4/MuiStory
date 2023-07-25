@@ -147,10 +147,6 @@ export const Tables: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-"use client";
-import Box from "@mui/material/Box";
-import Sidebar from "src/widgets/Sidebar";
-
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
