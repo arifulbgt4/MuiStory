@@ -84,7 +84,7 @@ export const Avatars: Story = {
 import Avatar from "@mui/material/Avatar";
 
 export default function Basic() {
-  return <Avatar>A</Avatar>;
+  return <Avatar ${argProps(storyContext)}>A</Avatar>;
 }
         `,
       },
