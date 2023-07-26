@@ -101,8 +101,16 @@ export const Template: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-     
-${code}
+
+export default function Basic() {
+  return (
+    <Tabs onChange={() => {}} ${argProps(storyContext)}>
+      <Tab label="Item One" value="one" />
+      <Tab label="Item Two" value="two" />
+      <Tab label="Item Three" value="three" />
+    </Tabs>
+  );
+}
         `,
       },
     },
