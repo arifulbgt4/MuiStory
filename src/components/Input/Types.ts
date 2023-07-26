@@ -4,6 +4,7 @@ import {
   SliderProps as MuiSliderProps,
   SwitchProps as MuiSwitchProps,
   SelectProps as MuiSelectProps,
+  RadioGroupProps as MuiRadioGroupProps,
 } from "@mui/material";
 // packages
 import { FieldProps, FieldRenderProps, FieldMetaState } from "react-final-form";
@@ -37,6 +38,15 @@ export interface SelectProps extends Partial<Omit<MuiSelectProps, "onChange">> {
 }
 
 export interface SelectWrapperProps extends FieldRenderProps<MuiSelectProps> {}
+
+export interface RadioGroupProps
+  extends Partial<Omit<MuiRadioGroupProps, "onChange">> {
+  name: string;
+  fieldProps?: Partial<FieldProps<any, any>>;
+}
+
+export interface RadioGroupWrapperProps
+  extends FieldRenderProps<MuiRadioGroupProps> {}
 
 export type FieldShowErrorOptions = (props: FieldMetaOptions) => boolean;
 
