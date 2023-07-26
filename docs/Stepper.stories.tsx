@@ -19,19 +19,20 @@ const meta: Meta<typeof Stepper> = {
       description: {
         component: overView({
           override: "Stepper",
-          description: "Steppers convey progress through numbered steps. It provides a wizard-like workflow.",
+          description:
+            "Steppers convey progress through numbered steps. It provides a wizard-like workflow.",
           components: [
             {
               component: "Stepper",
               selector: "MuiStepper",
               props: "https://mui.com/material-ui/api/stepper/#props",
-              css: "https://mui.com/material-ui/api/stepper/#css"
+              css: "https://mui.com/material-ui/api/stepper/#css",
             },
             {
               component: "MobileStepper",
               selector: "MuiMobileStepper",
               props: "https://mui.com/material-ui/api/mobile-stepper/#props",
-              css: "https://mui.com/material-ui/api/mobile-stepper/#props"
+              css: "https://mui.com/material-ui/api/mobile-stepper/#props",
             },
             {
               component: "Step",
@@ -43,33 +44,33 @@ const meta: Meta<typeof Stepper> = {
               component: "StepLabel",
               selector: "MuiStepLabel",
               props: "https://mui.com/material-ui/api/step-label/#props",
-              css: "https://mui.com/material-ui/api/step-label/#css"
+              css: "https://mui.com/material-ui/api/step-label/#css",
             },
             {
               component: "StepButton",
               selector: "MuiStepButton",
               props: "https://mui.com/material-ui/api/step-button/#props",
-              css: "https://mui.com/material-ui/api/step-button/#css"
+              css: "https://mui.com/material-ui/api/step-button/#css",
             },
             {
               component: "StepConnector",
               selector: "MuiStepConnector",
               props: "https://mui.com/material-ui/api/step-connector/#props",
-              css: "https://mui.com/material-ui/api/step-connector/#css"
+              css: "https://mui.com/material-ui/api/step-connector/#css",
             },
             {
               component: "StepContent",
               selector: "MuiStepContent",
               props: "https://mui.com/material-ui/api/step-content/#props",
-              css: "https://mui.com/material-ui/api/step-content/#css"
+              css: "https://mui.com/material-ui/api/step-content/#css",
             },
             {
               component: "StepIcon",
               selector: "MuiStepIcon",
               props: "https://mui.com/material-ui/api/step-icon/#props",
-              css: "https://mui.com/material-ui/api/step-icon/#css"
+              css: "https://mui.com/material-ui/api/step-icon/#css",
             },
-          ]
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -112,7 +113,6 @@ export const Template: Story = {
     );
   },
   args: {
-    activeStep: 0,
     nonLinear: true,
   },
   decorators: [
@@ -149,8 +149,29 @@ export const Template: Story = {
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
-     
-${code}
+
+export default function Basic() {
+  return (
+    <Stepper activeStep={0} ${argProps(storyContext)}>
+      <Step completed>
+        <StepButton color="inherit" onClick={() => {}}>
+          Select campaign settings
+        </StepButton>
+      </Step>
+      <Step>
+        <StepButton color="inherit" onClick={() => {}}>
+          Create an ad group
+        </StepButton>
+      </Step>
+      <Step>
+        <StepButton color="inherit" onClick={() => {}}>
+          Create an ad
+        </StepButton>
+      </Step>
+    </Stepper>
+  );
+}
+
         `,
       },
     },
