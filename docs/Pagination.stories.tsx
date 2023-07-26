@@ -19,16 +19,17 @@ const meta: Meta<typeof Pagination> = {
               component: "Pagination",
               selector: "MuiPagination",
               props: "https://mui.com/material-ui/api/pagination/#props",
-              css: "https://mui.com/material-ui/api/pagination/#css"
+              css: "https://mui.com/material-ui/api/pagination/#css",
             },
             {
               component: "PaginationItem",
               selector: "MuiPaginationItem",
               props: "https://mui.com/material-ui/api/pagination-item/#props",
-              css: "https://mui.com/material-ui/api/pagination-item/#css"
-            }
+              css: "https://mui.com/material-ui/api/pagination-item/#css",
+            },
           ],
-        }),   },
+        }),
+      },
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
@@ -60,6 +61,9 @@ type Story = StoryObj<typeof Pagination>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
+  render: (args) => {
+    return <Pagination {...args} />;
+  },
   args: {
     variant: "text",
     count: 10,
@@ -70,7 +74,10 @@ export const Template: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Pagination from "@mui/material/Pagination";
 
-${code}
+export default function Basic() {
+  return <Pagination ${argProps(storyContext)} />;
+}
+
         `,
       },
     },
