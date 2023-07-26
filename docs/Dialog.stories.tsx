@@ -1,7 +1,8 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Dialog from "@mui/material/Dialog";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { useArgs } from "@storybook/addons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Dialog> = {
@@ -52,6 +53,7 @@ const meta: Meta<typeof Dialog> = {
       },
       canvas: { sourceState: "shown" },
     },
+    layout: "centered",
   },
   tags: ["autodocs"],
   argTypes: {
@@ -79,30 +81,58 @@ type Story = StoryObj<typeof Dialog>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Dialogs: Story = {
-  render: (args) => {
+  render: ({ onClose, ...args }) => {
     return (
-      <Dialog {...args}>
+      <Dialog onClose={onClose} {...args}>
         <Typography variant="h4">Hello modal</Typography>
         <Typography>Hello modal</Typography>
       </Dialog>
     );
   },
   args: {
-    open: true,
+    open: false,
   },
+  decorators: [
+    (Story: any) => {
+      const [args, setArgs] = useArgs();
+      const onCloseDialog = () => setArgs({ open: false });
+      return (
+        <>
+          <Button onClick={() => setArgs({ open: true })}>Open dialog</Button>
+          <Story
+            args={{
+              ...args,
+              onClose: () => onCloseDialog(),
+            }}
+          />
+        </>
+      );
+    },
+  ],
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
+"use client";
+import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
-import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export default function Basic() {
+  const [open, setOpen] = useState<boolean>(false);
   return (
-    <Dialog ${argProps(storyContext)}>
-    <Typography variant="h4">Hello modal</Typography>
-    <Typography >Some text</Typography>
-    </Dialog>
+    <Box>
+      <Button onClick={() => setOpen(true)}>Open dailog</Button>
+      <Dialog onClose={() => setOpen(false)} open={open} ${argProps(
+        storyContext,
+        ["open"]
+      )}>
+        <Typography variant="h4">Hello modal</Typography>
+        <Typography>Some text</Typography>
+      </Dialog>
+    </Box>
   );
 }
         `,
