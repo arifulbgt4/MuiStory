@@ -5,6 +5,7 @@ import {
   SwitchProps as MuiSwitchProps,
   SelectProps as MuiSelectProps,
   RadioGroupProps as MuiRadioGroupProps,
+  CheckboxProps as MuiCheckboxProps,
 } from "@mui/material";
 // packages
 import { FieldProps, FieldRenderProps, FieldMetaState } from "react-final-form";
@@ -47,6 +48,15 @@ export interface RadioGroupProps
 
 export interface RadioGroupWrapperProps
   extends FieldRenderProps<MuiRadioGroupProps> {}
+
+export interface CheckboxProps
+  extends Partial<Omit<MuiCheckboxProps, "onChange">> {
+  name: string;
+  fieldProps?: Partial<FieldProps<any, any>>;
+}
+
+export interface CheckboxWrapperProps
+  extends FieldRenderProps<MuiCheckboxProps> {}
 
 export type FieldShowErrorOptions = (props: FieldMetaOptions) => boolean;
 
