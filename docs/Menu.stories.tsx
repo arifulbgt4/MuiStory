@@ -120,11 +120,38 @@ export const Template: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
+"use client";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-     
-${code}
+import { Box } from "@mui/material";
+import { useState } from "react";
+
+export default function Basic() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  return (
+    <Box>
+      <Button
+        variant="contained"
+        onClick={(e: React.MouseEvent<HTMLElement>) =>
+          setAnchorEl(e.currentTarget)
+        }
+      >
+        deshboard
+      </Button>
+      <Menu anchorEl={anchorEl} onClose={() => setAnchorEl(null)} open={open} ${argProps(
+        storyContext,
+        ["open"]
+      )}>
+        <MenuItem onClick={() => {}}>Profile</MenuItem>
+        <MenuItem onClick={() => {}}>My account</MenuItem>
+        <MenuItem onClick={() => {}}>Logout</MenuItem>
+      </Menu>
+    </Box>
+  );
+}
+
         `,
       },
     },
