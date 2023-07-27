@@ -142,7 +142,7 @@ export default function Basic() {
       </Button>
       <Menu anchorEl={anchorEl} onClose={() => setAnchorEl(null)} open={open} ${argProps(
         storyContext,
-        ["open"]
+        ["open", "anchorEl"]
       )}>
         <MenuItem onClick={() => {}}>Profile</MenuItem>
         <MenuItem onClick={() => {}}>My account</MenuItem>
