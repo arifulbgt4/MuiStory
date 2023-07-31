@@ -17,31 +17,31 @@ const meta: Meta<typeof SpeedDial> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"SpeedDial",
-          description:"When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.",
-          components:[
+        component: overView({
+          override: "SpeedDial",
+          description:
+            "When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.",
+          components: [
             {
-              component:"SpeedDial",
-              selector:"MuiSpeedDial",
-              props:"https://mui.com/material-ui/api/speed-dial/#props",
-              css:"https://mui.com/material-ui/api/speed-dial/#css"
+              component: "SpeedDial",
+              selector: "MuiSpeedDial",
+              props: "https://mui.com/material-ui/api/speed-dial/#props",
+              css: "https://mui.com/material-ui/api/speed-dial/#css",
             },
             {
-              component:"SpeedDialAction ",
-              selector:"MuiSpeedDialAction",
-              props:"https://mui.com/material-ui/api/speed-dial-action/#props",
-              css:"https://mui.com/material-ui/api/speed-dial-action/#css"
+              component: "SpeedDialAction ",
+              selector: "MuiSpeedDialAction",
+              props: "https://mui.com/material-ui/api/speed-dial-action/#props",
+              css: "https://mui.com/material-ui/api/speed-dial-action/#css",
             },
             {
-              component:"SpeedDialIcon  ",
-              selector:"MuiSpeedDialIcon",
-              props:"https://mui.com/material-ui/api/speed-dial-icon/#props",
-              css:"https://mui.com/material-ui/api/speed-dial-icon/#css"
-            }
-          ]
-        })
-      
+              component: "SpeedDialIcon  ",
+              selector: "MuiSpeedDialIcon",
+              props: "https://mui.com/material-ui/api/speed-dial-icon/#props",
+              css: "https://mui.com/material-ui/api/speed-dial-icon/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -76,17 +76,19 @@ const actions = [
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const SpeedDials: Story = {
-  render: ({ ...restArgs }) => (
-    <SpeedDial {...restArgs} icon={<SpeedDialIcon />}>
-      {actions.map((action) => (
-        <SpeedDialAction
-          key={action.name}
-          icon={action.icon}
-          tooltipTitle={action.name}
-        />
-      ))}
-    </SpeedDial>
-  ),
+  render: (args) => {
+    return (
+      <SpeedDial {...args} icon={<SpeedDialIcon />}>
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
+    );
+  },
   args: {
     ariaLabel: "SpeedDial basic example",
   },
@@ -102,25 +104,29 @@ import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
 import ShareIcon from "@mui/icons-material/Share";
 
-const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <PrintIcon />, name: 'Print' },
-  { icon: <ShareIcon />, name: 'Share' },
-];
+export default function Basic() {
+  const actions = [
+    { icon: <FileCopyIcon />, name: "Copy" },
+    { icon: <SaveIcon />, name: "Save" },
+    { icon: <PrintIcon />, name: "Print" },
+    { icon: <ShareIcon />, name: "Share" },
+  ];
 
-<SpeedDial
-  ${argProps(storyContext)}
-  icon={<SpeedDialIcon />
->
-  {actions.map((action) => (
-    <SpeedDialAction
-      key={action.name}
-      icon={action.icon}
-      tooltipTitle={action.name}
-    />
-  ))}
-</SpeedDial>
+  return (
+    <SpeedDial ${argProps(storyContext)} icon={<SpeedDialIcon />}>
+      {actions.map((action) => {
+        return (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        );
+      })}
+    </SpeedDial>
+  );
+}
+
         `,
       },
     },

@@ -12,15 +12,16 @@ const meta: Meta<typeof Divider> = {
       description: {
         component: overView({
           override: "Divider",
-          description: "A divider is a thin line that groups content in lists and layouts.",
+          description:
+            "A divider is a thin line that groups content in lists and layouts.",
           components: [
             {
               component: "Divider",
               selector: "MuiDivider",
               props: "https://mui.com/material-ui/api/divider/#props",
-              css: "https://mui.com/material-ui/api/divider/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/divider/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -71,16 +72,19 @@ type Story = StoryObj<typeof Divider>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Dividers: Story = {
-  args: {
-    children: "Center",
+  render: (args) => {
+    return <Divider {...args}>Center</Divider>;
   },
+  args: {},
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import Divider from "@mui/material/Divider";
 
-${code}
+export default function Basic() {
+  return <Divider ${argProps(storyContext)}>Center</Divider>;
+}
         `,
       },
     },

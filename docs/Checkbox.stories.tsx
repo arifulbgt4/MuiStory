@@ -14,16 +14,17 @@ const meta: Meta<typeof Checkbox> = {
       description: {
         component: overView({
           override: "Checkbox",
-          description: "Checkboxes allow the user to select one or more items from a set.",
+          description:
+            "Checkboxes allow the user to select one or more items from a set.",
           components: [
             {
               component: "Checkbox",
               selector: "MuiCheckbox",
               props: "https://mui.com/material-ui/api/checkbox/#props",
-              css: "https://mui.com/material-ui/api/checkbox/#css"
-            }
-          ]
-        })
+              css: "https://mui.com/material-ui/api/checkbox/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -71,6 +72,9 @@ type Story = StoryObj<typeof Checkbox>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Checkboxs: Story = {
+  render: (args) => {
+    return <Checkbox {...args} />;
+  },
   args: {
     color: "primary",
     size: "medium",
@@ -81,7 +85,9 @@ export const Checkboxs: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Checkbox from "@mui/material/Checkbox";
 
-${code}
+export default function Basic() {
+  return <Checkbox ${argProps(storyContext)} />
+}
         `,
       },
     },
@@ -89,6 +95,9 @@ ${code}
 };
 
 export const IconCheckbox: Story = {
+  render: (args) => {
+    return <Checkbox {...args} />;
+  },
   args: {
     color: "primary",
     size: "medium",
@@ -103,9 +112,9 @@ import Checkbox from "@mui/material/Checkbox";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 
-<Checkbox
-  ${argProps(storyContext)}
-/>
+export default function Basic() {
+     return <Checkbox ${argProps(storyContext)} />
+  }
         `,
       },
     },

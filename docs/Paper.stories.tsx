@@ -61,18 +61,16 @@ type Story = StoryObj<typeof Paper>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Papers: Story = {
-  render: () => {
-    return (
-      <Paper
-        elevation={5}
-        sx={{
-          height: "200px",
-          width: "200px",
-        }}
-      />
-    );
+  render: (args) => {
+    return <Paper {...args} />;
   },
-  args: {},
+  args: {
+    elevation: 5,
+    sx: {
+      height: "200px",
+      width: "200px",
+    },
+  },
   parameters: {
     docs: {
       source: {

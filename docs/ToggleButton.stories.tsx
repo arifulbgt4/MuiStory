@@ -23,15 +23,17 @@ const meta: Meta<typeof ToggleButtonGroup> = {
             {
               component: "ToggleButtonGroup",
               selector: "MuiToggleButtonGroup",
-              props: "https://mui.com/material-ui/api/toggle-button-group/#props",
-              css: "https://mui.com/material-ui/api/toggle-button-group/#css"
-            }, {
+              props:
+                "https://mui.com/material-ui/api/toggle-button-group/#props",
+              css: "https://mui.com/material-ui/api/toggle-button-group/#css",
+            },
+            {
               component: "ToggleButton",
               selector: "MuiToggleButton",
               props: "https://mui.com/material-ui/api/toggle-button/#props",
-              css: "https://mui.com/material-ui/api/toggle-button/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/toggle-button/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -109,24 +111,29 @@ import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-     
-<ToggleButtonGroup
-  ${argProps(storyContext)}
-  aria-label="text alignment"
->
-  <ToggleButton value="left" aria-label="left aligned">
-    <FormatAlignLeftIcon />
-  </ToggleButton>
-  <ToggleButton value="center" aria-label="centered">
-    <FormatAlignCenterIcon />
-  </ToggleButton>
-  <ToggleButton value="right" aria-label="right aligned">
-    <FormatAlignRightIcon />
-  </ToggleButton>
-  <ToggleButton value="justify" aria-label="justified" disabled>
-    <FormatAlignJustifyIcon />
-  </ToggleButton>
-</ToggleButtonGroup>
+
+export default function Basic() {
+  return (
+    <ToggleButtonGroup
+      ${argProps(storyContext)}
+      value="right"
+      aria-label="text alignment"
+    >
+      <ToggleButton value="left" aria-label="left aligned">
+        <FormatAlignLeftIcon />
+      </ToggleButton>
+      <ToggleButton value="center" aria-label="centered">
+        <FormatAlignCenterIcon />
+      </ToggleButton>
+      <ToggleButton value="right" aria-label="right aligned">
+        <FormatAlignRightIcon />
+      </ToggleButton>
+      <ToggleButton value="justify" aria-label="justified" disabled>
+        <FormatAlignJustifyIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+}
         `,
       },
     },

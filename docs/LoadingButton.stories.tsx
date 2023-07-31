@@ -83,12 +83,14 @@ type Story = StoryObj<typeof LoadingButton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const LoadingButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loading: true,
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
   },
   parameters: {
     docs: {
@@ -96,7 +98,9 @@ export const LoadingButtons: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import LoadingButton from "@mui/lab/LoadingButton";
 
-${code}
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)}>Hello</LoadingButton>;
+}
         `,
       },
     },
@@ -104,38 +108,40 @@ ${code}
 };
 
 export const LoadingLeftIconButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loading: true,
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
     startIcon: <ArrowBackIcon />,
   },
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import LoadingButton from "@mui/lab/LoadingButton";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-        
-<LoadingButton 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</LoadingButton>
+
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)} >Hello</LoadingButton>;
+}
         `,
       },
     },
   },
 };
 export const LoadingRightIconButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loading: true,
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
     endIcon: <SendIcon />,
   },
   parameters: {
@@ -144,25 +150,25 @@ export const LoadingRightIconButtons: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
-     
-<LoadingButton 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</LoadingButton>
+
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)} >Hello</LoadingButton>;
+}
         `,
       },
     },
   },
 };
 export const LoadingPositionLeftIconButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loadingPosition: "start",
     loading: true,
     variant: "contained",
     color: "primary",
     size: "medium",
-    children: "Hello",
     startIcon: <ArrowBackIcon />,
   },
   parameters: {
@@ -170,19 +176,20 @@ export const LoadingPositionLeftIconButtons: Story = {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
 import LoadingButton from "@mui/lab/LoadingButton";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-        
-<LoadingButton 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</LoadingButton>
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)} >Hello</LoadingButton>;
+}
         `,
       },
     },
   },
 };
 export const LoadingPositionRightIconButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loadingPosition: "end",
     loading: true,
@@ -198,18 +205,19 @@ export const LoadingPositionRightIconButtons: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import LoadingButton from "@mui/lab/LoadingButton";
 import SendIcon from "@mui/icons-material/Send";
-     
-<LoadingButton 
-  ${argProps(storyContext)}
->
-  ${argChildren(storyContext)}
-</LoadingButton>
+
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)} >Hello</LoadingButton>;
+}
         `,
       },
     },
   },
 };
 export const LoadingIndicatorButtons: Story = {
+  render: (args) => {
+    return <LoadingButton {...args}>Hello</LoadingButton>;
+  },
   args: {
     loading: true,
     loadingIndicator: "Loading…",
@@ -222,9 +230,11 @@ export const LoadingIndicatorButtons: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-import LoadingButton from "@mui/lab/LoadingButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 
-${code}
+export default function Basic() {
+  return <LoadingButton ${argProps(storyContext)} >Hello</LoadingButton>;
+}
         `,
       },
     },

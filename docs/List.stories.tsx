@@ -37,57 +37,59 @@ const meta: Meta<typeof List> = {
       description: {
         component: overView({
           override: "List",
-          description: "Lists are continuous, vertical indexes of text or images.",
+          description:
+            "Lists are continuous, vertical indexes of text or images.",
           components: [
             {
               component: "List",
               selector: "MuiList",
               props: "https://mui.com/material-ui/api/list/#props",
-              css: "https://mui.com/material-ui/api/list/#css"
+              css: "https://mui.com/material-ui/api/list/#css",
             },
             {
               component: "ListItem",
               selector: "MuiListItem",
               props: "https://mui.com/material-ui/api/list-item/#props",
-              css: "https://mui.com/material-ui/api/list-item/#css"
+              css: "https://mui.com/material-ui/api/list-item/#css",
             },
             {
               component: "ListItemAvatar",
               selector: "MuiListItemAvatar",
               props: "https://mui.com/material-ui/api/list-item-avatar/#props",
-              css: "https://mui.com/material-ui/api/list-item-avatar/#css"
+              css: "https://mui.com/material-ui/api/list-item-avatar/#css",
             },
             {
               component: "ListItemButton",
               selector: "MuiListItemButton",
               props: "https://mui.com/material-ui/api/list-item-button/#props",
-              css: "https://mui.com/material-ui/api/list-item-button/#css"
+              css: "https://mui.com/material-ui/api/list-item-button/#css",
             },
             {
               component: "ListItemIcon",
               selector: "MuiListItemIcon",
               props: "https://mui.com/material-ui/api/list-item-icon/#props",
-              css: "https://mui.com/material-ui/api/list-item-icon/#css"
+              css: "https://mui.com/material-ui/api/list-item-icon/#css",
             },
             {
               component: "ListItemSecondaryAction",
               selector: "MuiListItemSecondaryAction",
-              props: "https://mui.com/material-ui/api/list-item-secondary-action/#props",
-              css: "https://mui.com/material-ui/api/list-item-secondary-action/#css"
+              props:
+                "https://mui.com/material-ui/api/list-item-secondary-action/#props",
+              css: "https://mui.com/material-ui/api/list-item-secondary-action/#css",
             },
             {
               component: "ListItemText",
               selector: "MuiListItemText",
               props: "https://mui.com/material-ui/api/list-item-text/#props",
-              css: "https://mui.com/material-ui/api/list-item-text/#css"
+              css: "https://mui.com/material-ui/api/list-item-text/#css",
             },
             {
               component: "ListSubheader",
               selector: "MuiListSubheader",
               props: "https://mui.com/material-ui/api/list-subheader/#props",
-              css: "https://mui.com/material-ui/api/list-subheader/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/list-subheader/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -287,10 +289,9 @@ const NestedNavs = ({ navigation, nested = 2, open, setOpen }: any) => {
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Lists: Story = {
-  args: {
-    disablePadding: true,
-    children: (
-      <>
+  render: (args) => {
+    return (
+      <List {...args}>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
@@ -315,8 +316,11 @@ export const Lists: Story = {
           </ListItemAvatar>
           <ListItemText primary="Vacation" secondary="July 20, 2014" />
         </ListItem>
-      </>
-    ),
+      </List>
+    );
+  },
+  args: {
+    disablePadding: true,
   },
   parameters: {
     docs: {
@@ -331,34 +335,36 @@ import ImageIcon from "@mui/icons-material/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 
-<List
-  ${argProps(storyContext)}
->
-  <ListItem>
-    <ListItemAvatar>
-      <Avatar>
-        <ImageIcon />
-      </Avatar>
-    </ListItemAvatar>
-    <ListItemText primary="Photos" secondary="Jan 9, 2014" />
-  </ListItem>
-  <ListItem>
-    <ListItemAvatar>
-      <Avatar>
-        <WorkIcon />
-      </Avatar>
-    </ListItemAvatar>
-    <ListItemText primary="Work" secondary="Jan 7, 2014" />
-  </ListItem>
-  <ListItem>
-    <ListItemAvatar>
-      <Avatar>
-        <BeachAccessIcon />
-      </Avatar>
-    </ListItemAvatar>
-    <ListItemText primary="Vacation" secondary="July 20, 2014" />
-  </ListItem>
-</List>
+export default function Basic() {
+  return (
+    <List ${argProps(storyContext)}>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <WorkIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Work" secondary="Jan 7, 2014" />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <BeachAccessIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Vacation" secondary="July 20, 2014" />
+      </ListItem>
+    </List>
+  );
+}
         `,
       },
     },
@@ -603,7 +609,7 @@ const NestedNavs: FC<NestedNavOptioms> = ({ navigation, nested = 2 }) => {
       </ListItemButton>
       {Boolean(navigation.nested) && (
         <Collapse in={open}>
-          <List disablePadding>
+          <List ${argProps(storyContext)}>
             {navigation?.nested?.map((nest: NavigationOptions) => {
               if (!Boolean(nest.nested)) {
                 const { icon: NestIcon } = nest;

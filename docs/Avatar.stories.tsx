@@ -12,21 +12,22 @@ const meta: Meta<typeof Avatar> = {
       description: {
         component: overView({
           override: "Avatar",
-          description: "Avatars are found throughout material design with uses in everything from tables to dialog menus.",
+          description:
+            "Avatars are found throughout material design with uses in everything from tables to dialog menus.",
           components: [
             {
               component: "Avatar",
               selector: "MuiAvatar",
               props: "https://mui.com/material-ui/api/avatar/#props",
-              css: "https://mui.com/material-ui/api/avatar/#css"
+              css: "https://mui.com/material-ui/api/avatar/#css",
             },
             {
               component: "AvatarGroup",
               selector: "MuiAvatarGroup",
               props: "https://mui.com/material-ui/api/avatar-group/#props",
-              css: "https://mui.com/material-ui/api/avatar-group/#css"
-            }
-          ]
+              css: "https://mui.com/material-ui/api/avatar-group/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -72,16 +73,19 @@ type Story = StoryObj<typeof Avatar>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Avatars: Story = {
-  args: {
-    children: "A",
+  render: (args) => {
+    return <Avatar {...args}>A</Avatar>;
   },
+  args: {},
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
-import Avatar from '@mui/material/Avatar'
+import Avatar from "@mui/material/Avatar";
 
-${code}
+export default function Basic() {
+  return <Avatar ${argProps(storyContext)}>A</Avatar>;
+}
         `,
       },
     },

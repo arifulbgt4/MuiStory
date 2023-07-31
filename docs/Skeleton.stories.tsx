@@ -10,19 +10,20 @@ const meta: Meta<typeof Skeleton> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Skeleton",
-          description:"Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.",
-          components:[
+        component: overView({
+          override: "Skeleton",
+          description:
+            "Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.",
+          components: [
             {
-              component:"Skeleton",
-              selector:"MuiSkeleton",
-              props:"https://mui.com/material-ui/api/skeleton/#props",
-              css:"https://mui.com/material-ui/api/skeleton/#css"
-            }
-          ]
-        })
-        },
+              component: "Skeleton",
+              selector: "MuiSkeleton",
+              props: "https://mui.com/material-ui/api/skeleton/#props",
+              css: "https://mui.com/material-ui/api/skeleton/#css",
+            },
+          ],
+        }),
+      },
       canvas: { sourceState: "shown" },
     },
     layout: "centered",
@@ -59,6 +60,9 @@ type Story = StoryObj<typeof Skeleton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Rectangular: Story = {
+  render: (args) => {
+    return <Skeleton {...args} />;
+  },
   args: {
     variant: "rectangular",
     width: 210,
@@ -70,9 +74,9 @@ export const Rectangular: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Skeleton from '@mui/material/Skeleton';
 
-<Skeleton
-  ${argProps(storyContext)}
-/>
+export default function Basic() {
+  return <Skeleton ${argProps(storyContext)} />
+ }
         `,
       },
     },
@@ -80,6 +84,9 @@ import Skeleton from '@mui/material/Skeleton';
 };
 
 export const Rounded: Story = {
+  render: (args) => {
+    return <Skeleton {...args} />;
+  },
   args: {
     variant: "rounded",
     width: 210,
@@ -91,9 +98,10 @@ export const Rounded: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Skeleton from '@mui/material/Skeleton';
 
-<Skeleton
-  ${argProps(storyContext)}
-/>
+export default function Basic() {
+  return <Skeleton ${argProps(storyContext)} />
+ }
+      }
         `,
       },
     },
@@ -101,6 +109,9 @@ import Skeleton from '@mui/material/Skeleton';
 };
 
 export const Circular: Story = {
+  render: (args) => {
+    return <Skeleton {...args} />;
+  },
   args: {
     variant: "circular",
     width: 60,
@@ -112,15 +123,18 @@ export const Circular: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Skeleton from '@mui/material/Skeleton';
 
-<Skeleton
-  ${argProps(storyContext)}
-/>
+export default function Basic() {
+  return <Skeleton ${argProps(storyContext)} />
+ }
         `,
       },
     },
   },
 };
 export const Text: Story = {
+  render: (args) => {
+    return <Skeleton {...args} />;
+  },
   args: {
     variant: "text",
     sx: { fontSize: "1rem" },
@@ -133,10 +147,9 @@ export const Text: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import Skeleton from '@mui/material/Skeleton';
 
-<Skeleton
-  sx={{ fontSize: "1rem" }},
-  ${argProps(storyContext, ["sx"])}
-/>
+export default function Basic() {
+  return <Skeleton ${argProps(storyContext)} />
+ }
         `,
       },
     },

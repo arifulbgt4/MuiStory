@@ -17,21 +17,23 @@ const meta: Meta<typeof BottomNavigation> = {
       description: {
         component: overView({
           override: "BottomNavigation",
-          description: "Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.",
+          description:
+            "Bottom navigation bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.",
           components: [
             {
               component: "BottomNavigation",
               selector: "MuiBottomNavigation",
               props: "https://mui.com/material-ui/api/bottom-navigation/#props",
-              css: "https://mui.com/material-ui/api/bottom-navigation/#css"
+              css: "https://mui.com/material-ui/api/bottom-navigation/#css",
             },
             {
               component: "BottomNavigationAction",
               selector: "MuiBottomNavigationAction",
-              props: "https://mui.com/material-ui/api/bottom-navigation-action/#props",
-              css: "https://mui.com/material-ui/api/bottom-navigation-action/#css"
-            }
-          ]
+              props:
+                "https://mui.com/material-ui/api/bottom-navigation-action/#props",
+              css: "https://mui.com/material-ui/api/bottom-navigation-action/#css",
+            },
+          ],
         }),
       },
       canvas: { sourceState: "shown" },
@@ -47,7 +49,7 @@ const meta: Meta<typeof BottomNavigation> = {
       control: { type: "boolean" },
     },
   },
-}
+};
 
 export default meta;
 type Story = StoryObj<typeof BottomNavigation>;
@@ -94,14 +96,17 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-     
-<BottomNavigation 
-  ${argProps(storyContext)}
->
-  <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-  <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-  <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-</BottomNavigation>
+
+export default function Basic() {
+  return (
+    <BottomNavigation ${argProps(storyContext)}>
+      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+    </BottomNavigation>
+  );
+}
+
         `,
       },
     },

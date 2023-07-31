@@ -16,22 +16,23 @@ const meta: Meta<typeof Select> = {
       description: {
         component: overView({
           override: "Select",
-          description: "Select components are used for collecting user provided information from a list of options.",
+          description:
+            "Select components are used for collecting user provided information from a list of options.",
           components: [
             {
               component: "Select",
               selector: "MuiSelect",
               props: "https://mui.com/material-ui/api/select/#props",
-              css: "https://mui.com/material-ui/api/select/#css"
+              css: "https://mui.com/material-ui/api/select/#css",
             },
             {
               component: "NativeSelect",
               selector: "MuiNativeSelect",
               props: "https://mui.com/material-ui/api/native-select/#props",
-              css: "https://mui.com/material-ui/api/native-select/#css"
-            }
-          ]
-        })
+              css: "https://mui.com/material-ui/api/native-select/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -82,7 +83,29 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 
-${code}
+export default function Basic() {
+  return (
+    <Box
+      sx={{
+        minWidth: 120,
+      }}
+    >
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          id="demo-simple-select"
+          label="Age"
+          labelId="demo-simple-select-label"
+          value={10}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+  );
+}
         `,
       },
     },

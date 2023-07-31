@@ -12,22 +12,23 @@ const meta: Meta<typeof CircularProgress> = {
       description: {
         component: overView({
           override: "Progress",
-          description: "Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.",
+          description:
+            "Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.",
           components: [
             {
               component: "CircularProgress",
               selector: "MuiCircularProgress",
               props: "https://mui.com/material-ui/api/circular-progress/#props",
-              css: "https://mui.com/material-ui/api/circular-progress/#css"
+              css: "https://mui.com/material-ui/api/circular-progress/#css",
             },
             {
               component: "LinearProgress",
               selector: "MuiLinearProgress",
               props: "https://mui.com/material-ui/api/linear-progress/#props",
-              css: "https://mui.com/material-ui/api/linear-progress/#css"
-            }
-          ]
-        })
+              css: "https://mui.com/material-ui/api/linear-progress/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -88,6 +89,9 @@ type Story = StoryObj<typeof CircularProgress>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const CircularProgresses: Story = {
+  render: (args) => {
+    return <CircularProgress {...args} />;
+  },
   args: {},
   parameters: {
     docs: {
@@ -95,9 +99,9 @@ export const CircularProgresses: Story = {
         transform: (code: string, storyContext: StoryContext): string => `
 import CircularProgress from "@mui/material/CircularProgress";
 
-<CircularProgress
-  ${argProps(storyContext)}
-/>
+export default function CircularIndeterminate() {
+  return <CircularProgress ${argProps(storyContext)} />;
+}
         `,
       },
     },

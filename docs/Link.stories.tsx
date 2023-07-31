@@ -10,18 +10,19 @@ const meta: Meta<typeof Link> = {
     docs: {
       source: { language: "tsx", format: true, type: "dynamic" },
       description: {
-        component:overView({
-          override:"Link",
-          description:"The Link component allows you to easily customize anchor elements with your theme colors and typography styles.",
-          components:[
+        component: overView({
+          override: "Link",
+          description:
+            "The Link component allows you to easily customize anchor elements with your theme colors and typography styles.",
+          components: [
             {
-              component:"Link",
-              selector:"MuiLink",
-              props:"https://mui.com/material-ui/api/link/#props",
-              css:"https://mui.com/material-ui/api/link/#css"
-            }
-          ]
-        })
+              component: "Link",
+              selector: "MuiLink",
+              props: "https://mui.com/material-ui/api/link/#props",
+              css: "https://mui.com/material-ui/api/link/#css",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },
@@ -81,17 +82,22 @@ type Story = StoryObj<typeof Link>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Links: Story = {
+  render: (args) => {
+    return <Link {...args}>Link</Link>;
+  },
   args: {
     href: "/",
-    children: "Link",
   },
   parameters: {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
+
 import Link from "@mui/material/Link";
 
-${code}
+export default function Basic() {
+  return <Link ${argProps(storyContext)}>Link</Link>;
+}
         `,
       },
     },

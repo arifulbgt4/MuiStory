@@ -131,10 +131,9 @@ type Story = StoryObj<typeof FormControl>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const FormControls: Story = {
-  args: {
-    color: "primary",
-    children: (
-      <>
+  render: (args) => {
+    return (
+      <FormControl {...args}>
         <InputLabel htmlFor="input-with-icon-adornment">
           With a start adornment
         </InputLabel>
@@ -146,8 +145,11 @@ export const FormControls: Story = {
             </InputAdornment>
           }
         />
-      </>
-    ),
+      </FormControl>
+    );
+  },
+  args: {
+    color: "primary",
   },
   parameters: {
     docs: {
@@ -157,22 +159,26 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import InputLabel from "@mui/material/InputLabel";
 
-<FormControl
-  ${argProps(storyContext)}
->
-  <InputLabel htmlFor="input-with-icon-adornment">
-    With a start adornment
-  </InputLabel>
-  <Input
-    id="input-with-icon-adornment"
-    startAdornment={
-      <InputAdornment position="start">
-        <AccountCircle />
-      </InputAdornment>
-    }
-  />
-</FormControl>
+export default function Basic() {
+  return (
+    <FormControl ${argProps(storyContext)}>
+      <InputLabel htmlFor="input-with-icon-adornment">
+        With a start adornment
+      </InputLabel>
+      <Input
+        id="input-with-icon-adornment"
+        startAdornment={
+          <InputAdornment position="start">
+            <AccountCircle />
+          </InputAdornment>
+        }
+      />
+    </FormControl>
+  );
+}
+
         `,
       },
     },
