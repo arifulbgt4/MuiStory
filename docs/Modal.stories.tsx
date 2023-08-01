@@ -55,24 +55,22 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Template: Story = {
   render: ({ onClose, open, ...args }) => {
     return (
       <Modal open={open} onClose={onClose} {...args}>
-        <Box sx={style}>
+        <Box
+          sx={(theme) => ({
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background: theme.palette.background.paper,
+            boxShadow: 24,
+            p: 4,
+          })}
+        >
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
@@ -126,28 +124,25 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
-const style = {
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  left: "50%",
-  p: 4,
-  position: "absolute",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-};
-
 export default function Basic() {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <Box>
-      <Button variant="contained" onClick={() => setOpen(true)}>Open Modal</Button>
-      <Modal open={open} onClose={() => setOpen(false)} ${argProps(
-        storyContext,
-        ["open"]
-      )}>
-        <Box sx={style}>
+      <Button variant="contained" onClick={() => setOpen(true)}>
+        Open Modal
+      </Button>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Box
+          sx={(theme) => ({
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background: theme.palette.background.paper,
+            boxShadow: 24,
+            p: 4,
+          })}
+        >
           <Typography component="h2" id="modal-modal-title" variant="h6">
             Text in a modal
           </Typography>
@@ -164,7 +159,6 @@ export default function Basic() {
     </Box>
   );
 }
-
         `,
       },
     },
