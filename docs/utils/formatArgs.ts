@@ -28,8 +28,7 @@ export const argProps = (
     (d) => `${d}={${reactElementToJSXString(context.args[d] as ReactElement)}}`
   );
 
-  return strIcon.concat(str).join(`
-  `);
+  return strIcon.concat(str).join(" ");
 };
 
 export const argChildren = (context: StoryContext): string => {
