@@ -7,12 +7,23 @@ const config: StorybookConfig = {
     "../docs/**/*.mdx",
     "../docs/*.stories.@(js|jsx|ts|tsx)",
     "../docs/**/*.stories.@(js|jsx|ts|tsx)",
+    {
+      directory: "../src/widgets",
+      files: "**/*.stories.@(js|jsx|ts|tsx)",
+      titlePrefix: "Widgets",
+    },
+    {
+      directory: "../src/layouts",
+      files: "**/*.stories.@(js|jsx|ts|tsx)",
+      titlePrefix: "Layouts",
+    },
   ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-styling",
+    "storybook-addon-next-router",
     {
       name: "@storybook/addon-docs",
       options: {
