@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 import css from "styled-jsx/css";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

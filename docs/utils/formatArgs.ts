@@ -31,10 +31,6 @@ export const argProps = (
   return strIcon.concat(str).join(" ");
 };
 
-export const argChildren = (context: StoryContext): string => {
-  return reactElementToJSXString(context.args.children as ReactElement);
-};
-
 interface OverviewOptions {
   component: string;
   selector?: string;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Alert> = {
