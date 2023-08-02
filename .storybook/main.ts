@@ -45,6 +45,9 @@ const config: StorybookConfig = {
       font-size: 16px;
       background: #0f1321 !important;
     }
+    .css-ky0vih{
+      background: transparent !important;
+    }
 
     .css-mt2ehb, .css-1qjsijr {
       width: auto !important;
@@ -67,7 +70,7 @@ const config: StorybookConfig = {
       font-size: 16px;
       color: #ffffffa8;
     }
-    #storybook-preview-wrapper{
+    #storybook-preview-wrapper,#storybook-preview-wrapper iframe{
       background: #131829;
     }
     .css-j2chfn{
@@ -129,6 +132,9 @@ const config: StorybookConfig = {
   `,
   previewBody: `
   <style>
+    .css-1edx1qr{
+      background: #131829;
+    }
     .sbdocs-wrapper{
       background: #131829;
     }
