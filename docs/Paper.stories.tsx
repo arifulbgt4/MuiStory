@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Paper from "@mui/material/Paper";
-import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Paper> = {

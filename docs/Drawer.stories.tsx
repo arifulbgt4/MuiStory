@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useArgs } from "@storybook/addons";
-import { argProps, argChildren, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 import { Fragment } from "react";
 
 type Anchor = "top" | "left" | "bottom" | "right";
@@ -26,20 +26,21 @@ const meta: Meta<typeof Drawer> = {
       description: {
         component: overView({
           override: "Drawer",
-          description: "The navigation drawers (or 'sidebars') provide ergonomic access to destinations in a site or app functionality such as switching accounts.",
+          description:
+            "The navigation drawers (or 'sidebars') provide ergonomic access to destinations in a site or app functionality such as switching accounts.",
           components: [
             {
               component: "Drawer",
               selector: "MuiDrawer",
               props: "https://mui.com/material-ui/api/drawer/#props",
-              css: "https://mui.com/material-ui/api/drawer/#css"
+              css: "https://mui.com/material-ui/api/drawer/#css",
             },
             {
               component: "SwipeableDrawer",
-              props: "https://mui.com/material-ui/api/swipeable-drawer/#props"
-            }
-          ]
-        })
+              props: "https://mui.com/material-ui/api/swipeable-drawer/#props",
+            },
+          ],
+        }),
       },
       canvas: { sourceState: "shown" },
     },

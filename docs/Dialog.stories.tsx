@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Dialog from "@mui/material/Dialog";
 import { Button, Typography } from "@mui/material";
-import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 import { useArgs } from "@storybook/addons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

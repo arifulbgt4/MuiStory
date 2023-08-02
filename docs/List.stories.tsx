@@ -10,7 +10,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Collapse from "@mui/material/Collapse";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import { argChildren, argProps, overView } from "./utils/formatArgs";
+import { argProps, overView } from "./utils/formatArgs";
 import Paper from "@mui/material/Paper";
 import { useArgs, useState } from "@storybook/addons";
 import { SvgIconComponent } from "@mui/icons-material";
