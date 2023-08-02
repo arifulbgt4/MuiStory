@@ -1,6 +1,7 @@
 import "@fontsource/material-icons";
 import type { Preview } from "@storybook/react";
 import { PaletteMode } from "@mui/material";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
@@ -68,6 +69,9 @@ const preview: Preview = {
           "Environment Variables",
         ],
       },
+    },
+    nextRouter: {
+      Provider: AppRouterContext.Provider, // next 13 next 13 (using next/navigation)
     },
   },
   decorators: [
