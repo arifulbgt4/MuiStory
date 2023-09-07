@@ -32,6 +32,8 @@ import Pagination from "./Pagination";
 import BottomNavigation from "./BottomNavigation";
 import Menu from "./Menu";
 import ToggleButton from "./ToggleButton";
+import Paper from "./Paper";
+import Grid from "./Grid";
 
 export default Object.assign(
   Button,
@@ -66,5 +68,7 @@ export default Object.assign(
   Pagination,
   BottomNavigation,
   Menu,
-  ToggleButton
+  ToggleButton,
+  Paper,
+  Grid
 ) as Components<any>;
