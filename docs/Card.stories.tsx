@@ -20,7 +20,10 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { Favorite } from '@mui/icons-material';
-
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { useTheme } from '@mui/material/styles';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Card> = {
@@ -313,6 +316,74 @@ export const ActionAreaCard: Story = {
         </CardContent>
       </CardActionArea>
       </Card>
+    );
+  },
+  args: {},
+}
+export const MultiActionAreaCard: Story = {
+  render: (args) => {
+    const theme=useTheme();
+    return (
+      <Card>
+         <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://media.cnn.com/api/v1/images/stellar/prod/230712115127-white-tailed-deer-file.jpg?c=original"
+          alt="deer"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+      </CardActions>
+      </Card>
+    );
+  },
+  args: {},
+}
+export const MediaControlCard: Story = {
+  render: (args) => {
+    return (
+      <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography component="div" variant="h5">
+            Live From Space
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            Mac Miller
+          </Typography>
+        </CardContent>
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+          <IconButton aria-label="previous">
+           <SkipPreviousIcon />
+          </IconButton>
+          <IconButton aria-label="play/pause">
+            <PlayArrowIcon sx={{ height: 38, width: 38 }} />
+          </IconButton>
+          <IconButton aria-label="next">
+             <SkipNextIcon />
+          </IconButton>
+        </Box>
+      </Box>
+      <CardMedia
+        component="img"
+        sx={{ width: 151 }}
+        image="https://variety.com/wp-content/uploads/2022/07/Music-Streaming-Wars.jpg?w=1024"
+        alt="Live from space album cover"
+      />
+    </Card>
     );
   },
   args: {},
