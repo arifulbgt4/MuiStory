@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { Meta, StoryObj, StoryContext } from "@storybook/react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -6,6 +7,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { argProps, overView } from "./utils/formatArgs";
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import { styled } from "@storybook/theming";
+import { useState } from "react";
+import { CardActionArea, CardHeader } from "@mui/material";
+import Avatar from '@mui/material/Avatar';
+import { red } from "@mui/material/colors";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {CardMedia} from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+import { Favorite } from '@mui/icons-material';
+
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Card> = {
@@ -164,3 +179,141 @@ export default function Basic() {
     },
   },
 };
+
+export const OutLined: Story = {
+  render: (args) => {
+    
+    return (
+      <Card {...args} sx={{maxWidth:345}}>
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            Word of the Day
+          </Typography>
+          <Typography variant="h5" component="div">
+            be{bull}nev{bull}o{bull}lent
+          </Typography>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            adjective
+          </Typography>
+          <Typography variant="body2">
+            well meaning and kindly.
+            <br />
+            {'"a benevolent smile"'}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+    );
+  },
+  args: {
+    
+  variant:"outlined"
+  
+  },
+};
+export const RecipeReviewCard: Story = {
+  render: (args) => {
+       return (
+     
+      <Card {...args} sx={{maxWidth:345}}>
+        <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+             <MoreVertIcon/>
+          </IconButton>
+        }
+         title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+        />
+        <CardMedia component="img"
+        height='194'
+        image="https://mui.com/static/images/cards/paella.jpg"
+        alt="Paella dish"
+        />
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the mussels,
+          if you like.
+          </Typography>
+        </CardContent>
+        <CardActions sx={{display:'flex',justifyContent:'space-between'}}>
+          <Box>
+          <IconButton aria-label="add to favorites">
+         <Favorite/>
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+          </Box>
+          <ExpandMoreIcon/>
+        </CardActions>
+          
+      
+      </Card>
+    );
+  },
+  args: {
+  
+  },
+}
+export const MediaCard: Story = {
+  render: (args) => {
+    return (
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+        sx={{ height: 140 }}
+        image="https://media.cnn.com/api/v1/images/stellar/prod/230322124550-06-kangaroo-culls-nike-puma.jpg?c=16x9&q=w_800,c_fill"
+        title='kangaroo'
+      />
+        <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+        </CardContent>
+        <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+      </Card>
+    );
+  },
+  args: {},
+}
+export const ActionAreaCard: Story = {
+  render: (args) => {
+    return (
+      <Card sx={{ maxWidth: 345 }}>
+         <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://media.cnn.com/api/v1/images/stellar/prod/230712115127-white-tailed-deer-file.jpg?c=original"
+          alt="deer"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      </Card>
+    );
+  },
+  args: {},
+}
