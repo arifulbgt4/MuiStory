@@ -304,6 +304,72 @@ export const RecipeReviewCard: Story = {
     );
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import { CardMedia,CardHeader } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Favorite } from "@mui/icons-material";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { red } from "@mui/material/colors";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
+export default function RecipeCard(){
+  return(
+    <Card sx={{ maxWidth: 345 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              R
+          </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title="Shrimp and Chorizo Paella"
+          subheader="September 14, 2016"
+    />
+        <CardMedia
+          component="img"
+          height="194"
+          image="https://mui.com/static/images/cards/paella.jpg"
+          alt="Paella dish"
+        />
+        <CardContent>
+          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            This impressive paella is a perfect party dish and a fun meal to
+            cook together with your guests. Add 1 cup of frozen peas along with
+            the mussels, if you like.
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box>
+            <IconButton aria-label="add to favorites">
+              <Favorite />
+            </IconButton>
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </Box>
+          <ExpandMoreIcon />
+        </CardActions>
+      </Card>
+          )
+        }
+        `,
+      },
+    },
+  },
 };
 export const MediaCard: Story = {
   render: (args) => {
@@ -331,6 +397,46 @@ export const MediaCard: Story = {
     );
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import { CardMedia } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";        
+
+
+export default function MediaCard(){
+  return(
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        sx={{ height: 140 }}
+        image="https://media.cnn.com/api/v1/images/stellar/prod/230322124550-06-kangaroo-culls-nike-puma.jpg?c=16x9&q=w_800,c_fill"
+        title="kangaroo"
+        />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Lizard
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over 6,000
+              species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        );
+            }
+        `,
+      },
+    },
+  },
 };
 export const ActionAreaCard: Story = {
   render: (args) => {
@@ -357,6 +463,44 @@ export const ActionAreaCard: Story = {
     );
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Card from "@mui/material/Card";
+import { CardActionArea } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import { CardMedia } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
+
+export default function ActionAreaCard(){
+  return(
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://media.cnn.com/api/v1/images/stellar/prod/230712115127-white-tailed-deer-file.jpg?c=original"
+            alt="deer"
+          />
+           <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Lizard
+            </Typography>
+           <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+           </Typography>
+          </CardContent>
+      </CardActionArea>
+    </Card>
+          )
+        }
+        `,
+      },
+    },
+  },
 };
 export const MultiActionAreaCard: Story = {
   render: (args) => {
@@ -388,11 +532,55 @@ export const MultiActionAreaCard: Story = {
     );
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Card from "@mui/material/Card";
+import { CardActions,CardActionArea } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import { CardMedia } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
+
+export default function MultiActionArea(){
+  return(
+    <Card>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="140"
+            image="https://media.cnn.com/api/v1/images/stellar/prod/230712115127-white-tailed-deer-file.jpg?c=original"
+            alt="deer"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Lizard
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            Share
+          </Button>
+        </CardActions>
+      </Card>
+  )
+}
+        `,
+      },
+    },
+  },
 };
 export const MediaControlCard: Story = {
   render: (args) => {
     return (
-      <Card sx={{ display: "flex" }}>
+      <Card sx={{ display: "flex", maxWidth: 375 }}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
@@ -428,4 +616,61 @@ export const MediaControlCard: Story = {
     );
   },
   args: {},
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string, storyContext: StoryContext): string => `
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import { CardMedia } from "@mui/material";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
+
+
+export default function MediaControl(){
+  return(
+    <Card sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <CardContent sx={{ flex: "1 0 auto" }}>
+            <Typography component="div" variant="h5">
+              Live From Space
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              color="text.secondary"
+              component="div"
+            >
+              Mac Miller
+            </Typography>
+          </CardContent>
+          <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+            <IconButton aria-label="previous">
+              <SkipPreviousIcon />
+            </IconButton>
+            <IconButton aria-label="play/pause">
+              <PlayArrowIcon sx={{ height: 38, width: 38 }} />
+            </IconButton>
+            <IconButton aria-label="next">
+              <SkipNextIcon />
+            </IconButton>
+          </Box>
+        </Box>
+        <CardMedia
+          component="img"
+          sx={{ width: 151 }}
+          image="https://variety.com/wp-content/uploads/2022/07/Music-Streaming-Wars.jpg?w=1024"
+          alt="Live from space album cover"
+        />
+      </Card>
+  );
+}
+        `,
+      },
+    },
+  },
 };
