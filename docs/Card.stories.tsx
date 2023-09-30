@@ -467,36 +467,37 @@ export const ActionAreaCard: Story = {
     docs: {
       source: {
         transform: (code: string, storyContext: StoryContext): string => `
+"use client";
 import Card from "@mui/material/Card";
 import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import { CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-
-export default function ActionAreaCard(){
-  return(
+export default function ActionAreaCard() {
+  return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
           image="https://media.cnn.com/api/v1/images/stellar/prod/230712115127-white-tailed-deer-file.jpg?c=original"
-            alt="deer"
-          />
-           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Lizard
-            </Typography>
-           <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
-           </Typography>
-          </CardContent>
+          alt="deer"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
       </CardActionArea>
     </Card>
-          )
-        }
+  );
+}
+
         `,
       },
     },
