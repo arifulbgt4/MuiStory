@@ -36,3 +36,13 @@ build-storybook.log*
 *.tsbuildinfo
 next-env.d.ts
 package-lock.json
+
+# custom workspace settings
+.vscode
+.idea
+
+# worker
+sw.*
+workbox-*.*
+
+**/prisma/migrations*
