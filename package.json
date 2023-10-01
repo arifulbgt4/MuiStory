@@ -19,9 +19,11 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.132",
     "@mui/material": "^5.14.1",
+    "@prisma/client": "^5.3.1",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "bcryptjs": "^2.4.3",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "final-form": "^4.20.9",
@@ -44,14 +46,20 @@
     "@storybook/react": "^7.2.0",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.2.0",
+    "@types/bcryptjs": "^2.4.4",
     "chromatic": "^6.18.0",
     "cross-var": "^1.1.0",
     "dotenv-cli": "^7.2.1",
     "eslint-plugin-storybook": "^0.6.13",
+    "prisma": "^5.3.1",
     "react-element-to-jsx-string": "^15.0.0",
     "remark-gfm": "^3.0.1",
     "storybook": "^7.2.0",
-    "storybook-addon-next-router": "^4.0.2"
+    "storybook-addon-next-router": "^4.0.2",
+    "ts-node": "^10.9.1"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
