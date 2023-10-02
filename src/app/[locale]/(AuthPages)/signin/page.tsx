@@ -1,7 +1,10 @@
+import { Box } from "@mui/material";
+import SigninForm from "src/forms/SigninForm";
+
 export default function SignIn() {
   return (
-    <div>
-      <h1>sign in</h1>
-    </div>
+    <Box>
+      <SigninForm />
+    </Box>
   );
 }
