@@ -1,6 +1,7 @@
 "use client";
 // React
 import { FC } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 // @mui
 import { Box, Typography, Button, Grid, Paper } from "@mui/material";
 // packages
@@ -16,19 +17,26 @@ import { SiginFormProps, FormDataOptions } from "./Types";
 // actions
 import { signIn } from "./actions";
 
-const INITIAL_VALUES: FormDataOptions = {
+const INITIAL_VALUES: Omit<FormDataOptions, "callbackUrl"> = {
   email: "",
   password: "",
 };
 
 const SigninForm: FC<SiginFormProps> = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
   const onSubmitForm = async (
-    values: FormDataOptions,
-    form: FormApi<FormDataOptions, FormDataOptions>
+    values: Omit<FormDataOptions, "callbackUrl">,
+    form: FormApi<FormDataOptions, Omit<FormDataOptions, "callbackUrl">>
   ) => {
     try {
-      await signIn(values);
+      const res = (await signIn({ ...values, callbackUrl })) as unknown as any;
       form.restart();
+      if (res?.status === 200) {
+        router.push(callbackUrl);
+      }
     } catch (error) {
       console.error(error);
     }
