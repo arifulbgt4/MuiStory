@@ -1,7 +1,7 @@
 import { AnyObject } from "src/global/types";
 
 export interface FormDataOptions {
-  fullname: string;
+  name: string;
   email: string;
   password: string;
 }

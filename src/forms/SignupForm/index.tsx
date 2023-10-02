@@ -4,6 +4,7 @@ import { FC } from "react";
 // @mui
 import { Box, Typography, Button, Grid, Paper } from "@mui/material";
 // packages
+import { signIn } from "next-auth/react";
 import { Form as FinalForm } from "react-final-form";
 import { FormApi } from "final-form";
 
@@ -15,21 +16,25 @@ import { SignupFormProps, FormDataOptions } from "./Types";
 
 // actions
 import { signUp } from "./actions";
+import { useRouter } from "next/navigation";
 
 const INITIAL_VALUES: FormDataOptions = {
-  fullname: "",
+  name: "",
   email: "",
   password: "",
 };
 
 const SignupForm: FC<SignupFormProps> = () => {
+  const router = useRouter();
   const onSubmitForm = async (
     values: FormDataOptions,
     form: FormApi<FormDataOptions, FormDataOptions>
   ) => {
     try {
-      await signUp(values);
-      form.restart();
+      const res = (await signUp(values)) as unknown as any;
+      console.log(res);
+      if (!res?.ok) return;
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -58,7 +63,7 @@ const SignupForm: FC<SignupFormProps> = () => {
               return (
                 <form onSubmit={handleSubmit}>
                   <TextField
-                    name="fullname"
+                    name="name"
                     label="Full name"
                     required
                     size="small"
