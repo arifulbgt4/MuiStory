@@ -33,7 +33,7 @@ const SigninForm: FC<SiginFormProps> = () => {
   ) => {
     try {
       const res = (await signIn({ ...values, callbackUrl })) as unknown as any;
-      if (!res.ok) return;
+      if (!!res.error) return;
 
       router.push(callbackUrl);
     } catch (error) {

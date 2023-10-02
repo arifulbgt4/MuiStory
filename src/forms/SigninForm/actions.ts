@@ -1,4 +1,3 @@
-"use server";
 import { signIn as nextSignIn } from "next-auth/react";
 
 import { FormDataOptions } from "./Types";
