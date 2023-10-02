@@ -3,7 +3,7 @@ import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
 
 const locales = ["en"];
-const publicPages = ["/", "/signin", "/signup"];
+const publicPages = ["/", "/signin", "/signup", "/faq"];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -36,9 +36,8 @@ export default function middleware(req: NextRequest) {
 
   if (isPublicPage) {
     return intlMiddleware(req);
-  } else {
-    return (authMiddleware as any)(req);
   }
+  return (authMiddleware as any)(req);
 }
 
 export const config = {
