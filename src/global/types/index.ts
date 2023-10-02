@@ -13,3 +13,7 @@ export interface NavigationOptions {
   icon: SvgIconComponent;
   nested?: NavigationOptions[];
 }
+
+export interface AnyObject {
+  [key: string]: any;
+}
