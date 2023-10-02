@@ -1,11 +1,22 @@
 "use server";
+import { signIn as nextSignIn } from "next-auth/react";
 
 import { FormDataOptions } from "./Types";
 
-export async function signIn({ password, email }: FormDataOptions) {
+export async function signIn({
+  password,
+  email,
+  callbackUrl,
+}: FormDataOptions) {
   try {
-    console.log("first", password, email);
+    const res = await nextSignIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
+      callbackUrl,
+    });
+    return res;
   } catch (error) {
-    console.error(error);
+    return error;
   }
 }
