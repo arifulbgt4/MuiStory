@@ -1,5 +1,6 @@
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import NextAuthProvider from "src/layouts/NextAuthProvider";
 import ThemeContextProvider from "src/theme";
 
 export const metadata = {
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <ThemeContextProvider>
-        <body suppressHydrationWarning={true}>{children}</body>
+        <body suppressHydrationWarning={true}>
+          <NextAuthProvider>{children}</NextAuthProvider>
+        </body>
       </ThemeContextProvider>
     </html>
   );
