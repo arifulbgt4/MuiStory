@@ -64,6 +64,7 @@ const SigninForm: FC<SiginFormProps> = () => {
               return (
                 <form onSubmit={handleSubmit}>
                   <TextField
+                    id="email"
                     name="email"
                     label="Email"
                     required
@@ -78,6 +79,7 @@ const SigninForm: FC<SiginFormProps> = () => {
                     }}
                   />
                   <TextField
+                    id="password"
                     name="password"
                     label="Password"
                     required
