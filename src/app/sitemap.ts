@@ -1,10 +1,8 @@
 import { MetadataRoute } from "next";
 
-interface ROUTES_SITEMAP_OPTIONS {
-  [key: string]: string;
-}
+import { AnyObject } from "src/global/types";
 
-export const ROUTES_SITEMAP: ROUTES_SITEMAP_OPTIONS = {
+export const ROUTES_SITEMAP: AnyObject = {
   default: "/",
   faq: "/faq",
   policy: "/policy",

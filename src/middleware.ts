@@ -3,12 +3,14 @@ import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 
+import { siteConfig } from "src/global/config";
+
 const locales = ["en"];
 const publicPages = ["/", "/signin", "/signup", "/lab", "/faq"];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
-  defaultLocale: "en",
+  defaultLocale: siteConfig.locale,
 });
 
 const authMiddleware = withAuth(
