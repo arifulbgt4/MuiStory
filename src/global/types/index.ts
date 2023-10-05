@@ -1,5 +1,9 @@
 import { SvgIconComponent } from "@mui/icons-material";
 
+export interface AnyObject {
+  [key: string]: any;
+}
+
 export interface NavOptions {
   key: string;
   title: string;
@@ -14,6 +18,12 @@ export interface NavigationOptions {
   nested?: NavigationOptions[];
 }
 
-export interface AnyObject {
-  [key: string]: any;
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  image?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
