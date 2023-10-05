@@ -10,6 +10,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { useMemo, useState, createContext } from "react";
 import * as locales from "@mui/material/locale";
 
+import { siteConfig } from "src/global/config";
+
 import GlobalStyles from "./utils/GlobalStyles";
 import palette, { PaletteOptions } from "./palette";
 import typography from "./typography";
@@ -18,8 +20,9 @@ import componentsOverride from "./overrides";
 
 type SupportedLocales = keyof typeof locales;
 
-const DEFAULT_PALETTE_MODE: PaletteMode = "dark";
-const DEFAULT_LOCAL: SupportedLocales = "enUS";
+const DEFAULT_PALETTE_MODE: PaletteMode = siteConfig.themeColor as PaletteMode;
+const DEFAULT_LOCAL: SupportedLocales =
+  siteConfig.localeUpper as SupportedLocales;
 
 export const ColorModeContext = createContext<{
   toggleColorMode: () => void;

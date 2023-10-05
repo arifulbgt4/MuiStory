@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  transpilePackages: ["@mui/material", "@mui/lab", "@mui/icons-material"],
 };
 
 const withNextIntl = require("next-intl/plugin")(
