@@ -9,4 +9,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Deploy chromatic:
 env `CHROMATIC_PROJECT_TOKEN=[chromatic token]` [token](https://www.chromatic.com)
 
-`yarn chromatic`
+`yarn run chromatic`
