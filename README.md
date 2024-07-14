@@ -6,7 +6,4 @@ First, run the development server: [Docs](https://dev--647c84907213dc4172ffdcde.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Deploy chromatic:
-env `CHROMATIC_PROJECT_TOKEN=[chromatic token]` [token](https://www.chromatic.com)
 
-`yarn chromatic`
